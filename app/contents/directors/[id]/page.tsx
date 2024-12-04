@@ -60,7 +60,7 @@ export default function DirectorDetail() {
                             transition: { duration: 1 }
                         }}
                     >
-                        <div className="font-black text-4xl ">
+                        <div className="pl-4 font-black text-base md:text-xl lg:text-3xl ">
                             {director.name}
                         </div>
                     </motion.div>

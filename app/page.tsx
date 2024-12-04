@@ -128,8 +128,8 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <section className="section-inner">
-        <div className="container">
+      <section className="">
+        <div className="">
           <div className="max-w-[1320px] mx-auto">
             <motion.h1
               ref={archiveTitleRef}
@@ -138,7 +138,7 @@ export default function Home() {
                 opacity: isArchiveTitleInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
               }}
-              className="font-black text-base md:text-xl lg:text-3xl"
+              className=" pl-4 font-black text-base md:text-xl lg:text-3xl"
             >
               ARCHIVE
             </motion.h1>
