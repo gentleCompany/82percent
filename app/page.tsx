@@ -128,8 +128,8 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <section className="section-inner">
-        <div className="container">
+      <section className="">
+        <div className="">
           <motion.h1
             ref={archiveTitleRef}
             style={{
