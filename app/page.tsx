@@ -100,12 +100,12 @@ export default function Home() {
 
   return (
     <div className="relative w-full overflow-x-hidden">
-      <div className="relative h-screen overflow-hidden">
+      <div className="relative h-screen overflow-hidden pointer-events-none">
         <iframe
           src="https://player.vimeo.com/video/1035446953?background=1&h=55124934f3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-          className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
           title="test1"
         ></iframe>
 
@@ -120,9 +120,9 @@ export default function Home() {
               delay: 0.3
             }
           }}
-          className="absolute top-1/2 transform -translate-y-1/2 z-10"
+          className="absolute top-1/2 transform -translate-y-1/2 z-10 pointer-events-auto"
         >
-          <div className="pl-4 font-black text-lg md:text-xl lg:text-3xl">
+          <div className="pl-10 font-black text-base md:text-xl lg:text-3xl">
             INSEOK KANG
           </div>
         </motion.div>
