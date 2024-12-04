@@ -27,7 +27,7 @@ export default function AboutUs() {
                         transition: { duration: 1.4 }
                     }}
                 >
-                    <p className="text-sm leading-7">82PERCENT는 '혁신'이라는 가치를 핵심으로 삼고 있는
+                    <p className="text-sm leading-7">82PERCENT는 혁신이라는 가치를 핵심으로 삼고 있는
                         젊은 크리에이티브 스튜디오입니다.
                         우리는 디지털 시대의 새로운 가능성을 탐구하며, 독창적인 시각과 신선한 아이디어로
                         차별화된 콘텐츠를 만들어냅니다.
