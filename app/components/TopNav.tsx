@@ -61,7 +61,7 @@ export default function TopNav() {
                     transition={{
                         duration: 0.2,
                     }}
-                    className="text-white cursor-pointer"
+                    className="text-white cursor-pointer pl-[10px]"
                 >
                     <Link href="/">82%</Link>
                 </motion.div>
