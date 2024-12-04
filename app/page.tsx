@@ -122,7 +122,7 @@ export default function Home() {
           }}
           className="absolute top-1/2 transform -translate-y-1/2 z-10"
         >
-          <div className="pl-10 font-black text-base md:text-xl lg:text-3xl">
+          <div className="pl-4 font-black text-base md:text-xl lg:text-3xl">
             INSEOK KANG
           </div>
         </motion.div>
@@ -138,7 +138,7 @@ export default function Home() {
                 opacity: isArchiveTitleInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
               }}
-              className="text-4xl font-bold mb-8"
+              className="font-black text-base md:text-xl lg:text-3xl"
             >
               ARCHIVE
             </motion.h1>

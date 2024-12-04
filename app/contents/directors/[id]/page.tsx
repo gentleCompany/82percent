@@ -21,7 +21,7 @@ export default function DirectorDetail() {
     }
 
     return (
-        <div className="mx-auto px-4 py-8">
+        <div className="mx-auto ">
             {director.bg ? (
                 <div className="relative h-screen overflow-hidden">
                     <iframe
@@ -45,7 +45,7 @@ export default function DirectorDetail() {
                         }}
                         className="absolute top-1/2 transform -translate-y-1/2 z-10"
                     >
-                        <div className="pl-10 font-black text-base md:text-xl lg:text-3xl">
+                        <div className="pl-4 font-black text-base md:text-xl lg:text-3xl">
                             {director.name}
                         </div>
                     </motion.div>
@@ -74,7 +74,7 @@ export default function DirectorDetail() {
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}
             >
-                <h1 className="text-4xl font-bold mb-8">ARCHIVE</h1>
+                <h1 className="pl-4 font-black text-base md:text-xl lg:text-3xl mb-8">ARCHIVE</h1>
             </motion.div>
 
             <div
@@ -100,7 +100,7 @@ export default function DirectorDetail() {
                                 className="object-cover"
                             />
                         </div>
-                        <h3 className="text-base font-semibold">{project.title}</h3>
+                        <h3 className="pl-4 text-base font-semibold">{project.title}</h3>
                     </motion.div>
                 ))}
             </div>
