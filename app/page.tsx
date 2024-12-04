@@ -99,7 +99,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto overflow-hidden">
       <div className="relative h-screen ">
         <iframe
           src="https://player.vimeo.com/video/1035446953?background=1&h=55124934f3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
