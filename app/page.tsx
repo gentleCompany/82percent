@@ -122,7 +122,7 @@ export default function Home() {
           }}
           className="absolute top-1/2 transform -translate-y-1/2 z-10"
         >
-          <div className="pl-4 font-black text-base md:text-xl lg:text-3xl">
+          <div className="pl-4 font-black text-lg md:text-xl lg:text-3xl">
             INSEOK KANG
           </div>
         </motion.div>
@@ -130,7 +130,7 @@ export default function Home() {
 
       <section className="">
         <div className="">
-          <div className="max-w-[1320px] mx-auto">
+          <div className=" mx-auto">
             <motion.h1
               ref={archiveTitleRef}
               style={{
@@ -138,7 +138,7 @@ export default function Home() {
                 opacity: isArchiveTitleInView ? 1 : 0,
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
               }}
-              className=" pl-4 font-black text-base md:text-xl lg:text-3xl"
+              className=" pl-4 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20"
             >
               ARCHIVE
             </motion.h1>
@@ -169,7 +169,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="px-2">
-                    <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                    <h3 className=" text-base md:text-lg font-bold mb-2">{item.title}</h3>
                     <p className="text-sm mb-4">{item.description}</p>
                   </div>
                 </motion.div>
