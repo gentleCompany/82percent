@@ -123,7 +123,7 @@ export default function Home() {
           }}
           className="absolute top-1/2 transform -translate-y-1/2 z-10"
         >
-          <div className="pl-10 font-black text-4xl">
+          <div className="pl-10 font-black text-base md:text-xl lg:text-3xl">
             INSEOK KANG
           </div>
         </motion.div>

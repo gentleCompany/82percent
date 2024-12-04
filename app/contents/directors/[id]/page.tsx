@@ -44,7 +44,7 @@ export default function DirectorDetail() {
                         }}
                         className="absolute top-1/2 transform -translate-y-1/2 z-10"
                     >
-                        <div className="pl-10 font-black text-4xl">
+                        <div className="pl-10 font-black text-base md:text-xl lg:text-3xl">
                             {director.name}
                         </div>
                     </motion.div>
@@ -59,7 +59,7 @@ export default function DirectorDetail() {
                             transition: { duration: 1 }
                         }}
                     >
-                        <div className="font-black text-4xl">
+                        <div className="font-black text-4xl ">
                             {director.name}
                         </div>
                     </motion.div>
