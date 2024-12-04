@@ -27,7 +27,7 @@ export default function DirectorDetail() {
                     <iframe
                         src={director.bg}
                         frameBorder="0"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                        allow="autoplay; fullscreen"
                         className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
                         title="test1"
                     ></iframe>

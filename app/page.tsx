@@ -99,12 +99,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative w-full overflow-x-hidden">
-      <div className="relative h-screen overflow-hidden pointer-events-none">
+    <div className=" w-full">
+      <div className="relative h-screen pointer-events-none">
         <iframe
           src="https://player.vimeo.com/video/1035446953?background=1&h=55124934f3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+          allow="autoplay; fullscreen"
           className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
           title="test1"
         ></iframe>
@@ -120,7 +120,7 @@ export default function Home() {
               delay: 0.3
             }
           }}
-          className="absolute top-1/2 transform -translate-y-1/2 z-10 pointer-events-auto"
+          className="absolute top-1/2 -translate-y-1/2 z-10 pointer-events-auto"
         >
           <div className="pl-10 font-black text-base md:text-xl lg:text-3xl">
             INSEOK KANG
@@ -128,53 +128,51 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <section className="">
-        <div className="">
-          <div className=" mx-auto">
-            <motion.h1
-              ref={archiveTitleRef}
-              style={{
-                transform: isArchiveTitleInView ? "none" : "translateY(20px)",
-                opacity: isArchiveTitleInView ? 1 : 0,
-                transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-              }}
-              className=" pl-4 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20"
-            >
-              ARCHIVE
-            </motion.h1>
+      <section className="section-inner">
+        <div className="container">
+          <motion.h1
+            ref={archiveTitleRef}
+            style={{
+              transform: isArchiveTitleInView ? "none" : "translateY(20px)",
+              opacity: isArchiveTitleInView ? 1 : 0,
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+            }}
+            className=" pl-4 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20"
+          >
+            ARCHIVE
+          </motion.h1>
 
-            <div
-              ref={archiveItemsRef}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 "
-            >
-              {archiveItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  style={{
-                    transform: isArchiveItemsInView ? "none" : "translateY(50px)",
-                    opacity: isArchiveItemsInView ? 1 : 0,
-                    transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${0.5 + index * 0.1}s`
-                  }}
-                  className="relative"
+          <div
+            ref={archiveItemsRef}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 "
+          >
+            {archiveItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                style={{
+                  transform: isArchiveItemsInView ? "none" : "translateY(50px)",
+                  opacity: isArchiveItemsInView ? 1 : 0,
+                  transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${0.5 + index * 0.1}s`
+                }}
+                className="relative"
+              >
+                <div
+                  className="aspect-[16/9] relative mb-4 cursor-pointer"
+                  onClick={() => setSelectedVideo(item.videoUrl || "")}
                 >
-                  <div
-                    className="aspect-[16/9] relative mb-4 cursor-pointer"
-                    onClick={() => setSelectedVideo(item.videoUrl || "")}
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="px-2">
-                    <h3 className=" text-base md:text-lg font-bold mb-2">{item.title}</h3>
-                    <p className="text-sm mb-4">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="px-2">
+                  <h3 className=" text-base md:text-lg font-bold mb-2">{item.title}</h3>
+                  <p className="text-sm mb-4">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
