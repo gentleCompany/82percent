@@ -82,7 +82,7 @@ export default function TopNav() {
                 <div className="flex justify-center items-center gap-20 text-white text-sm font-bold">
                     <div className="relative">
                         <div className="flex gap-20">
-                            {menuItems.map((item, index) => (
+                            {menuItems.map((item) => (
                                 <Link
                                     key={item.href}
                                     href={item.href}

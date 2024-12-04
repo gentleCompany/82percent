@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { directorsData } from '@/app/data/directors'
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 
 export default function DirectorDetail() {
     const params = useParams();
@@ -92,10 +93,11 @@ export default function DirectorDetail() {
                         onClick={() => setSelectedVideo(project.videoUrl)}
                     >
                         <div className="aspect-video relative mb-4">
-                            <img
+                            <Image
                                 src={project.thumbnail}
                                 alt={project.title}
-                                className="object-cover w-full h-full"
+                                fill
+                                className="object-cover"
                             />
                         </div>
                         <h3 className="text-base font-semibold">{project.title}</h3>
