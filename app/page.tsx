@@ -99,12 +99,12 @@ export default function Home() {
   ];
 
   return (
-    <div className=" w-full">
+    <div className="relative w-full overflow-x-hidden">
       <div className="relative h-screen pointer-events-none">
         <iframe
           src="https://player.vimeo.com/video/1035446953?background=1&h=55124934f3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
           frameBorder="0"
-          allow="autoplay; fullscreen"
+          allow="autoplay; fullscreen; "
           className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
           title="test1"
         ></iframe>
