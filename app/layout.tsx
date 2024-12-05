@@ -21,12 +21,12 @@ export const metadata: Metadata = {
   },
   keywords:
     "82퍼센트, 82PERCENT, 82%, 82PERCENT 프로덕션, 프로덕션 파리, 영상촬영, 광고촬영, 영상제작, 광고제작, 룩북 ",
-  // verification: {
-  //   google: "TwtmCjbukflLL-LXH4tZB9YA6OSl4lcHxuWGlexQxFk",
-  //   other: {
-  //     "naver-site-verification": "1e7c68922bdc16c449660f5dfe99ce75da46ccbf",
-  //   },
-  // },
+  verification: {
+    google: "EWsYle2I8UdlOChULQ6zw162x32tw3nYz1tRfLkxeao",
+    other: {
+      // "naver-site-verification": "1e7c68922bdc16c449660f5dfe99ce75da46ccbf",
+    },
+  },
   openGraph: {
     title: "82PERCENT",
     description: "82PERCENT",
