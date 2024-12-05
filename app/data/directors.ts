@@ -89,37 +89,37 @@ export const directorsData = {
             }
         ]
     },
-    seonguklee: {
-        id: 'seonguklee',
-        name: 'SEONGUK LEE',
-        bg: '',
-        projects: [
-            {
-                title: "배우 진선규&박보경 부부 화보 촬영 현장 스케치",
-                videoUrl: "https://player.vimeo.com/video/1035893299?h=18cbb3f266&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/seongukleePFthumbnails/1.jpg"
-            },
-            {
-                title: "배우 고주원 화보 촬영 현장 스케치",
-                videoUrl: "https://player.vimeo.com/video/1035888293?h=966fe6bab5&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/seongukleePFthumbnails/2.jpg"
-            },
-            {
-                title: "배우 오승아 화보 촬영 현장 스케치",
-                videoUrl: "https://player.vimeo.com/video/1035888522?h=cc554c2649&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/seongukleePFthumbnails/3.jpg"
-            },
-            {
-                title: "외국인 청년의 마장 축산물 시장 체험",
-                videoUrl: "https://player.vimeo.com/video/1035888315?h=33d21beecc&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/seongukleePFthumbnails/4.jpg"
-            },
-            {
-                title: "보성교우회장배 골프대회",
-                videoUrl: "https://player.vimeo.com/video/1035888354?h=a2e31cdc28&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/seongukleePFthumbnails/5.jpg"
-            }
-        ]
-    },
+    // seonguklee: {
+    //     id: 'seonguklee',
+    //     name: 'SEONGUK LEE',
+    //     bg: '',
+    //     projects: [
+    //         {
+    //             title: "배우 진선규&박보경 부부 화보 촬영 현장 스케치",
+    //             videoUrl: "https://player.vimeo.com/video/1035893299?h=18cbb3f266&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/seongukleePFthumbnails/1.jpg"
+    //         },
+    //         {
+    //             title: "배우 고주원 화보 촬영 현장 스케치",
+    //             videoUrl: "https://player.vimeo.com/video/1035888293?h=966fe6bab5&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/seongukleePFthumbnails/2.jpg"
+    //         },
+    //         {
+    //             title: "배우 오승아 화보 촬영 현장 스케치",
+    //             videoUrl: "https://player.vimeo.com/video/1035888522?h=cc554c2649&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/seongukleePFthumbnails/3.jpg"
+    //         },
+    //         {
+    //             title: "외국인 청년의 마장 축산물 시장 체험",
+    //             videoUrl: "https://player.vimeo.com/video/1035888315?h=33d21beecc&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/seongukleePFthumbnails/4.jpg"
+    //         },
+    //         {
+    //             title: "보성교우회장배 골프대회",
+    //             videoUrl: "https://player.vimeo.com/video/1035888354?h=a2e31cdc28&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/seongukleePFthumbnails/5.jpg"
+    //         }
+    //     ]
+    // },
 
 }; 

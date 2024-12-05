@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 
+
+
 export default function AboutUs() {
     return (
         <div className="w-full h-screen flex justify-center items-center ">

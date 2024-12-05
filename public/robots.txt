@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.82percent.kr
+
+# Sitemaps
+Sitemap: https://www.82percent.kr/sitemap.xml
