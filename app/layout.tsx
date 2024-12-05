@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://wwww.82percent.kr",
     type: "website",
     images: {
-      url: "https://www.82percent.kr/kakaoOg.png",
+      url: "https://www.82percent.kr/kakaoOgDELA.png",
       alt: "82PERCENT",
     },
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "82PERCENT",
     description: "82PERCENT",
-    images: ["https://www.82percent.kr/kakaoOg.png"],
+    images: ["https://www.82percent.kr/kakaoOgDELA.png"],
   },
   robots: "index, follow",
 };

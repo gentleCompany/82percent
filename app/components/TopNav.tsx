@@ -80,7 +80,7 @@ export default function TopNav() {
                     }}
                     className="text-white cursor-pointer pl-[6px] flex justify-center items-center"
                 >
-                    <Link href="/"> <Image src={"/82W.png"} alt={"82PERCENT"} width={100} height={100} /></Link>
+                    <Link href="/"> <Image src={"/82DELAW.png"} alt={"82PERCENT"} width={100} height={100} /></Link>
                 </motion.div>
                 <motion.div
                     variants={{
@@ -92,7 +92,7 @@ export default function TopNav() {
                     }}
                     className="absolute top-0 left-0 right-0 text-white cursor-pointer  flex justify-center items-center"
                 >
-                    <Link href="/"><Image src={"/82PERCENTW.png"} alt={"82PERCENT"} width={400} height={200} /></Link>
+                    <Link href="/"><Image src={"/82PERCENTDELAW.png"} alt={"82PERCENT"} width={400} height={200} /></Link>
                 </motion.div>
             </motion.div>
             <div className="w-full">
