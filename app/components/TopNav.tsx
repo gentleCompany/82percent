@@ -7,29 +7,32 @@ import { usePathname } from 'next/navigation';
 
 export default function TopNav() {
     const [scrolled, setScrolled] = useState(false);
+    const [gap, setGap] = useState("gap-20");
+    const [leftPosition, setLeftPosition] = useState(0);
     const pathname = usePathname();
 
-    // 현재 활성화된 메뉴의 인덱스 계산
     const getActiveIndex = () => {
         if (pathname === '/contents/aboutus') return 0;
         if (pathname.includes('/contents/directors')) return 1;
-        if (pathname === '/contents/archives') return 2;
-        if (pathname === '/contents/exhibitions') return 3;
-        if (pathname === '/contents/origins') return 4;
-        if (pathname === '/contents/stuffs') return 5;
+        if (pathname === '/contents/contactus') return 2;
         return -1;
     };
 
-    const menuItems = [
-        { href: "/contents/aboutus", label: "ABOUT US" },
-        { href: "/contents/directors", label: "DIRECTOR" },
-        { href: "/contents/contactus", label: "CONTACT US" },
-        // { href: "/contents/exhibitions", label: "EXHIBITIONS" },
-        // { href: "/contents/origins", label: "ORIGINS" },
-        // { href: "/contents/stuffs", label: "STUFFS" }
-    ];
+    // 화면 크기에 따른 left 위치와 gap 계산
+    const updateLayout = () => {
+        if (typeof window === 'undefined') return;
+
+        const isMobile = window.innerWidth < 768;
+        setGap(isMobile ? "gap-6" : "gap-20");
+        setLeftPosition(isMobile
+            ? getActiveIndex() * 120  // 모바일: gap-10 (40px) + width-24 (96px) = 136px
+            : getActiveIndex() * 176  // 데스크톱: gap-20 (80px) + width-24 (96px) = 176px
+        );
+    };
 
     useEffect(() => {
+        updateLayout();
+
         const handleScroll = () => {
             const offset = window.scrollY;
             if (offset > 50) {
@@ -39,11 +42,24 @@ export default function TopNav() {
             }
         };
 
+        const handleResize = () => {
+            updateLayout();
+        };
+
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [pathname]);
+
+    const menuItems = [
+        { href: "/contents/aboutus", label: "ABOUT US" },
+        { href: "/contents/directors", label: "DIRECTOR" },
+        { href: "/contents/contactus", label: "CONTACT US" },
+    ];
 
     return (
         <nav className={`fixed top-0 w-full mx-auto z-50 transition-all duration-300 
@@ -79,9 +95,9 @@ export default function TopNav() {
                 </motion.div>
             </motion.div>
             <div className="w-full">
-                <div className="flex justify-center items-center gap-20 text-white text-sm font-bold">
+                <div className="flex justify-center items-center text-white text-sm font-bold">
                     <div className="relative">
-                        <div className="flex gap-20">
+                        <div className={`flex ${gap}`}>
                             {menuItems.map((item) => (
                                 <Link
                                     key={item.href}
@@ -93,11 +109,11 @@ export default function TopNav() {
                             ))}
                         </div>
                         <motion.div
-                            className="absolute bottom-[-8px] h-[2px] bg-white "
+                            className="absolute bottom-[-8px] h-[2px] bg-white"
                             initial={false}
                             animate={{
                                 width: '96px',
-                                left: `${getActiveIndex() * 176}px`,
+                                left: `${leftPosition}px`,
                                 opacity: getActiveIndex() >= 0 ? 1 : 0
                             }}
                             transition={{
