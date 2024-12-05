@@ -1,8 +1,9 @@
 export const directorsData = {
-    inseokkang: {
-        id: 'inseokkang',
-        name: 'INSEOK KANG',
-        bg: '',
+    insukkang: {
+        id: 'insukkang',
+        name: 'INSUK KANG',
+        // bg: 'https://player.vimeo.com/video/1036199449?h=501af63d2b&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
+        bg: 'https://player.vimeo.com/video/1035446953?background=1&h=55124934f3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
         projects: [
             {
                 title: "Project Title 1",
@@ -66,25 +67,25 @@ export const directorsData = {
             }
         ]
     },
-    jonghyunkim: {
-        id: 'jonghyunkim',
-        name: 'JONGHYUN KIM',
+    changminkim: {
+        id: 'changminkim',
+        name: 'CHANGMIN KIM',
         bg: "https://player.vimeo.com/video/1035900693?background=1&h=5c394bc712&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
         projects: [
             {
                 title: "그 누구의 딸",
                 videoUrl: "https://player.vimeo.com/video/1035888687?h=194955f681&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/jonghyunkimPFthumbnails/1.jpg"
+                thumbnail: "/changminkimPFthumbnails/1.jpg"
             },
             {
                 title: "Boiler",
                 videoUrl: "https://player.vimeo.com/video/1035888836?h=422ea8bafb&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/jonghyunkimPFthumbnails/2.jpg"
+                thumbnail: "/changminkimPFthumbnails/2.jpg"
             },
             {
                 title: "구의역 3번 출구",
                 videoUrl: "https://player.vimeo.com/video/1035888572?h=e404111aa3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/jonghyunkimPFthumbnails/3.jpg"
+                thumbnail: "/changminkimPFthumbnails/3.jpg"
             }
         ]
     },
