@@ -33,7 +33,7 @@ export default function Directors() {
 
                         >
                             <Link href={director.path}>
-                                <h3 className="mb-6 font-bold text-center text-3xl">{director.name}</h3>
+                                <h3 className="mb-3 md:mb-6 font-bold text-center text-xl md:text-3xl">{director.name}</h3>
                             </Link>
                         </motion.div>
                     ))}

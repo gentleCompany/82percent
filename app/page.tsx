@@ -122,8 +122,8 @@ export default function Home() {
           }}
           className="absolute top-1/2 transform -translate-y-1/2 z-10 pointer-events-auto"
         >
-          <div className="pl-4 font-black text-base md:text-xl lg:text-3xl">
-            INSEOK KANG
+          <div className="pl-6 font-black text-base md:text-xl lg:text-3xl">
+            INSUK KANG
           </div>
         </motion.div>
       </div>
@@ -137,7 +137,7 @@ export default function Home() {
               opacity: isArchiveTitleInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
             }}
-            className=" pl-4 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20"
+            className=" pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20"
           >
             ARCHIVE
           </motion.h1>

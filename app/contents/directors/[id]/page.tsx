@@ -60,7 +60,7 @@ export default function DirectorDetail() {
                             transition: { duration: 1 }
                         }}
                     >
-                        <div className="pl-4 font-black text-lg md:text-xl lg:text-3xl ">
+                        <div className="pl-6 font-black text-lg md:text-xl lg:text-3xl ">
                             {director.name}
                         </div>
                     </motion.div>
@@ -74,7 +74,7 @@ export default function DirectorDetail() {
                     transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                 }}
             >
-                <h1 className="pl-4 font-black text-lg md:text-xl lg:text-3xl mb-8">ARCHIVE</h1>
+                <h1 className="pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20">ARCHIVE</h1>
             </motion.div>
 
             <div

@@ -49,7 +49,7 @@ export default function TopNav() {
         <nav className={`fixed top-0 w-full mx-auto z-50 transition-all duration-300 
             ${scrolled ? 'py-4 bg-black/50 backdrop-blur-sm' : 'py-8 bg-transparent'}`}>
             <motion.div
-                className="relative text-[40px] font-black text-center mb-4 w-[250px] mx-auto"
+                className="relative text-[40px] font-black text-center mb-6 w-[250px] mx-auto"
                 whileHover="hover"
                 initial="initial"
             >
