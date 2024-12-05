@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   verification: {
     google: "EWsYle2I8UdlOChULQ6zw162x32tw3nYz1tRfLkxeao",
     other: {
-      // "naver-site-verification": "1e7c68922bdc16c449660f5dfe99ce75da46ccbf",
+      "naver-site-verification": "e6f4c11cc8c2004a38fe32dfe0c4d96fa51d27d7",
     },
   },
   openGraph: {
@@ -32,16 +32,16 @@ export const metadata: Metadata = {
     description: "82PERCENT",
     url: "https://wwww.82percent.kr",
     type: "website",
-    // images: {
-    //   url: "https://www.guri-kica.com/assets/og-image.png",
-    //   alt: "구리지식산업센터연합회로고",
-    // },
+    images: {
+      url: "https://www.82percent.kr/kakaoOg.png",
+      alt: "82PERCENT",
+    },
   },
   twitter: {
     card: "summary_large_image",
     title: "82PERCENT",
     description: "82PERCENT",
-    // images: ["https://www.guri-kica.com/assets/og-image.png"],
+    images: ["https://www.82percent.kr/kakaoOg.png"],
   },
   robots: "index, follow",
 };

@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from 'next/image';
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 
 export default function TopNav() {
     const [scrolled, setScrolled] = useState(false);
-    const [gap, setGap] = useState("gap-20");
+    const [gap, setGap] = useState("gap-6");
     const [leftPosition, setLeftPosition] = useState(0);
     const pathname = usePathname();
 
@@ -77,9 +78,9 @@ export default function TopNav() {
                     transition={{
                         duration: 0.2,
                     }}
-                    className="text-white cursor-pointer pl-[6px]"
+                    className="text-white cursor-pointer pl-[6px] flex justify-center items-center"
                 >
-                    <Link href="/">82%</Link>
+                    <Link href="/"> <Image src={"/82W.png"} alt={"82PERCENT"} width={100} height={100} /></Link>
                 </motion.div>
                 <motion.div
                     variants={{
@@ -89,15 +90,15 @@ export default function TopNav() {
                     transition={{
                         duration: 0.2,
                     }}
-                    className="absolute top-0 left-0 right-0 text-white cursor-pointer"
+                    className="absolute top-0 left-0 right-0 text-white cursor-pointer  flex justify-center items-center"
                 >
-                    <Link href="/">82PERCENT</Link>
+                    <Link href="/"><Image src={"/82PERCENTW.png"} alt={"82PERCENT"} width={400} height={200} /></Link>
                 </motion.div>
             </motion.div>
             <div className="w-full">
                 <div className="flex justify-center items-center text-white text-sm font-bold">
                     <div className="relative">
-                        <div className={`flex ${gap}`}>
+                        <div className={`flex ${gap} transition-all duration-300`}>
                             {menuItems.map((item) => (
                                 <Link
                                     key={item.href}
