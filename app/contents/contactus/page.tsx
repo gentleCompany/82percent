@@ -69,7 +69,7 @@ export default function ContactUs() {
     ];
 
     return (
-        <div className="w-full min-h-screen flex justify-center items-center py-20">
+        <div className="w-full min-h-screen flex justify-center items-center py-20 pt-[200px]">
             <div className="flex flex-col gap-12 max-w-[920px] mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}
