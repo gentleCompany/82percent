@@ -13,7 +13,7 @@ const pretendard = localFont({
 });
 
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "82PERCENT",
   description: "82PERCENT",
   icons: {

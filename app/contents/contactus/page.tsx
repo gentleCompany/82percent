@@ -23,8 +23,8 @@ export default function ContactUs() {
 
         try {
             await emailjs.sendForm(
-                process.env.NEXT_PUBLIC_NEXT_PUBLIC_MAIL_SERVER_KEY || '', // EmailJS Service ID 
-                process.env.NEXT_PUBLIC_MAIL_TEMPLATE_KEY || '', // EmailJS Template ID
+                process.env.NEXT_PUBLIC_NEXT_PUBLIC_MAIL_SERVER_KEY || '',
+                process.env.NEXT_PUBLIC_MAIL_TEMPLATE_KEY || '',
                 formRef.current!,
                 process.env.NEXT_PUBLIC_MAIL_PUBLIC_KEY || ''
             );
@@ -34,7 +34,7 @@ export default function ContactUs() {
                 message: 'Message sent successfully!'
             });
             setFormData({ name: '', email: '', message: '' });
-        } catch (error) {
+        } catch {
             setStatus({
                 type: 'error',
                 message: 'Failed to send message. Please try again.'
@@ -93,7 +93,7 @@ export default function ContactUs() {
                         }}
                         className="grid grid-cols-1 gap-8"
                     >
-                        {contactInfo.map((info, index) => (
+                        {contactInfo.map((info) => (
                             <div key={info.title} className="flex flex-col gap-2">
                                 <h2 className="text-sm font-bold">{info.title}</h2>
                                 {<p className="text-lg">{info.content}</p>}
