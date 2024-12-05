@@ -14,86 +14,86 @@ export default function Home() {
     {
       id: 1,
       src: "/inseokkangPFthumbnails/1.jpg",
-      title: "Project Title 1",
-      description: "Short description about the project",
+      title: "10 brands Paris fashion film",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035499391?h=c51f0d10ad&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 2,
       src: "/inseokkangPFthumbnails/2.jpg",
-      title: "Project Title 2",
-      description: "Short description about the project",
+      title: "Maison de Ines Paris fashion film",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035885060?h=8b79da5bda&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
 
     },
     {
       id: 3,
       src: "/inseokkangPFthumbnails/3.jpg",
-      title: "Project Title 3",
-      description: "Short description about the project",
+      title: "Barbara Paris fashion film",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035885474?h=8f39f17f0e&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 4,
       src: "/inseokkangPFthumbnails/4.jpg",
-      title: "Project Title 4",
-      description: "Short description about the project",
+      title: "Huit Paris fashion film",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035886274?h=84efa739b9&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 5,
       src: "/inseokkangPFthumbnails/5.jpg",
-      title: "Project Title 5",
-      description: "Short description about the project",
+      title: "Kim Solbi Paris exposition teaser",
+      description: "Korean cultural center in Paris",
       videoUrl: "https://player.vimeo.com/video/1035886303?h=5ffd34b434&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 6,
       src: "/inseokkangPFthumbnails/6.jpg",
-      title: "Project Title 6",
-      description: "Short description about the project",
+      title: "Han Jihee Paris exposition teaser",
+      description: "Korean cultural center in Paris",
       videoUrl: "https://player.vimeo.com/video/1035886358?h=107b412004&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 7,
       src: "/inseokkangPFthumbnails/7.jpg",
-      title: "Project Title 7",
-      description: "Short description about the project",
+      title: "Lee Chulsoo Paris exposition teaser",
+      description: "Korean cultural center in Paris",
       videoUrl: "https://player.vimeo.com/video/1035886399?h=d11786fd79&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 8,
       src: "/inseokkangPFthumbnails/8.jpg",
-      title: "Project Title 8",
-      description: "Short description about the project",
+      title: "레트로 아카이브 YouTube",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035886446?h=249cc4eac9&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 9,
       src: "/inseokkangPFthumbnails/9.jpg",
-      title: "Project Title 9",
-      description: "Short description about the project",
+      title: "월광 미술관 YouTube",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035886714?h=d6e98322f5&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 10,
       src: "/inseokkangPFthumbnails/10.jpg",
-      title: "Project Title 10",
-      description: "Short description about the project",
+      title: "ffeff studio Paris fashion film",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035887058?h=767f61ba22&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 11,
       src: "/inseokkangPFthumbnails/11.jpg",
-      title: "Project Title 11",
-      description: "Short description about the project",
+      title: "Zajakala paris fashion film",
+      description: "",
       videoUrl: "https://player.vimeo.com/video/1035887359?h=66540d39ac&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     },
     {
       id: 12,
       src: "/inseokkangPFthumbnails/12.jpg",
-      title: "Project Title 12",
-      description: "Short description about the project",
+      title: "Kpop dance contest in Paris teaser",
+      description: "Korean cultural center in Paris",
       videoUrl: "https://player.vimeo.com/video/1035887408?h=9743a1867c&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
     }
   ];
@@ -102,7 +102,8 @@ export default function Home() {
     <div className="mx-auto overflow-hidden">
       <div className="relative h-screen ">
         <iframe
-          src="https://player.vimeo.com/video/1035446953?background=1&h=55124934f3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          src="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
+"
           frameBorder="0"
           allow="autoplay; fullscreen; "
           className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"

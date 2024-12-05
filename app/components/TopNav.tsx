@@ -23,7 +23,7 @@ export default function TopNav() {
     const menuItems = [
         { href: "/contents/aboutus", label: "ABOUT US" },
         { href: "/contents/directors", label: "DIRECTOR" },
-        // { href: "/contents/archives", label: "ARCHIVES" },
+        { href: "/contents/contactus", label: "CONTACT US" },
         // { href: "/contents/exhibitions", label: "EXHIBITIONS" },
         // { href: "/contents/origins", label: "ORIGINS" },
         // { href: "/contents/stuffs", label: "STUFFS" }

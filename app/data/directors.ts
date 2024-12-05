@@ -3,65 +3,65 @@ export const directorsData = {
         id: 'insukkang',
         name: 'INSUK KANG',
         // bg: 'https://player.vimeo.com/video/1036199449?h=501af63d2b&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
-        bg: 'https://player.vimeo.com/video/1035446953?background=1&h=55124934f3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+        bg: 'https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
         projects: [
             {
-                title: "Project Title 1",
+                title: "10 brands Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035499391?h=c51f0d10ad&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/1.jpg"
             },
             {
-                title: "Project Title 2",
+                title: "Maison de Ines Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035885060?h=8b79da5bda&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/2.jpg"
             },
             {
-                title: "Project Title 3",
+                title: "Barbara Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035885474?h=8f39f17f0e&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/3.jpg"
             },
             {
-                title: "Project Title 4",
+                title: "Huit Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035886274?h=84efa739b9&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/4.jpg"
             },
             {
-                title: "Project Title 5",
+                title: "Kim Solbi Paris exposition teaser",
                 videoUrl: "https://player.vimeo.com/video/1035886303?h=5ffd34b434&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/5.jpg"
             },
             {
-                title: "Project Title 6",
+                title: "Han Jihee Paris exposition teaser",
                 videoUrl: "https://player.vimeo.com/video/1035886358?h=107b412004&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/6.jpg"
             },
             {
-                title: "Project Title 7",
+                title: "Lee Chulsoo Paris exposition teaser",
                 videoUrl: "https://player.vimeo.com/video/1035886399?h=d11786fd79&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/7.jpg"
             },
             {
-                title: "Project Title 8",
+                title: "레트로 아카이브 YouTube",
                 videoUrl: "https://player.vimeo.com/video/1035886446?h=249cc4eac9&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/8.jpg"
             },
             {
-                title: "Project Title 9",
+                title: "월광 미술관 YouTube",
                 videoUrl: "https://player.vimeo.com/video/1035886714?h=d6e98322f5&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/9.jpg"
             },
             {
-                title: "Project Title 10",
+                title: "ffeff studio Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035887058?h=767f61ba22&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/10.jpg"
             },
             {
-                title: "Project Title 11",
+                title: "Zajakala paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035887359?h=66540d39ac&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/11.jpg"
             },
             {
-                title: "Project Title 12",
+                title: "Kpop dance contest in Paris teaser",
                 videoUrl: "https://player.vimeo.com/video/1035887408?h=9743a1867c&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/12.jpg"
             }

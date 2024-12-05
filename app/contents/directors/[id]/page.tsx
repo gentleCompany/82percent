@@ -108,16 +108,11 @@ export default function DirectorDetail() {
             {/* 비디오 모달 */}
             {selectedVideo && (
                 <div
-                    className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center"
+                    className="fixed  inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center"
                     onClick={() => setSelectedVideo(null)}
                 >
-                    <div className="w-[90vw] h-[90vh] relative">
-                        <button
-                            className="absolute -top-10 right-0 text-white text-xl"
-                            onClick={() => setSelectedVideo(null)}
-                        >
-                            닫기 ✕
-                        </button>
+                    <div className="w-[90vw] relative aspect-video">
+
                         <iframe
                             src={selectedVideo}
                             className="w-full h-full"
