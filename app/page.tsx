@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import VimeoDownloader from "./components/vimeoDownloader";
 
 
 export default function Home() {
@@ -12,6 +13,10 @@ export default function Home() {
   const isArchiveItemsInView = useInView(archiveItemsRef, { once: true });
   const [isVideoLoading, setIsVideoLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(82);
+
+  const videoUrl =
+    'https://download-video-ak.vimeocdn.com/v3-1/playback/d61965d1-243d-4a8e-92a5-11763df26b49/d5a81bf9-031c3666?__token__=st=1733464351~exp=1733478751~acl=%2Fv3-1%2Fplayback%2Fd61965d1-243d-4a8e-92a5-11763df26b49%2Fd5a81bf9-031c3666%2A~hmac=aeac28ee7b34459317c08da4ed5194464e10bd85b7a02ae85e9362f2394bb6b7&r=dXMtY2VudHJhbDE%3D';
+
 
   useEffect(() => {
     if (isVideoLoading) {
@@ -125,6 +130,7 @@ export default function Home() {
 
           </div>
         )}
+        {/* <VimeoDownloader videoUrl={'https://vimeo.com/1035446953'} /> */}
 
         <iframe
           src="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
@@ -170,7 +176,7 @@ export default function Home() {
             }}
             className=" pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20"
           >
-            ARCHIVE
+            PORTFOLIO
           </motion.h1>
 
           <div

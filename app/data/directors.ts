@@ -3,6 +3,8 @@ export const directorsData = {
         id: 'insukkang',
         name: 'INSUK KANG',
         // bg: 'https://player.vimeo.com/video/1036199449?h=501af63d2b&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
+        title: 'Beyond The Frame',
+        description: '경계를 넘어서는 시각적 스토리텔링으로 유럽과 아시아를 잇는 디렉터. 독창적인 미학과 정교한 연출력으로 브랜드의 가치를 새롭게 정의합니다.',
         bg: 'https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
         projects: [
             {
@@ -70,6 +72,8 @@ export const directorsData = {
     changminkim: {
         id: 'changminkim',
         name: 'CHANGMIN KIM',
+        title: 'Visual Storyteller',
+        description: '트랜디한 감성과 예술적 직감이 교차하는 지점에서 감각적인 비주얼을 창조하는 크리에이터. 영화적 연출과 몰입도 있는 영상으로 브랜드의 진정성을 담아냅니다.',
         bg: "https://player.vimeo.com/video/1035900693?background=1&h=5c394bc712&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
         projects: [
             {

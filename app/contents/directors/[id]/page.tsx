@@ -30,7 +30,7 @@ export default function DirectorDetail() {
                         src={director.bg}
                         frameBorder="0"
                         allow="autoplay; fullscreen"
-                        className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
+                        className={`absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2  ${director.id === 'changminkim' ? 'scale-150' : 'scale-100'}`} // 감독 이름에 따라 스케일 조정
                         title="test1"
                     ></iframe>
 
@@ -78,18 +78,29 @@ export default function DirectorDetail() {
                         transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
                     }}
                 >
-                    <div className="text-center pt-20">
-                        <p className='text-lg pb-2'>beyond the frame</p>
-                        <p className='text-sm'>경계를 넘어서는 시각적 스토리텔링으로 유럽과 아시아를 잇는 디렉터. 독창적인 미학과 정교한 연출력으로 브랜드의 가치를 새롭게 정의합니다.</p>
+                    <div className="text-center py-20 my-20">
+                        <motion.p
+                            className='text-xl md:text-2xl lg:text-3xl pb-2 font-bold'
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{
+                                opacity: 1,
+                                y: 0,
+                                transition: { duration: 1, delay: 0.5 } // 타이틀 애니메이션
+                            }}
+                        >
+                            {director.title}
+                        </motion.p>
+                        <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{
+                                opacity: isIntroduceInView ? 1 : 0,
+                                y: isIntroduceInView ? 0 : 15,
+                                transition: { duration: 1, delay: 1 } // 디스크립션 애니메이션
+                            }}
+                        >
+                            <p className='text-sm px-2'>{director.description}</p>
+                        </motion.div>
                     </div>
-
-                    <div className="text-center pt-20">
-                        <p className='text-lg pb-2'>visual storyteller</p>
-                        <p className='text-sm'>트랜디한 감성과 예술적 직감이 교차하는 지점에서 감각적인 비주얼을 창조하는 크리에이터. 영화적 연출과 몰입도 있는 영상으로 브랜드의 진정성을 담아냅니다.</p>
-                    </div>
-
-
-
                 </motion.div>
             </div>
             <motion.div
@@ -97,10 +108,10 @@ export default function DirectorDetail() {
                 style={{
                     transform: isArchiveInView ? "none" : "translateY(20px)",
                     opacity: isArchiveInView ? 1 : 0,
-                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 2s"
                 }}
             >
-                <h1 className="pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20">PORTFOLIO</h1>
+                <h1 className="pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10">PORTFOLIO</h1>
             </motion.div>
 
             <div
@@ -113,7 +124,7 @@ export default function DirectorDetail() {
                         style={{
                             transform: isProjectsInView ? "none" : "translateY(50px)",
                             opacity: isProjectsInView ? 1 : 0,
-                            transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${0.5 + index * 0.1}s`
+                            transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${2 + index * 0.2}s`
                         }}
                         className="cursor-pointer "
                         onClick={() => setSelectedVideo(project.videoUrl)}
@@ -132,23 +143,25 @@ export default function DirectorDetail() {
             </div>
 
             {/* 비디오 모달 */}
-            {selectedVideo && (
-                <div
-                    className="fixed  inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center"
-                    onClick={() => setSelectedVideo(null)}
-                >
-                    <div className="w-[90vw] relative aspect-video">
+            {
+                selectedVideo && (
+                    <div
+                        className="fixed  inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center"
+                        onClick={() => setSelectedVideo(null)}
+                    >
+                        <div className="w-[90vw] relative aspect-video">
 
-                        <iframe
-                            src={selectedVideo}
-                            className="w-full h-full"
-                            frameBorder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowFullScreen
-                        />
+                            <iframe
+                                src={selectedVideo}
+                                className="w-full h-full"
+                                frameBorder="0"
+                                allow="autoplay; fullscreen; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }

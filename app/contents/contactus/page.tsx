@@ -16,6 +16,10 @@ export default function ContactUs() {
         type: null,
         message: ''
     });
+    const [statusCopy, setStatusCopy] = useState<{ type: string | null, message: string }>({
+        type: null,
+        message: ''
+    });
     const formRef = useRef<HTMLFormElement>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -52,6 +56,15 @@ export default function ContactUs() {
             ...prev,
             [name]: value
         }));
+    };
+
+    const handleCopyToClipboard = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setStatusCopy({ type: 'success', message: `${text} copied to clipboard!` });
+            setTimeout(() => setStatusCopy({ type: null, message: '' }), 2000); // 2초 후 메시지 사라짐
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
     };
 
     const contactInfo = [
@@ -96,10 +109,17 @@ export default function ContactUs() {
                         className="grid grid-cols-1 gap-8"
                     >
                         {contactInfo.map((info) => (
-                            <div key={info.title} className="flex flex-col gap-2">
+                            <div key={info.title} className="flex flex-col gap-2 cursor-pointer">
                                 <h2 className="text-sm font-bold">{info.title}</h2>
-                                {<p className="text-lg">{info.content}</p>}
+                                {<p onClick={() => handleCopyToClipboard(info.content)} className="text-lg">{info.content}</p>}
+
+                                {statusCopy.message === `${info.content} copied to clipboard!` && (
+                                    <div className={`text-sm ${statusCopy.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                                        {statusCopy.message}
+                                    </div>
+                                )}
                             </div>
+
                         ))}
                     </motion.div>
 
