@@ -13,6 +13,7 @@
     "@emailjs/browser": "^4.4.1",
     "@u-wave/react-vimeo": "^0.9.11",
     "@vimeo/player": "^2.25.0",
+    "axios": "^1.7.9",
     "framer-motion": "^11.13.1",
     "next": "15.0.3",
     "next-sitemap": "^4.2.3",
