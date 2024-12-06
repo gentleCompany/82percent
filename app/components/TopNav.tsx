@@ -66,7 +66,9 @@ export default function TopNav() {
         <nav className={`fixed top-0 w-full mx-auto z-50 transition-all duration-300 
             ${scrolled ? 'py-2 bg-black/50 backdrop-blur-sm' : 'py-6 bg-transparent'}`}>
             <motion.div
-                className="relative text-[30px] md:text-[40px] font-black text-center mb-4 md:mb-6 w-[250px] mx-auto"
+
+                className={`relative text-[30px] md:text-[40px] font-black text-center   w-[250px] mx-auto  transition-all duration-300
+                    ${scrolled ? 'mb-3' : 'mb-4'}`}
                 whileHover="hover"
                 initial="initial"
             >
@@ -80,7 +82,7 @@ export default function TopNav() {
                     }}
                     className="text-white cursor-pointer pl-[6px] flex justify-center items-center"
                 >
-                    <Link href="/"> <Image src={"/82DELAW.png"} alt={"82PERCENT"} width={100} height={100} /></Link>
+                    <Link href="/"> <Image src={"/82DELAW.png"} alt={"82PERCENT"} width={100} height={29.8} /></Link>
                 </motion.div>
                 <motion.div
                     variants={{

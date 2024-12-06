@@ -15,7 +15,7 @@ const pretendard = localFont({
 
 export const metadata: Metadata = {
   title: "82PERCENT",
-  description: "82PERCENT",
+  description: "프리미엄 영상 프로덕션",
   icons: {
     icon: "/82LogoBlack.png",
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "82PERCENT",
-    description: "82PERCENT",
+    description: "프리미엄 영상 프로덕션",
     url: "https://wwww.82percent.kr",
     type: "website",
     images: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "82PERCENT",
-    description: "82PERCENT",
+    description: "프리미엄 영상 프로덕션",
     images: ["https://www.82percent.kr/kakaoOgDELA.png"],
   },
   robots: "index, follow",

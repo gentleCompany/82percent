@@ -1,7 +1,9 @@
 'use client'
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import Vimeo from '@u-wave/react-vimeo';
+import BackgroundVideo from "./components/BackgroundVideo";
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -9,6 +11,23 @@ export default function Home() {
   const archiveItemsRef = useRef(null);
   const isArchiveTitleInView = useInView(archiveTitleRef, { once: true });
   const isArchiveItemsInView = useInView(archiveItemsRef, { once: true });
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const [loadingProgress, setLoadingProgress] = useState(82);
+
+  useEffect(() => {
+    if (isVideoLoading) {
+      const interval = setInterval(() => {
+        setLoadingProgress((prev) => {
+          if (prev >= 100) {
+            clearInterval(interval);
+            return 100;
+          }
+          return prev + 1;
+        });
+      }, 30);
+      return () => clearInterval(interval);
+    }
+  }, [isVideoLoading]);
 
   const archiveItems = [
     {
@@ -100,33 +119,45 @@ export default function Home() {
 
   return (
     <div className="mx-auto overflow-hidden">
-      <div className="relative h-screen ">
+      <div className="relative h-screen">
+        {isVideoLoading && (
+          <div className="absolute inset-0 bg-black z-20 flex flex-col items-center justify-center">
+            <div className="text-white">{loadingProgress}%</div>
+
+          </div>
+        )}
+
         <iframe
-          src="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
-"
+          src="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
           frameBorder="0"
-          allow="autoplay; fullscreen; "
+          allow="autoplay; fullscreen;"
           className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
           title="test1"
+          onLoad={() => {
+            setIsVideoLoading(false);
+            console.log("Video loaded");
+          }}
         ></iframe>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              duration: 1.2,
-              ease: "easeOut",
-              delay: 0.3
-            }
-          }}
-          className="absolute top-1/2 transform -translate-y-1/2 z-10 pointer-events-auto"
-        >
-          <div className="pl-6 font-black text-base md:text-xl lg:text-3xl">
-            INSUK KANG
-          </div>
-        </motion.div>
+        {!isVideoLoading && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 1.2,
+                ease: "easeOut",
+                delay: 0.3
+              }
+            }}
+            className="absolute top-1/2 transform -translate-y-1/2 z-10 pointer-events-auto"
+          >
+            <div className="pl-6 font-black text-base md:text-xl lg:text-3xl">
+              INSUK KANG
+            </div>
+          </motion.div>
+        )}
       </div>
 
       <section className="">
@@ -169,8 +200,8 @@ export default function Home() {
                   />
                 </div>
                 <div className="px-2">
-                  <h3 className=" text-base md:text-lg font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm mb-4">{item.description}</p>
+                  <h3 className="text-sm mb-4">{item.title}</h3>
+
                 </div>
               </motion.div>
             ))}
@@ -184,13 +215,8 @@ export default function Home() {
           className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center"
           onClick={() => setSelectedVideo(null)}
         >
-          <div className="w-[90vw] h-[90vh] relative">
-            <button
-              className="absolute -top-10 right-0 text-white text-xl"
-              onClick={() => setSelectedVideo(null)}
-            >
-              닫기 ✕
-            </button>
+          <div className="w-[90vw] aspect-video relative">
+
             <iframe
               src={selectedVideo}
               className="w-full h-full"

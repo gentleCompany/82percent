@@ -27,3 +27,39 @@ body {
   padding: 0 35px;
   max-width: 100%;
 }
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.vimeoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0; /* 초기 상태 */
+  transition: opacity 1s ease-in-out;
+}
+
+.vimeoBackground.visible {
+  opacity: 1; /* 로드 완료 후 화면 표시 */
+}
+
+.vimeoBackground.hidden {
+  opacity: 0;
+}
+
+.loadingSpinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-size: 20px;
+  color: #fff;
+}

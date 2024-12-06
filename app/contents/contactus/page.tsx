@@ -165,7 +165,7 @@ export default function ContactUs() {
                             className={`mt-4 bg-white text-black py-2 px-6 font-bold text-lg hover:bg-gray-200 transition-colors self-start
                                 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
-                            {isLoading ? 'SENDING...' : 'SEND MESSAGE'}
+                            {isLoading ? 'SENDING...' : 'SEND EMAIL'}
                         </button>
                     </motion.form>
                 </div>
