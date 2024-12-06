@@ -2,8 +2,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import Vimeo from '@u-wave/react-vimeo';
-import BackgroundVideo from "./components/BackgroundVideo";
+
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
