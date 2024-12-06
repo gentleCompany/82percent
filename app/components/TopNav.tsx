@@ -54,7 +54,7 @@ export default function TopNav() {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
-    }, [pathname]);
+    }, [updateLayout]);
 
     const menuItems = [
         { href: "/contents/aboutus", label: "ABOUT US" },

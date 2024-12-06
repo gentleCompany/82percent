@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import VimeoDownloader from "./components/vimeoDownloader";
+// import VimeoDownloader from "./components/vimeoDownloader";
 
 
 export default function Home() {
@@ -14,8 +14,8 @@ export default function Home() {
   const [isVideoLoading, setIsVideoLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(82);
 
-  const videoUrl =
-    'https://download-video-ak.vimeocdn.com/v3-1/playback/d61965d1-243d-4a8e-92a5-11763df26b49/d5a81bf9-031c3666?__token__=st=1733464351~exp=1733478751~acl=%2Fv3-1%2Fplayback%2Fd61965d1-243d-4a8e-92a5-11763df26b49%2Fd5a81bf9-031c3666%2A~hmac=aeac28ee7b34459317c08da4ed5194464e10bd85b7a02ae85e9362f2394bb6b7&r=dXMtY2VudHJhbDE%3D';
+  // const videoUrl =
+  //   'https://download-video-ak.vimeocdn.com/v3-1/playback/d61965d1-243d-4a8e-92a5-11763df26b49/d5a81bf9-031c3666?__token__=st=1733464351~exp=1733478751~acl=%2Fv3-1%2Fplayback%2Fd61965d1-243d-4a8e-92a5-11763df26b49%2Fd5a81bf9-031c3666%2A~hmac=aeac28ee7b34459317c08da4ed5194464e10bd85b7a02ae85e9362f2394bb6b7&r=dXMtY2VudHJhbDE%3D';
 
 
   useEffect(() => {
