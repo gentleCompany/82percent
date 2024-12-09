@@ -12,18 +12,10 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: 'Video URL is required' }, { status: 400 });
     }
 
-    // Vimeo 비디오 ID 추출
-    const videoIdMatch = videoUrl.match(/(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/);
-
-    if (!videoIdMatch || !videoIdMatch[1]) {
-        return NextResponse.json({ error: 'Invalid Vimeo URL' }, { status: 400 });
-    }
-
-    const videoId = videoIdMatch[1];
 
     try {
         // Vimeo API 호출
-        const response = await axios.get(`https://api.vimeo.com/videos/${videoId}`, {
+        const response = await axios.get(`https://api.vimeo.com/videos/${videoUrl}`, {
             headers: {
                 Authorization: `Bearer ${VIMEO_ACCESS_TOKEN}`,
             },

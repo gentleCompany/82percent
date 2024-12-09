@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const VIMEO_ACCESS_TOKEN = '7eb12fb6dd1dabe90f12271821e919d1';
+const VIMEO_ACCESS_TOKEN = '9d0d2a4a4e6f4f17ef5bb5dd2c70aae2';
 
 export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
@@ -17,8 +17,9 @@ export async function GET(req: NextRequest) {
         const response = await fetch(`https://api.vimeo.com/videos/${videoId}?fields=play`, {
             method: "GET",
             headers: {
-                Authorization: `Bearer ${VIMEO_ACCESS_TOKEN}`,
+                Authorization: `bearer ${VIMEO_ACCESS_TOKEN}`,
                 Accept: "application/vnd.vimeo.*+json;version=3.4",
+                'Content-Type': 'application/json',
             },
         });
 
@@ -31,11 +32,21 @@ export async function GET(req: NextRequest) {
             );
         }
 
-        // 응답 데이터 가져오기
-        const data = await response.json();
-        console.log("Vimeo API Response:", JSON.stringify(data, null, 2));
+        // 전체 응답 로깅
+        const rawResponse = await response.text();
+        console.log("Raw API Response:", rawResponse);
 
-        // 응답 데이터를 클라이언트에 반환
+        // JSON으로 다시 파싱
+        const data = JSON.parse(rawResponse);
+
+        if (!response.ok) {
+            console.error("Vimeo API error:", response.status, response.statusText);
+            return NextResponse.json(
+                { error: `Vimeo API error: ${response.statusText}` },
+                { status: response.status }
+            );
+        }
+
         return NextResponse.json(data);
     } catch (error) {
         console.error("Unexpected error:", error);

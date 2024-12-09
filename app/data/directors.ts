@@ -5,7 +5,8 @@ export const directorsData = {
         // bg: 'https://player.vimeo.com/video/1036199449?h=501af63d2b&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
         title: 'Beyond The Frame',
         description: '경계를 넘어서는 시각적 스토리텔링으로 유럽과 아시아를 잇는 디렉터. 독창적인 미학과 정교한 연출력으로 브랜드의 가치를 새롭게 정의합니다.',
-        bg: 'https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
+        bg: 'https://player.vimeo.com/progressive_redirect/download/1035446953/container/0cbe5765-0ace-494c-90f4-dba9297be54b/ed1ca746-6358c728/82bg%20%281080p%29.mp4?expires=1733816619&loc=external&signature=1ceb6ca99b41f1abbd6715522151934097cedf11bcaea26c6308701323d9ccab',
+        bgThumbnail: "/82bg.png",
         projects: [
             {
                 title: "10 brands Paris fashion film",
@@ -74,7 +75,8 @@ export const directorsData = {
         name: 'CHANGMIN KIM',
         title: 'Visual Storyteller',
         description: '트랜디한 감성과 예술적 직감이 교차하는 지점에서 감각적인 비주얼을 창조하는 크리에이터. 영화적 연출과 몰입도 있는 영상으로 브랜드의 진정성을 담아냅니다.',
-        bg: "https://player.vimeo.com/video/1035900693?background=1&h=5c394bc712&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        bg: "https://player.vimeo.com/progressive_redirect/download/1035900693/container/84696cec-23c5-48c5-856e-d81b3b7f7c5b/2a0849e9-9bc046d9/%E1%84%80%E1%85%B5%E1%86%B7%EC%B0%BD%EB%AF%BC%E1%84%80%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A9%E1%86%A8%E1%84%82%E1%85%B5%E1%86%B7%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A1%E1%86%BC%20%281080p%29.mp4?expires=1733816642&loc=external&signature=d58624d628f3dc37fb4adfcd585c7d6428206d4b30c77a496baed24139347e9a",
+        bgThumbnail: "/changminkimPFthumbnails/kimDRbg.png",
         projects: [
             {
                 title: "그 누구의 딸",

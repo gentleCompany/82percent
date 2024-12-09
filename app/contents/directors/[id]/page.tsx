@@ -6,6 +6,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
 
+
 export default function DirectorDetail() {
     const params = useParams();
     const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -26,13 +27,20 @@ export default function DirectorDetail() {
         <div className="mx-auto ">
             {director.bg ? (
                 <div className="relative h-screen overflow-hidden">
-                    <iframe
-                        src={director.bg}
-                        frameBorder="0"
-                        allow="autoplay; fullscreen"
-                        className={`absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2  ${director.id === 'changminkim' ? 'scale-150' : 'scale-100'}`} // 감독 이름에 따라 스케일 조정
-                        title="test1"
-                    ></iframe>
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        poster={director.bgThumbnail}
+                        className={`absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 ${director.id === 'changminkim' ? 'scale-[1.5]' : 'scale-[1]'} object-cover`} // 스케일 조정
+                        onLoadedData={() => {
+                            console.log("Video loaded");
+                        }}
+                    >
+                        <source src={director.bg} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
 
                     <motion.div
                         initial={{ opacity: 0, x: 100 }}
@@ -108,7 +116,7 @@ export default function DirectorDetail() {
                 style={{
                     transform: isArchiveInView ? "none" : "translateY(20px)",
                     opacity: isArchiveInView ? 1 : 0,
-                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.8s"
+                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.7s"
                 }}
             >
                 <h1 className="pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10">PORTFOLIO</h1>
@@ -124,7 +132,7 @@ export default function DirectorDetail() {
                         style={{
                             transform: isProjectsInView ? "none" : "translateY(50px)",
                             opacity: isProjectsInView ? 1 : 0,
-                            transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${0.8 + index * 0.2}s`
+                            transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${0.7 + index * 0.2}s`
                         }}
                         className="cursor-pointer "
                         onClick={() => setSelectedVideo(project.videoUrl)}
