@@ -139,6 +139,7 @@ export default function Home() {
             loop
             muted
             playsInline
+            poster="/82bg.png"
             className="absolute w-full h-full  object-cover"
             onLoadedData={() => {
               setIsVideoLoading(false);

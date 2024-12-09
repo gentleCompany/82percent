@@ -12,7 +12,7 @@ export default function Directors() {
 
     return (
         <div className="mx-auto overflow-hidden">
-            <div className="relative h-screen">
+            <div className="relative h-screen" style={{ backgroundImage: "url('/directorbg.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
                 <iframe
                     src="https://player.vimeo.com/video/1036199449?h=501af63d2b&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
                     frameBorder="0"
