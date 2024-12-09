@@ -85,7 +85,7 @@ export default function DirectorDetail() {
                             animate={{
                                 opacity: 1,
                                 y: 0,
-                                transition: { duration: 1, delay: 0.5 } // 타이틀 애니메이션
+                                transition: { duration: 1, delay: 0.3 } // 타이틀 애니메이션
                             }}
                         >
                             {director.title}
@@ -95,7 +95,7 @@ export default function DirectorDetail() {
                             animate={{
                                 opacity: isIntroduceInView ? 1 : 0,
                                 y: isIntroduceInView ? 0 : 15,
-                                transition: { duration: 1, delay: 1 } // 디스크립션 애니메이션
+                                transition: { duration: 1, delay: 0.5 } // 디스크립션 애니메이션
                             }}
                         >
                             <p className='text-sm px-2'>{director.description}</p>
@@ -108,7 +108,7 @@ export default function DirectorDetail() {
                 style={{
                     transform: isArchiveInView ? "none" : "translateY(20px)",
                     opacity: isArchiveInView ? 1 : 0,
-                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 2s"
+                    transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.8s"
                 }}
             >
                 <h1 className="pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10">PORTFOLIO</h1>
@@ -124,7 +124,7 @@ export default function DirectorDetail() {
                         style={{
                             transform: isProjectsInView ? "none" : "translateY(50px)",
                             opacity: isProjectsInView ? 1 : 0,
-                            transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${2 + index * 0.2}s`
+                            transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${0.8 + index * 0.2}s`
                         }}
                         className="cursor-pointer "
                         onClick={() => setSelectedVideo(project.videoUrl)}
