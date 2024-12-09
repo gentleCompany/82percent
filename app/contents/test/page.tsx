@@ -14,7 +14,7 @@ export default function Home() {
                     console.error("API Response:", await response.text());
                     throw new Error("Failed to fetch video URL");
                 }
-
+                console.log(videoUrl);
                 const data = await response.json();
                 setVideoUrl(data.url);
             } catch (error) {

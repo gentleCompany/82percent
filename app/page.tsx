@@ -25,7 +25,9 @@ export default function Home() {
           if (prev >= 82) {
             clearInterval(interval);
             return 100;
+
           }
+
           return prev + 1;
         });
       }, 10);
@@ -141,6 +143,7 @@ export default function Home() {
             onLoadedData={() => {
               setIsVideoLoading(false);
               console.log("Video loaded");
+              console.log(loadingProgress);
             }}
           >
             <source
