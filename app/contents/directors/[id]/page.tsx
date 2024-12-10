@@ -27,7 +27,19 @@ export default function DirectorDetail() {
         <div className="mx-auto ">
             {director.bg ? (
                 <div className="relative h-screen overflow-hidden">
-                    <video
+                    <iframe
+                        src={director.bg}
+                        frameBorder="0"
+                        allow="autoplay; fullscreen;"
+                        className={`absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 ${director.id === 'changminkim' ? 'scale-[1.5]' : 'scale-[1]'} object-cover`} // 스케일 조정
+                        title="test1"
+                        style={{ backgroundImage: `url(${director.bgThumbnail})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                        onLoad={() => {
+                            // setIsVideoLoading(false);
+                            console.log("Video loaded");
+                        }}
+                    ></iframe>
+                    {/* <video
                         autoPlay
                         loop
                         muted
@@ -40,7 +52,7 @@ export default function DirectorDetail() {
                     >
                         <source src={director.bg} type="video/mp4" />
                         Your browser does not support the video tag.
-                    </video>
+                    </video> */}
 
                     <motion.div
                         initial={{ opacity: 0, x: 100 }}
