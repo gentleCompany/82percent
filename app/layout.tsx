@@ -62,7 +62,7 @@ export default function RootLayout({
 
           {children}
         </main>
-        <footer className="text-center mt-20 p-10 bg-black text-xs">
+        <footer className="text-center mt-10 p-5 bg-black text-xs">
           <p>&copy; 2024 82PERCENT. All Rights Reserved.</p>
         </footer>
       </body>

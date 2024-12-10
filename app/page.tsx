@@ -148,7 +148,7 @@ export default function Home() {
             }}
           >
             <source
-              src="https://player.vimeo.com/progressive_redirect/download/1035446953/container/0cbe5765-0ace-494c-90f4-dba9297be54b/ed1ca746-6358c728/%EA%B0%95%EC%9D%B8%EC%84%9D%EA%B0%90%EB%8F%85%EB%8B%98%EB%B0%B0%EA%B2%BD%20%281080p%29.mp4?expires=1733796506&loc=external&signature=3ad9d52e7ea3f6e927591a307824e19d9171e51f635a8e06c3b8385c4fb1ae18"
+              src="https://player.vimeo.com/progressive_redirect/download/1035446953/container/0cbe5765-0ace-494c-90f4-dba9297be54b/ed1ca746-6358c728/82bg%20%281080p%29.mp4?expires=1733816619&loc=external&signature=1ceb6ca99b41f1abbd6715522151934097cedf11bcaea26c6308701323d9ccab"
               type="video/mp4"
             />
             Your browser does not support the video tag.
