@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import VideoLoader from "./components/MainVideoPlayer";
+import { directorsData } from "./data/directors";
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -12,21 +13,12 @@ export default function Home() {
   const isArchiveTitleInView = useInView(archiveTitleRef, { once: true });
   const isArchiveItemsInView = useInView(archiveItemsRef, { once: true });
 
-  const archiveItems = [
-    {
-      id: 1,
-      src: "/inseokkangPFthumbnails/1.jpg",
-      title: "10 brands Paris fashion film",
-      videoUrl: "https://player.vimeo.com/video/1035499391?h=c51f0d10ad&badge=0",
-    },
-    // 추가 항목들...
-  ];
 
   return (
     <div className="mx-auto overflow-hidden">
       <div className="relative h-screen">
         {/* Background Video */}
-        <div className="w-screen h-screen">
+        <div style={{ width: "100%", height: "100vh" }} className="w-screen h-screen">
           <VideoLoader
             videoSrc="https://player.vimeo.com/video/1035446953?background=1&badge=0&autopause=0&player_id=0&app_id=58479"
             poster="/82bg.png"
@@ -65,9 +57,9 @@ export default function Home() {
           </motion.h1>
 
           <div ref={archiveItemsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-            {archiveItems.map((item, index) => (
+            {directorsData.insukkang.projects.map((item, index) => (
               <motion.div
-                key={item.id}
+                key={item.title}
                 style={{
                   transform: isArchiveItemsInView ? "none" : "translateY(50px)",
                   opacity: isArchiveItemsInView ? 1 : 0,
@@ -80,7 +72,7 @@ export default function Home() {
                   onClick={() => setSelectedVideo(item.videoUrl || "")}
                 >
                   <Image
-                    src={item.src}
+                    src={item.thumbnail}
                     alt={item.title}
                     fill
                     className="object-cover"

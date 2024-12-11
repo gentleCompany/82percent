@@ -1,14 +1,19 @@
-import { useEffect, useRef, useState } from "react";
 import Player from "@vimeo/player";
+import React, { useEffect, useRef, useState } from "react";
 
 interface VideoLoaderProps {
-    videoSrc: string; // Vimeo URL
-    poster: string; // 배경 이미지 URL
-    className?: string; // 추가 스타일 클래스
-    scale?: string; // 스케일을 조정할 수 있도록 추가
+    videoSrc: string; // Vimeo video URL
+    poster: string; // Background image URL
+    className?: string; // Additional styling classes
+    scale?: string; // Scale adjustment
 }
 
-const VideoLoader: React.FC<VideoLoaderProps> = ({ videoSrc, poster, className = "", scale = 'scale-100' }) => {
+const VideoLoader: React.FC<VideoLoaderProps> = ({
+    videoSrc,
+    poster,
+    className = "",
+    scale = "scale-100",
+}) => {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const [isVideoReady, setIsVideoReady] = useState(false);
     const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -35,11 +40,14 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({ videoSrc, poster, className =
         };
     }, []);
 
+
+
+
     return (
-        <div className={`relative w-full h-full ${className}`}>
-            {/* 배경 이미지 */}
+        <div className={`relative w-full h-full overflow-hidden ${className}`}>
+            {/* Background Image */}
             <div
-                className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-500 ${isVideoPlaying ? "opacity-0" : "opacity-100"
+                className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-[1000ms] z-10 ${isVideoPlaying ? "opacity-0" : "opacity-100"
                     } ${scale}`}
                 style={{
                     backgroundImage: `url(${poster})`,
@@ -49,11 +57,11 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({ videoSrc, poster, className =
             {/* Vimeo iframe */}
             <iframe
                 ref={iframeRef}
-                src={videoSrc}
+                src={`${videoSrc}?autoplay=1&loop=1&muted=1&background=1`}
                 frameBorder="0"
-                sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"
-                allow="autoplay; fullscreen;"
-                className={`absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 object-cover ${scale}`} // 스케일 적용
+                allow="autoplay; fullscreen"
+                className={`absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 object-cover z-0 ${isVideoPlaying ? "opacity-100" : "opacity-0"
+                    } ${scale}`}
             ></iframe>
         </div>
     );
