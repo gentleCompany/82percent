@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const VIMEO_ACCESS_TOKEN = '9d0d2a4a4e6f4f17ef5bb5dd2c70aae2';
+const VIMEO_ACCESS_TOKEN = process.env.NEXT_PUBLIC_VIMEO_ACCESS_TOKEN;
 
 export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);

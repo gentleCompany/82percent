@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import TopNav from "./components/TopNav";
+import Head from 'next/head';
 
 
 
@@ -53,6 +54,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+
+          httpEquiv="Content-Security-Policy"
+          content="
+            default-src 'self';
+            script-src 'self' https://f.vimeocdn.com https://player.vimeo.com 'unsafe-inline';
+            style-src 'self' 'unsafe-inline';
+            img-src 'self' https://i.vimeocdn.com;
+            connect-src 'self' https://f.vimeocdn.com;
+            frame-src https://player.vimeo.com;
+            font-src 'self';
+          "
+        />
+      </Head>
       <body
         className={`w-full relative overflow-x-hidden ${pretendard.variable} font-pretendard antialiased bg-black text-white text-2xl`}
       >

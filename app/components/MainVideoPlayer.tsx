@@ -51,6 +51,7 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({ videoSrc, poster, className =
                 ref={iframeRef}
                 src={videoSrc}
                 frameBorder="0"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"
                 allow="autoplay; fullscreen;"
                 className={`absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2 object-cover ${scale}`} // 스케일 적용
             ></iframe>

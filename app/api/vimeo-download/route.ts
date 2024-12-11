@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 
 // Vimeo Access Token (환경 변수로 관리)
-const VIMEO_ACCESS_TOKEN = '8a9f697b2e908e30fd1ae7aed73df0d1';
+const VIMEO_ACCESS_TOKEN = process.env.NEXT_PUBLIC_VIMEO_ACCESS_TOKEN;
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
