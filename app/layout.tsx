@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    siteName: "82퍼센트",
     title: "82PERCENT",
     description: "프리미엄 영상 프로덕션",
     url: "https://wwww.82percent.kr",
