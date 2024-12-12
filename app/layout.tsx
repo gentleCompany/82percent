@@ -15,7 +15,7 @@ const pretendard = localFont({
 
 
 export const metadata: Metadata = {
-  title: "82PERCENT",
+  title: "82PERCENT, 82퍼센트",
   description: "프리미엄 영상 프로덕션",
   icons: {
     icon: "/82LogoBlack.png",
