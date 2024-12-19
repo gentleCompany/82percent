@@ -1,14 +1,20 @@
 'use client'
+
 import { useParams } from 'next/navigation';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { directorsData } from '@/app/data/directors';
+
+
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-import VideoLoader from '@/app/components/MainVideoPlayer'; // VideoLoader 컴포넌트 불러오기
+// import VideoLoader from '@/app/components/MainVideoPlayer'; // VideoLoader 컴포넌트 불러오기
+
+import { Project } from '@/app/data/directors';
+
 
 export default function DirectorDetail() {
     const params = useParams();
-    const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+    const [selectedVideo, setSelectedVideo] = useState<Project | null>(null);
     const archiveRef = useRef(null);
     const isArchiveInView = useInView(archiveRef, { once: true });
     const introduceRef = useRef(null);
@@ -18,21 +24,60 @@ export default function DirectorDetail() {
 
     const director = directorsData[params.id as keyof typeof directorsData];
 
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+    const calculateDimensions = (aspectRatio: string, maxWidth: number, maxHeight: number) => {
+        const [width, height] = aspectRatio.split(':').map(Number);
+        const ratio = width / height;
+
+        let finalWidth = maxWidth;
+        let finalHeight = maxWidth / ratio;
+
+        if (finalHeight > maxHeight) {
+            finalHeight = maxHeight;
+            finalWidth = maxHeight * ratio;
+        }
+
+        return { width: finalWidth, height: finalHeight };
+    };
+
+    useEffect(() => {
+        const updateDimensions = () => {
+            if (selectedVideo) {
+                const dims = calculateDimensions(
+                    selectedVideo.aspectRatio,
+                    window.innerWidth * 0.8,
+                    window.innerHeight * 0.8
+                );
+                setDimensions(dims);
+            }
+        };
+
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+        return () => window.removeEventListener('resize', updateDimensions);
+    }, [selectedVideo]);
+
+
     if (!director) {
         return <div>디렉터를 찾을 수 없습니다.</div>;
     }
+
 
     return (
         <div className="mx-auto">
             {director.bg ? (
                 <div className="relative h-screen overflow-hidden">
-                    {/* VideoLoader 적용 */}
-                    <VideoLoader
-                        videoSrc={director.bg}
-                        poster={director.bgThumbnail}
-                        scale={director.id === 'changminkim' ? 'scale-[1.5]' : 'scale-[1]'}
-                    />
-                    {/* 디렉터 이름 애니메이션 */}
+
+                    <iframe
+                        src={director.bg}
+                        frameBorder="0"
+
+                        allow="autoplay; fullscreen"
+                        className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
+                        title="test1"
+                    ></iframe>
+
                     <motion.div
                         initial={{ opacity: 0, x: 100 }}
                         animate={{
@@ -120,8 +165,10 @@ export default function DirectorDetail() {
                             opacity: isProjectsInView ? 1 : 0,
                             transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${0.7 + index * 0.2}s`,
                         }}
-                        className="cursor-pointer"
-                        onClick={() => setSelectedVideo(project.videoUrl)}
+
+                        className="cursor-pointer  mb-6"
+                        onClick={() => setSelectedVideo(project)}
+
                     >
                         <div className="aspect-video relative mb-4">
                             <Image
@@ -142,14 +189,26 @@ export default function DirectorDetail() {
                     className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center"
                     onClick={() => setSelectedVideo(null)}
                 >
-                    <div className="w-[90vw] relative aspect-video">
+
+                    <div className=" relative">
+
                         <iframe
-                            src={selectedVideo}
-                            className="w-full h-full"
+                            src={selectedVideo.videoUrl}
+                            style={{
+                                width: `${dimensions.width}px`,
+                                height: `${dimensions.height}px`
+                            }}
+
                             frameBorder="0"
                             allow="autoplay; fullscreen; picture-in-picture"
                             allowFullScreen
                         />
+                        <button
+                            className="absolute -top-8 right-0 text-white text-xl hover:opacity-75 transition-opacity"
+                            onClick={() => setSelectedVideo(null)}
+                        >
+                            닫기 ✕
+                        </button>
                     </div>
                 </div>
             )}

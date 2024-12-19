@@ -1,4 +1,29 @@
-export const directorsData = {
+// 프로젝트 아이템 타입
+type Project = {
+    title: string;
+    videoUrl: string;
+    thumbnail: string;
+    aspectRatio: string;
+};
+
+// 감독 데이터 타입
+type Director = {
+    id: string;
+    name: string;
+    bg: string;
+    title: string;
+    description: string;
+    bgThumbnail: string;
+    projects: Project[];
+};
+
+// 전체 데이터 타입
+type DirectorsData = {
+    [key: string]: Director;
+};
+
+
+export const directorsData: DirectorsData = {
     insukkang: {
         id: 'insukkang',
         name: 'INSUK KANG',
@@ -11,62 +36,74 @@ export const directorsData = {
             {
                 title: "10 brands Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035499391?h=c51f0d10ad&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-                thumbnail: "/inseokkangPFthumbnails/1.jpg"
+                thumbnail: "/inseokkangPFthumbnails/1.jpg",
+                aspectRatio: "4:3"
             },
             {
                 title: "Maison de Ines Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035885060?h=8b79da5bda&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/2.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Barbara Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035885474?h=8f39f17f0e&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/3.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Huit Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035886274?h=84efa739b9&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/4.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Kim Solbi Paris exposition teaser",
                 videoUrl: "https://player.vimeo.com/video/1035886303?h=5ffd34b434&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/5.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Han Jihee Paris exposition teaser",
                 videoUrl: "https://player.vimeo.com/video/1035886358?h=107b412004&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/6.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Lee Chulsoo Paris exposition teaser",
                 videoUrl: "https://player.vimeo.com/video/1035886399?h=d11786fd79&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/7.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "레트로 아카이브 YouTube",
                 videoUrl: "https://player.vimeo.com/video/1035886446?h=249cc4eac9&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/8.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "월광 미술관 YouTube",
                 videoUrl: "https://player.vimeo.com/video/1035886714?h=d6e98322f5&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/9.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "ffeff studio Paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035887058?h=767f61ba22&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/10.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Zajakala paris fashion film",
                 videoUrl: "https://player.vimeo.com/video/1035887359?h=66540d39ac&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/11.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Kpop dance contest in Paris teaser",
                 videoUrl: "https://player.vimeo.com/video/1035887408?h=9743a1867c&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
                 thumbnail: "/inseokkangPFthumbnails/12.jpg"
+                , aspectRatio: "16:9"
             }
         ]
     },
@@ -82,16 +119,19 @@ export const directorsData = {
                 title: "그 누구의 딸",
                 videoUrl: "https://player.vimeo.com/video/1035888687?h=194955f681&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
                 thumbnail: "/changminkimPFthumbnails/1.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "Boiler",
                 videoUrl: "https://player.vimeo.com/video/1035888836?h=422ea8bafb&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
                 thumbnail: "/changminkimPFthumbnails/2.jpg"
+                , aspectRatio: "16:9"
             },
             {
                 title: "구의역 3번 출구",
                 videoUrl: "https://player.vimeo.com/video/1035888572?h=e404111aa3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
                 thumbnail: "/changminkimPFthumbnails/3.jpg"
+                , aspectRatio: "16:9"
             }
         ]
     },
@@ -128,4 +168,8 @@ export const directorsData = {
     //     ]
     // },
 
-}; 
+};
+
+
+// 타입들을 export하여 다른 파일에서도 사용할 수 있게 함
+export type { Project, Director, DirectorsData };
