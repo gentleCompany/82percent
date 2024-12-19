@@ -7,9 +7,9 @@ import { directorsData } from '@/app/data/directors';
 
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
-// import VideoLoader from '@/app/components/MainVideoPlayer'; // VideoLoader 컴포넌트 불러오기
 
 import { Project } from '@/app/data/directors';
+import VideoLoader from '@/app/components/MainVideoPlayer';
 
 
 export default function DirectorDetail() {
@@ -68,15 +68,20 @@ export default function DirectorDetail() {
         <div className="mx-auto">
             {director.bg ? (
                 <div className="relative h-screen overflow-hidden">
-
-                    <iframe
+                    {/* VideoLoader 적용 */}
+                    <VideoLoader
+                        videoSrc={director.bg}
+                        poster={director.bgThumbnail}
+                        scale={director.id === 'changminkim' ? 'scale-[1.5]' : 'scale-[1]'}
+                    />
+                    {/* <iframe
                         src={director.bg}
                         frameBorder="0"
 
                         allow="autoplay; fullscreen"
                         className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
                         title="test1"
-                    ></iframe>
+                    ></iframe> */}
 
                     <motion.div
                         initial={{ opacity: 0, x: 100 }}
