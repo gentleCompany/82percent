@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import VideoLoader from "@/app/components/MainVideoPlayer";
 
 type VideoItem = {
   id: number;
@@ -155,7 +156,7 @@ export default function Home() {
   return (
     <div className="mx-auto overflow-hidden">
       <div className="relative h-screen ">
-        <iframe
+        {/* <iframe
           src="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
 "
           frameBorder="0"
@@ -163,6 +164,12 @@ export default function Home() {
           className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
           title="test1"
         ></iframe>
+        
+        */}
+        <VideoLoader
+          videoSrc="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+          poster="/82bg.png"
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
