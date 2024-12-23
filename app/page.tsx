@@ -201,7 +201,7 @@ export default function Home() {
             }}
             className=" pl-6 font-black text-lg md:text-xl lg:text-3xl pb-10 pt-20"
           >
-            ARCHIVE
+            PORTFOLIO
           </motion.h1>
 
           <div
@@ -230,8 +230,8 @@ export default function Home() {
                   />
                 </div>
                 <div className="px-2">
-                  <h3 className=" text-base md:text-lg font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm mb-4">{item.description}</p>
+                  <h3 className="text-sm mb-4">{item.title}</h3>
+
                 </div>
               </motion.div>
             ))}
@@ -257,7 +257,7 @@ export default function Home() {
               allowFullScreen
             />
             <button
-              className="absolute -top-8 right-0 text-white text-xl hover:opacity-75 transition-opacity"
+              className="absolute -top-7 right-0 text-white text-base md:-top-9  md:text-xl hover:opacity-75 transition-opacity"
               onClick={() => setSelectedVideo(null)}
             >
               닫기 ✕

@@ -209,7 +209,8 @@ export default function DirectorDetail() {
                             allowFullScreen
                         />
                         <button
-                            className="absolute -top-8 right-0 text-white text-xl hover:opacity-75 transition-opacity"
+
+                            className="absolute -top-7 right-0 text-white text-base md:-top-9  md:text-xl hover:opacity-75 transition-opacity"
                             onClick={() => setSelectedVideo(null)}
                         >
                             닫기 ✕
