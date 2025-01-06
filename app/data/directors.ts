@@ -107,34 +107,34 @@ export const directorsData: DirectorsData = {
             }
         ]
     },
-    changminkim: {
-        id: 'changminkim',
-        name: 'CHANGMIN KIM',
-        title: 'Visual Storyteller',
-        description: '트랜디한 감성과 예술적 직감이 교차하는 지점에서 감각적인 비주얼을 창조하는 크리에이터. 영화적 연출과 몰입도 있는 영상으로 브랜드의 진정성을 담아냅니다.',
-        bg: "https://player.vimeo.com/video/1035900693?background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-        bgThumbnail: "/changminkimPFthumbnails/kimDRbg.png",
-        projects: [
-            {
-                title: "그 누구의 딸",
-                videoUrl: "https://player.vimeo.com/video/1035888687?h=194955f681&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/changminkimPFthumbnails/1.jpg"
-                , aspectRatio: "16:9"
-            },
-            {
-                title: "Boiler",
-                videoUrl: "https://player.vimeo.com/video/1035888836?h=422ea8bafb&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/changminkimPFthumbnails/2.jpg"
-                , aspectRatio: "16:9"
-            },
-            {
-                title: "구의역 3번 출구",
-                videoUrl: "https://player.vimeo.com/video/1035888572?h=e404111aa3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-                thumbnail: "/changminkimPFthumbnails/3.jpg"
-                , aspectRatio: "16:9"
-            }
-        ]
-    },
+    // changminkim: {
+    //     id: 'changminkim',
+    //     name: 'CHANGMIN KIM',
+    //     title: 'Visual Storyteller',
+    //     description: '트랜디한 감성과 예술적 직감이 교차하는 지점에서 감각적인 비주얼을 창조하는 크리에이터. 영화적 연출과 몰입도 있는 영상으로 브랜드의 진정성을 담아냅니다.',
+    //     bg: "https://player.vimeo.com/video/1035900693?background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+    //     bgThumbnail: "/changminkimPFthumbnails/kimDRbg.png",
+    //     projects: [
+    //         {
+    //             title: "그 누구의 딸",
+    //             videoUrl: "https://player.vimeo.com/video/1035888687?h=194955f681&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/changminkimPFthumbnails/1.jpg"
+    //             , aspectRatio: "16:9"
+    //         },
+    //         {
+    //             title: "Boiler",
+    //             videoUrl: "https://player.vimeo.com/video/1035888836?h=422ea8bafb&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/changminkimPFthumbnails/2.jpg"
+    //             , aspectRatio: "16:9"
+    //         },
+    //         {
+    //             title: "구의역 3번 출구",
+    //             videoUrl: "https://player.vimeo.com/video/1035888572?h=e404111aa3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+    //             thumbnail: "/changminkimPFthumbnails/3.jpg"
+    //             , aspectRatio: "16:9"
+    //         }
+    //     ]
+    // },
     // seonguklee: {
     //     id: 'seonguklee',
     //     name: 'SEONGUK LEE',
