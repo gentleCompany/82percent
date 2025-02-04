@@ -16,7 +16,7 @@ const pretendard = localFont({
 
 export const metadata: Metadata = {
   title: "82PERCENT, 82퍼센트",
-  description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 파리 감성을 바탕으로 한 창의적인 영상 제작으로, 브랜드의 스토리를 예술적 감각과 전문성으로 재탄생시킵니다.",
+  description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 창의적이고 트랜디한 영상으로 브랜드의 스토리를 완성합니다.",
   icons: {
     icon: "/82LogoBlack.png",
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: "82퍼센트",
     title: "82PERCENT",
-    description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 파리 감성을 바탕으로 한 창의적인 영상 제작으로, 브랜드의 스토리를 예술적 감각과 전문성으로 재탄생시킵니다.",
+    description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 창의적이고 트랜디한 영상으로 브랜드의 스토리를 완성합니다.",
     url: "https://wwww.82percent.kr",
     type: "website",
     images: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "82PERCENT",
-    description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 파리 감성을 바탕으로 한 창의적인 영상 제작으로, 브랜드의 스토리를 예술적 감각과 전문성으로 재탄생시킵니다.",
+    description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 창의적이고 트랜디한 영상으로 브랜드의 스토리를 완성합니다.",
     images: ["https://www.82percent.kr/kakaoOgDELA.png"],
   },
   robots: "index, follow",
