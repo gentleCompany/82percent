@@ -218,6 +218,31 @@ export default function DirectorDetail() {
                     </div>
                 </div>
             )}
+
+            {director.bg2 ? (
+                <div className="relative h-screen overflow-hidden">
+                    {/* VideoLoader 적용 */}
+                    <VideoLoader
+                        videoSrc={director.bg2}
+                        poster={director.bgThumbnail2}
+                        scale={director.id === 'changminkim' ? 'scale-[1.5]' : 'scale-[1]'}
+                    />
+                    {/* <iframe
+                        src={director.bg}
+                        frameBorder="0"
+
+                        allow="autoplay; fullscreen"
+                        className="absolute top-1/2 left-1/2 w-[177.77777778vh] min-w-full h-[56.25vw] min-h-full -translate-x-1/2 -translate-y-1/2"
+                        title="test1"
+                    ></iframe> */}
+
+                   
+                </div>
+            ) : (
+                <div className="">
+                   
+                </div>
+            )}
         </div>
     );
 }
