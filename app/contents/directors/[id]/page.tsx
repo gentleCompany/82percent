@@ -221,7 +221,7 @@ export default function DirectorDetail() {
 
             {director.bg2 ? (
                 <div className="relative h-screen overflow-hidden">
-                    {/* VideoLoader 적용 */}
+                    {/* VideoLoader2 적용 */}
                     <VideoLoader
                         videoSrc={director.bg2}
                         poster={director.bgThumbnail2}
