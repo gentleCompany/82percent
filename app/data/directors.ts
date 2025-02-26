@@ -176,7 +176,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser Sweet Summer Night - Amole',
+          title: 'MV Teaser Amole - Sweet Summer Night',
           videoUrl:
             'https://player.vimeo.com/video/1060467045?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/7.png',
