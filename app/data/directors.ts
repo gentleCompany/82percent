@@ -11,11 +11,11 @@ type Project = {
     id: string;
     name: string;
     bg: string;
-    bg2: string;
+    face: string;
     title: string;
     description: string;
     bgThumbnail: string;
-    bgThumbnail2: string;
+    
     projects: Project[];
   };
   
@@ -29,12 +29,12 @@ type Project = {
       id: 'insukkang',
       name: 'INSUK KANG',
       title: 'Beyond The Frame',
+      face: '',
       description:
         '경계를 넘어서는 시각적 스토리텔링으로 유럽과 아시아를 잇는 디렉터. 독창적인 미학과 정교한 연출력으로 브랜드의 가치를 새롭게 정의합니다.',
       bg: 'https://player.vimeo.com/video/1035446953?background=1&badge=0&autopause=0&player_id=0&app_id=58479',
       bgThumbnail: '/82bg.png',
-      bg2: '',
-      bgThumbnail2: '',
+      
       projects: [
         {
           title: '10 brands Paris fashion film',
@@ -125,16 +125,16 @@ type Project = {
     simkyuhwan: {
       id: 'simkyuhwan',
       name: 'KYUHWAN SIM',
+      face: '/face/simkyuhwanPF.JPG',
       title: 'Beyond Emotion, Connected Through Story',
       description:
         '진정성 있는 이야기와 영상을 통해 사람의 마음을 움직이는 디렉터, 화면 속 작은 순간 마저 우리 삶의 큰 변화로 만듭니다.',
       bg: 'https://player.vimeo.com/video/1060465915?background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
       bgThumbnail: '/simkyuhwanPFthumbnails/mainbg1.png',
-      bg2: 'https://player.vimeo.com/video/1060466236?background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
-      bgThumbnail2: '/simkyuhwanPFthumbnails/mainbg2.png',
+      
       projects: [
         {
-          title: 'MV Teaser 현우 - Different man',
+          title: 'MV Teaser 켠오 - Different man',
           videoUrl:
             'https://player.vimeo.com/video/1060466686?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/1.png',
@@ -162,7 +162,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser 한지민 - Fly High',
+          title: 'MV Teaser 한지연 - Fly High',
           videoUrl:
             'https://player.vimeo.com/video/1060466946?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/5.png',
@@ -183,7 +183,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser 우영섭 - 거짓',
+          title: 'MV Teaser 윤의일 - 계절',
           videoUrl:
             'https://player.vimeo.com/video/1060467127?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/8.png',
@@ -197,21 +197,21 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser 한지민 - 처음이야',
+          title: 'MV Teaser 한지연 - 처음이야',
           videoUrl:
             'https://player.vimeo.com/video/1060467415?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/10.png',
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser 재희 - 꿈',
+          title: 'MV Teaser 재희 - 꽃잎',
           videoUrl:
             'https://player.vimeo.com/video/1060467520?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/11.png',
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser 한지민 - lonely',
+          title: 'MV Teaser 한지연 - lonely',
           videoUrl:
             'https://player.vimeo.com/video/1060467600?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/12.png',
@@ -225,14 +225,14 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser 한지민 - Dreams Come True',
+          title: 'MV Teaser 한지연 - Dreams Come True',
           videoUrl:
             'https://player.vimeo.com/video/1060467760?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/14.png',
           aspectRatio: '16:9'
         },
         {
-          title: 'MV Teaser hope - 처음이야',
+          title: 'MV Teaser 나예담 - hope',
           videoUrl:
             'https://player.vimeo.com/video/1060476303?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/15.png',
