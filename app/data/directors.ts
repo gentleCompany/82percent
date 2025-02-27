@@ -268,42 +268,42 @@ type Project = {
         },
         {
           id: 16,
-          title: 'Youtube 웹예능 -kbs world 쇼핑의참견 글로벌 시크릿넘버ep1',
+          title: 'Youtube 웹예능 - kbs world 쇼핑의참견 글로벌 시크릿넘버 ep1',
           videoUrl: 'https://player.vimeo.com/video/1060920868?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/16.png',
           aspectRatio: '16:9'
         },
         {
           id: 17,
-          title: 'yes24 백희나 작가 인터뷰',
+          title: 'yes24 인터뷰 - 백희나 작가',
           videoUrl: 'https://player.vimeo.com/video/1060921342?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/17.png',
           aspectRatio: '16:9'
         },
         {
           id: 18,
-          title: 'yes24 영어강사_주아쌤 인터뷰',
+          title: 'yes24 인터뷰 - 영어강사 주아쌤',
           videoUrl: 'https://player.vimeo.com/video/1060921453?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/18.png',
           aspectRatio: '16:9'
         },
         {
           id: 19,
-          title: 'Youtube 캡틴락인디 EP.1 싱어송라이터 정우',
+          title: 'Youtube 컨텐츠 - 캡틴락인디 EP.1 싱어송라이터 정우',
           videoUrl: 'https://player.vimeo.com/video/1060921631?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/19.png',
           aspectRatio: '16:9'
         },
         {
           id: 20,
-          title: 'Youtube 캡틴락인디 EP.6 위아더나잇 We Are The Night',
+          title: 'Youtube 컨텐츠 - 캡틴락인디 EP.6 위아더나잇 We Are The Night',
           videoUrl: 'https://player.vimeo.com/video/1060922812?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/20.png',
           aspectRatio: '16:9'
         },
         {
           id: 21,
-          title: 'Youtube 캡틴락인디 EP.7 죠니판도라 Johnny Pandora ジョ니ーパンド라',
+          title: 'Youtube 컨텐츠 - 캡틴락인디 EP.7 죠니판도라 Johnny Pandora ジョニーパンドラ',
           videoUrl: 'https://player.vimeo.com/video/1060923545?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/21.png',
           aspectRatio: '16:9'
