@@ -114,7 +114,7 @@ export default function DirectorDetail() {
                     animate={{ opacity: 1, x: 0, transition: { duration: 1 } }}
                     className=""
                 >
-               <div className="w-[300px]  h-[380px] relative">
+               <div className="w-[310px]  h-[380px] relative">
                                 <Image
                                     src={director.face}
                                     alt="director face"
@@ -137,15 +137,15 @@ export default function DirectorDetail() {
                         <p className="text-xl md:text-2xl lg:text-3xl font-bold pb-2 ">
                             {director.title}
                         </p>
-                        <p className="text-base pb-10 md:mb-8">
+                        <p className="text-base pb-10 md:mb-8 opacity-[0.7]">
                             {director.description}
                         </p>
-                        <p className="text-base">
-                            <div className='pb-1'>LIVE CLIP 라이브 클립</div>
-                            <div className='pb-1'>BRAND FILM 브랜드 필름</div>
-                            <div className='pb-1'>YOUTUBE CONTENT 유튜브 콘텐츠</div>
-                            <div className='pb-1'>WEB Entertainment 웹 예능</div>
-                            <div className='pb-1'>INTER VIEW 인터뷰</div>
+                        <p className="text-base font-semibold">
+                            <div className='pb-[3px]'>Live Clip 라이브 클립</div>
+                            <div className='pb-[3px]'>Brand Film 브랜드 필름</div>
+                            <div className='pb-[3px]'>Youtube Content 유튜브 콘텐츠</div>
+                            <div className='pb-[3px]'>Web Entertainment 웹 예능</div>
+                            <div className='pb-[3px]'>Inteview 인터뷰</div>
                             
                         </p>
                     </motion.div>
