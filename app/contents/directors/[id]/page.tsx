@@ -134,10 +134,10 @@ export default function DirectorDetail() {
                         animate={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.3 } }}
                         className="md:pl-10 text-center pt-5 md:pt-0  md:text-left"
                     >
-                        <p className="text-xl md:text-2xl lg:text-3xl font-bold pb-2 ">
+                        <p className="text-2xl md:text-2xl lg:text-3xl font-bold pb-2 ">
                             {director.title}
                         </p>
-                        <p className="text-base pb-10 md:mb-8 opacity-[0.7]">
+                        <p className="text-sm md:text-lg lg:text-xl  pb-10 md:mb-8 opacity-[0.7]">
                             {director.description}
                         </p>
                         <p className="text-base font-semibold">
