@@ -106,7 +106,7 @@ export default function DirectorDetail() {
                     opacity: isIntroduceInView ? 1 : 0,
                     transition: 'all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s',
                 }}
-                className={`flex flex-col md:flex-row items-center justify-center py-20 my-20 mx-10 ${director.name === 'KYUHWAN SIM' ? 'h-[600px] my-[200px]' : ''} md:my-0`}
+                className={`flex flex-col md:flex-row items-center justify-center my-20 mx-10 ${director.name === 'KYUHWAN SIM' ? 'h-[600px] my-[200px]' : ''} md:my-0`}
             >
                 {/* 디렉터 얼굴 이미지 */}
                 {director.name == 'KYUHWAN SIM' ? (<div> <motion.div
