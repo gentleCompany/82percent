@@ -91,6 +91,7 @@ export default function DirectorDetail() {
                             transition: { duration: 1 },
                         }}
                     >
+                        
                         <div className="pl-6 font-black text-lg md:text-xl lg:text-3xl ">
                             {director.name}
                         </div>
@@ -134,18 +135,18 @@ export default function DirectorDetail() {
                         animate={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.3 } }}
                         className="md:pl-10 text-center pt-5 md:pt-0  md:text-left"
                     >
-                        <p className="text-2xl md:text-2xl lg:text-3xl font-bold pb-2 ">
+                        <p className="text-2xl md:text-2xl lg:text-3xl font-bold pb-2 pt-1 md:pt-0 ">
                             {director.title}
                         </p>
                         <p className="text-sm md:text-lg lg:text-xl  pb-10 md:mb-8 opacity-[0.7]">
                             {director.description}
                         </p>
-                        <p className="text-base font-semibold">
-                            <div className='pb-[3px]'>Live Clip 라이브 클립</div>
-                            <div className='pb-[3px]'>Brand Film 브랜드 필름</div>
-                            <div className='pb-[3px]'>Youtube Content 유튜브 콘텐츠</div>
-                            <div className='pb-[3px]'>Web Entertainment 웹 예능</div>
-                            <div className='pb-[3px]'>Inteview 인터뷰</div>
+                        <p className="text-base font-semibold text-[#EEEEEE]">
+                            <div className='pb-[3px]'>Live Clip</div>
+                            <div className='pb-[3px]'>Brand Film</div>
+                            <div className='pb-[3px]'>Youtube Content</div>
+                            <div className='pb-[3px]'>Web Entertainment</div>
+                            <div className='pb-[3px]'>Inteview</div>
                             
                         </p>
                     </motion.div>

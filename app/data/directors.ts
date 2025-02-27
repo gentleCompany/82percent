@@ -1,5 +1,6 @@
 // 프로젝트 아이템 타입
 type Project = {
+    id: number;
     title: string;
     videoUrl: string;
     thumbnail: string;
@@ -37,6 +38,7 @@ type Project = {
       
       projects: [
         {
+          id: 1,
           title: '10 brands Paris fashion film',
           videoUrl:
             'https://player.vimeo.com/video/1035499391?h=c51f0d10ad&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -44,6 +46,7 @@ type Project = {
           aspectRatio: '4:3'
         },
         {
+          id: 2,
           title: 'Maison de Ines Paris fashion film',
           videoUrl:
             'https://player.vimeo.com/video/1035885060?h=8b79da5bda&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -51,6 +54,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 3,
           title: 'Barbara Paris fashion film',
           videoUrl:
             'https://player.vimeo.com/video/1035885474?h=8f39f17f0e&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -58,6 +62,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 4,
           title: 'Huit Paris fashion film',
           videoUrl:
             'https://player.vimeo.com/video/1035886274?h=84efa739b9&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -65,6 +70,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 5,
           title: 'Kim Solbi Paris exposition teaser',
           videoUrl:
             'https://player.vimeo.com/video/1035886303?h=5ffd34b434&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -72,6 +78,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 6,
           title: 'Han Jihee Paris exposition teaser',
           videoUrl:
             'https://player.vimeo.com/video/1035886358?h=107b412004&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -79,6 +86,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 7,
           title: 'Lee Chulsoo Paris exposition teaser',
           videoUrl:
             'https://player.vimeo.com/video/1035886399?h=d11786fd79&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -86,6 +94,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 8,
           title: '레트로 아카이브 YouTube',
           videoUrl:
             'https://player.vimeo.com/video/1035886446?h=249cc4eac9&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -93,6 +102,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 9,
           title: '월광 미술관 YouTube',
           videoUrl:
             'https://player.vimeo.com/video/1035886714?h=d6e98322f5&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -100,6 +110,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 10,
           title: 'ffeff studio Paris fashion film',
           videoUrl:
             'https://player.vimeo.com/video/1035887058?h=767f61ba22&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -107,6 +118,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 11,
           title: 'Zajakala paris fashion film',
           videoUrl:
             'https://player.vimeo.com/video/1035887359?h=66540d39ac&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -114,6 +126,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 12,
           title: 'Kpop dance contest in Paris teaser',
           videoUrl:
             'https://player.vimeo.com/video/1035887408?h=9743a1867c&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -134,6 +147,7 @@ type Project = {
       
       projects: [
         {
+          id: 1,
           title: 'MV Teaser 켠오 - Different man',
           videoUrl:
             'https://player.vimeo.com/video/1060466686?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -141,6 +155,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 2,
           title: 'MV Teaser karacin jr - Get Up',
           videoUrl:
             'https://player.vimeo.com/video/1060466760?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -148,6 +163,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 3,
           title: 'MV Teaser 정준희 - Mirror',
           videoUrl:
             'https://player.vimeo.com/video/1060466831?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -155,6 +171,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 4,
           title: 'MV Teaser 재희 - Love Again',
           videoUrl:
             'https://player.vimeo.com/video/1060466890?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -162,6 +179,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 5,
           title: 'MV Teaser 한지연 - Fly High',
           videoUrl:
             'https://player.vimeo.com/video/1060466946?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -169,6 +187,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 6,
           title: 'MV Teaser 재희 - (BAD)',
           videoUrl:
             'https://player.vimeo.com/video/1060467001?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -176,6 +195,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 7,
           title: 'MV Teaser Amole - Sweet Summer Night',
           videoUrl:
             'https://player.vimeo.com/video/1060467045?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -183,6 +203,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 8,
           title: 'MV Teaser 윤의일 - 계절',
           videoUrl:
             'https://player.vimeo.com/video/1060467127?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -190,6 +211,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 9,
           title: 'MV Teaser karacin jr - candy',
           videoUrl:
             'https://player.vimeo.com/video/1060467187?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -197,6 +219,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 10,
           title: 'MV Teaser 한지연 - 처음이야',
           videoUrl:
             'https://player.vimeo.com/video/1060467415?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -204,6 +227,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 11,
           title: 'MV Teaser 재희 - 꽃잎',
           videoUrl:
             'https://player.vimeo.com/video/1060467520?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -211,6 +235,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 12,
           title: 'MV Teaser 한지연 - lonely',
           videoUrl:
             'https://player.vimeo.com/video/1060467600?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -218,6 +243,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 13,
           title: 'MV Teaser karacin jr - GLOW',
           videoUrl:
             'https://player.vimeo.com/video/1060467670?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -225,6 +251,7 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 14,
           title: 'MV Teaser 한지연 - Dreams Come True',
           videoUrl:
             'https://player.vimeo.com/video/1060467760?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
@@ -232,14 +259,61 @@ type Project = {
           aspectRatio: '16:9'
         },
         {
+          id: 15,
           title: 'MV Teaser 나예담 - hope',
           videoUrl:
             'https://player.vimeo.com/video/1060476303?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: '/simkyuhwanPFthumbnails/15.png',
           aspectRatio: '16:9'
+        },
+        {
+          id: 16,
+          title: 'Youtube 웹예능 -kbs world 쇼핑의참견 글로벌 시크릿넘버ep1',
+          videoUrl: 'https://player.vimeo.com/video/1060920868?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: '/simkyuhwanPFthumbnails/16.png',
+          aspectRatio: '16:9'
+        },
+        {
+          id: 17,
+          title: 'yes24 백희나 작가 인터뷰',
+          videoUrl: 'https://player.vimeo.com/video/1060921342?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: '/simkyuhwanPFthumbnails/17.png',
+          aspectRatio: '16:9'
+        },
+        {
+          id: 18,
+          title: 'yes24 영어강사_주아쌤 인터뷰',
+          videoUrl: 'https://player.vimeo.com/video/1060921453?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: '/simkyuhwanPFthumbnails/18.png',
+          aspectRatio: '16:9'
+        },
+        {
+          id: 19,
+          title: 'Youtube 캡틴락인디 EP.1 싱어송라이터 정우',
+          videoUrl: 'https://player.vimeo.com/video/1060921631?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: '/simkyuhwanPFthumbnails/19.png',
+          aspectRatio: '16:9'
+        },
+        {
+          id: 20,
+          title: 'Youtube 캡틴락인디 EP.6 위아더나잇 We Are The Night',
+          videoUrl: 'https://player.vimeo.com/video/1060922812?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: '/simkyuhwanPFthumbnails/20.png',
+          aspectRatio: '16:9'
+        },
+        {
+          id: 21,
+          title: 'Youtube 캡틴락인디 EP.7 죠니판도라 Johnny Pandora ジョ니ーパンド라',
+          videoUrl: 'https://player.vimeo.com/video/1060923545?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: '/simkyuhwanPFthumbnails/21.png',
+          aspectRatio: '16:9'
         }
+        
+        
       ]
     }
+  
+  
   };
   
   export type { Project, Director, DirectorsData };
