@@ -6,7 +6,7 @@ import VideoLoader from "@/app/components/MainVideoPlayer";
 export default function Directors() {
     const directors = [
         { name: "INSUK KANG", path: "/contents/directors/insukkang" },
-        { name: "KYUHWAN SIM", path: "/contents/directors/simkyuhwan" },
+        { name: "MOOKYUL HWANG", path: "/contents/directors/hwangmugyeol" },
         // { name: "SEONGUK LEE", path: "/contents/directors/seonguklee" },
 
     ];

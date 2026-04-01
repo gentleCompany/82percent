@@ -1,61 +1,40 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Player from '@vimeo/player';
+import { useMemo, useState } from 'react';
 import styles from './BackgroundVideo.module.css';
 
 interface BackgroundVideoProps {
     videoId: string; // Vimeo 비디오 ID를 받는 프로퍼티
 }
 
-interface PlayerOptions {
-    url: string;
-    autoplay?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-    background?: boolean;
-}
-
 const BackgroundVideo: React.FC<BackgroundVideoProps> = ({ videoId }) => {
-    const videoRef = useRef<HTMLDivElement>(null); // 비디오 컨테이너 참조
     const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
-
-    useEffect(() => {
-        if (!videoRef.current) return;
-
-        const options: PlayerOptions = {
-            url: '29474908',
-            autoplay: true,
-            loop: true,
-            muted: true,
-            background: true,
-        };
-
-        const player = new Player(videoRef.current, options);
-
-
-
-        player.on('loaded', () => {
-            setIsVideoLoaded(true);
-            console.log("Video loaded:", videoId);
-        });
-
-        player.on('error', (error) => {
-            console.error("Vimeo player error:", error);
-        });
-
-        return () => {
-            player.destroy();
-        };
+    const iframeSrc = useMemo(() => {
+        const embedUrl = new URL(`https://player.vimeo.com/video/${videoId}`);
+        embedUrl.searchParams.set('autoplay', '1');
+        embedUrl.searchParams.set('loop', '1');
+        embedUrl.searchParams.set('muted', '1');
+        embedUrl.searchParams.set('background', '1');
+        embedUrl.searchParams.set('autopause', '0');
+        embedUrl.searchParams.set('title', '0');
+        embedUrl.searchParams.set('byline', '0');
+        embedUrl.searchParams.set('portrait', '0');
+        embedUrl.searchParams.set('badge', '0');
+        return embedUrl.toString();
     }, [videoId]);
 
     return (
         <div className={styles.videoContainer}>
             {!isVideoLoaded && <div className={styles.loadingSpinner}>Loading...</div>}
-            <div
-                ref={videoRef}
+            <iframe
+                key={iframeSrc}
+                src={iframeSrc}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title={`background-video-${videoId}`}
+                onLoad={() => setIsVideoLoaded(true)}
                 className={`${styles.vimeoBackground} ${isVideoLoaded ? styles.visible : styles.hidden}`}
-            ></div>
+            />
         </div>
     );
 };
