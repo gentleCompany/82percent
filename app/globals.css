@@ -63,3 +63,92 @@ body {
   font-size: 20px;
   color: #fff;
 }
+
+.logo-marquee-row {
+  overflow: hidden;
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 3rem;
+  will-change: transform;
+}
+
+.logo-marquee-left {
+  animation: logo-marquee-left 56s linear infinite;
+}
+
+.logo-marquee-right {
+  animation: logo-marquee-right 56s linear infinite;
+}
+
+.logo-placeholder {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: clamp(1.4rem, 2.2vw, 2.6rem);
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+.logo-image-wrap {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 8.8rem;
+  height: 3.4rem;
+}
+
+.logo-image {
+  width: auto;
+  max-width: 10.75rem;
+  max-height: 2.45rem;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes logo-marquee-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-25%, 0, 0);
+  }
+}
+
+@keyframes logo-marquee-right {
+  from {
+    transform: translate3d(-25%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-left,
+  .logo-marquee-right {
+    animation: none;
+  }
+}
+
+.animate-logo-breathe {
+  animation: logo-breathe 9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes logo-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}

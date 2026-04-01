@@ -1,9 +1,23 @@
+import dreamDayThumbnail from '@/app/img/mookyul/dream-day.png';
+import eliteLanguageCenterThumbnail from '@/app/img/mookyul/elite-language-center.png';
+import geureitibeunThumbnail from '@/app/img/mookyul/geureitibeun.png';
+import honeyArcadeThumbnail from '@/app/img/mookyul/honey-arcade.png';
+import hoseoUniversityThumbnail from '@/app/img/mookyul/hoseo-university.png';
+import ifgirlThumbnail from '@/app/img/mookyul/ifgirl.png';
+import jinjuManduThumbnail from '@/app/img/mookyul/jinju-mandu.png';
+import jangsaijiThumbnail from '@/app/img/mookyul/jangsaiji.png';
+import kwonYeohyunArtistThumbnail from '@/app/img/mookyul/kwon-yeohyun-artist.png';
+import maybeWeatherThumbnail from '@/app/img/mookyul/maybe-weather.png';
+import showreelThumbnail from '@/app/img/mookyul/showreel.png';
+import topVideoThumbnail from '@/app/img/mookyul/top-video.png';
+import vivaTamtamThumbnail from '@/app/img/mookyul/viva-tamtam.png';
+
 // 프로젝트 아이템 타입
 type Project = {
     id: number;
     title: string;
-    videoUrl: string;
-    thumbnail: string;
+    videoUrl?: string;
+    thumbnail?: string;
     aspectRatio: string;
   };
   
@@ -310,6 +324,114 @@ type Project = {
         }
         
         
+      ]
+    },
+    hwangmugyeol: {
+      id: 'hwangmugyeol',
+      name: 'MOOKYUL HWANG',
+      face: '',
+      title: '이야기의 구조를 설계하고 화면으로 완성하다',
+      description:
+        '정보와 감정의 균형을 고민하며, 기억에 남는 콘텐츠를 만듭니다.',
+      bg: 'https://player.vimeo.com/video/1179196568?badge=0&autopause=0&player_id=0&app_id=58479',
+      bgThumbnail: topVideoThumbnail.src,
+      projects: [
+        {
+          id: 12,
+          title: '쇼릴',
+          videoUrl:
+            'https://player.vimeo.com/video/1179184647?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: showreelThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 11,
+          title: '권여현 작가',
+          videoUrl:
+            'https://player.vimeo.com/video/1179184245?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: kwonYeohyunArtistThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 10,
+          title: '이프걸',
+          videoUrl:
+            'https://player.vimeo.com/video/1179184225?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: ifgirlThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 9,
+          title: '장사이지',
+          videoUrl:
+            'https://player.vimeo.com/video/1179183768?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: jangsaijiThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 8,
+          title: '그레이티븐',
+          videoUrl:
+            'https://player.vimeo.com/video/1179183583?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: geureitibeunThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 7,
+          title: '진주만두',
+          videoUrl:
+            'https://player.vimeo.com/video/1179183453?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: jinjuManduThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 6,
+          title: '드림데이',
+          videoUrl:
+            'https://player.vimeo.com/video/1179183409?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: dreamDayThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 5,
+          title: '호서대학교',
+          videoUrl:
+            'https://player.vimeo.com/video/1179183357?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: hoseoUniversityThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 4,
+          title: '엘리트랭귀지',
+          videoUrl:
+            'https://player.vimeo.com/video/1179182971?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: eliteLanguageCenterThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 3,
+          title: '비바탐탐',
+          videoUrl:
+            'https://player.vimeo.com/video/1179186993?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: vivaTamtamThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 2,
+          title: '아마도날씨',
+          videoUrl:
+            'https://player.vimeo.com/video/1179182869?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: maybeWeatherThumbnail.src,
+          aspectRatio: '16:9'
+        },
+        {
+          id: 1,
+          title: '허니아케이드',
+          videoUrl:
+            'https://player.vimeo.com/video/1179196770?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+          thumbnail: honeyArcadeThumbnail.src,
+          aspectRatio: '16:9'
+        }
       ]
     }
   

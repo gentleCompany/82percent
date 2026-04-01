@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <Head>
         <meta
 
@@ -71,6 +71,7 @@ export default function RootLayout({
         />
       </Head>
       <body
+        suppressHydrationWarning
         className={`w-full relative overflow-x-hidden ${pretendard.variable} font-pretendard antialiased bg-black text-white text-2xl`}
       >
         <TopNav />
@@ -86,5 +87,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
