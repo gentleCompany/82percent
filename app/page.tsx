@@ -19,7 +19,7 @@ type VideoItem = {
 };
 
 const showreelEmbedUrl =
-  "https://player.vimeo.com/video/1179132874?autoplay=1&loop=1&muted=1&autopause=0&title=0&byline=0&portrait=0&badge=0&player_id=home-showreel&api=1";
+  "https://player.vimeo.com/video/1179132874?autoplay=0&loop=1&muted=1&background=1&autopause=0&title=0&byline=0&portrait=0&badge=0&player_id=home-showreel&api=1";
 
 const portfolioShowcaseSections = [
   {
@@ -211,9 +211,13 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
   const [isShowreelMuted, setIsShowreelMuted] = useState(true);
   const [isShowreelPlaying, setIsShowreelPlaying] = useState(false);
+  const [isBeforeShowreelSection, setIsBeforeShowreelSection] = useState(true);
   const archiveTitleRef = useRef(null);
   const archiveItemsRef = useRef(null);
+  const showreelSectionRef = useRef<HTMLElement | null>(null);
   const showreelIframeRef = useRef<HTMLIFrameElement | null>(null);
+  const hasStartedShowreelRef = useRef(false);
+  const showreelLoopLockRef = useRef(false);
   const isArchiveTitleInView = useInView(archiveTitleRef, { once: true });
   const isArchiveItemsInView = useInView(archiveItemsRef, { once: true });
 
@@ -238,10 +242,13 @@ export default function Home() {
 
     postShowreelCommand("setMuted", nextMuted);
     postShowreelCommand("setVolume", nextMuted ? 0 : 1);
-    postShowreelCommand("play");
+    if (!nextMuted) {
+      postShowreelCommand("play");
+      hasStartedShowreelRef.current = true;
+      setIsShowreelPlaying(true);
+    }
 
     setIsShowreelMuted(nextMuted);
-    setIsShowreelPlaying(true);
   };
 
   const toggleShowreelPlayback = () => {
@@ -251,15 +258,59 @@ export default function Home() {
       return;
     }
 
+    if (!hasStartedShowreelRef.current) {
+      postShowreelCommand("setMuted", false);
+      postShowreelCommand("setVolume", 1);
+      setIsShowreelMuted(false);
+      hasStartedShowreelRef.current = true;
+    }
+
     postShowreelCommand("play");
     setIsShowreelPlaying(true);
   };
 
   const restartShowreel = () => {
+    if (!hasStartedShowreelRef.current) {
+      postShowreelCommand("setMuted", false);
+      postShowreelCommand("setVolume", 1);
+      setIsShowreelMuted(false);
+      hasStartedShowreelRef.current = true;
+    }
+
+    showreelLoopLockRef.current = true;
     postShowreelCommand("setCurrentTime", 0);
     postShowreelCommand("play");
     setIsShowreelPlaying(true);
   };
+
+  const renderShowreelControls = (containerClassName: string) => (
+    <div className={containerClassName}>
+      <button
+        type="button"
+        onClick={toggleShowreelPlayback}
+        aria-label={isShowreelPlaying ? "쇼릴 일시정지" : "쇼릴 재생"}
+        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/35 bg-black/55 text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        <ShowreelPlayPauseIcon isPlaying={isShowreelPlaying} />
+      </button>
+      <button
+        type="button"
+        onClick={restartShowreel}
+        aria-label="쇼릴 처음부터 다시 재생"
+        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/35 bg-black/55 text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        <ShowreelRestartIcon />
+      </button>
+      <button
+        type="button"
+        onClick={toggleShowreelSound}
+        aria-pressed={!isShowreelMuted}
+        className="rounded-full border border-white/35 bg-black/55 px-5 py-3 text-sm font-semibold tracking-[-0.02em] text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        {isShowreelMuted ? "소리 켜기" : "소리 끄기"}
+      </button>
+    </div>
+  );
 
   const archiveItems: VideoItem[] = [
     {
@@ -422,16 +473,21 @@ export default function Home() {
         "event" in payload && typeof payload.event === "string"
           ? payload.event
           : undefined;
+      const eventData =
+        "data" in payload && payload.data && typeof payload.data === "object"
+          ? payload.data
+          : undefined;
 
       if (eventName === "ready") {
         postShowreelCommand("addEventListener", "play");
         postShowreelCommand("addEventListener", "pause");
+        postShowreelCommand("addEventListener", "timeupdate");
+        postShowreelCommand("addEventListener", "ended");
         postShowreelCommand("setMuted", true);
         postShowreelCommand("setVolume", 0);
-        postShowreelCommand("play");
 
         setIsShowreelMuted(true);
-        setIsShowreelPlaying(true);
+        setIsShowreelPlaying(false);
       }
 
       if (eventName === "play") {
@@ -441,6 +497,39 @@ export default function Home() {
       if (eventName === "pause") {
         setIsShowreelPlaying(false);
       }
+
+      if (eventName === "timeupdate" && eventData) {
+        const seconds =
+          "seconds" in eventData && typeof eventData.seconds === "number"
+            ? eventData.seconds
+            : undefined;
+        const duration =
+          "duration" in eventData && typeof eventData.duration === "number"
+            ? eventData.duration
+            : undefined;
+
+        if (seconds === undefined || duration === undefined) {
+          return;
+        }
+
+        if (duration - seconds <= 0.75 && !showreelLoopLockRef.current) {
+          showreelLoopLockRef.current = true;
+          postShowreelCommand("setCurrentTime", 0);
+          postShowreelCommand("play");
+          setIsShowreelPlaying(true);
+        }
+
+        if (seconds < 1.5) {
+          showreelLoopLockRef.current = false;
+        }
+      }
+
+      if (eventName === "ended") {
+        showreelLoopLockRef.current = true;
+        postShowreelCommand("setCurrentTime", 0);
+        postShowreelCommand("play");
+        setIsShowreelPlaying(true);
+      }
     };
 
     window.addEventListener("message", handleMessage);
@@ -449,8 +538,38 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const updateShowreelControlMode = () => {
+      const section = showreelSectionRef.current;
+
+      if (!section) {
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const activationLine = window.innerHeight * 0.7;
+
+      setIsBeforeShowreelSection(rect.top > activationLine);
+    };
+
+    updateShowreelControlMode();
+    window.addEventListener("scroll", updateShowreelControlMode, { passive: true });
+    window.addEventListener("resize", updateShowreelControlMode);
+
+    return () => {
+      window.removeEventListener("scroll", updateShowreelControlMode);
+      window.removeEventListener("resize", updateShowreelControlMode);
+    };
+  }, []);
+
   return (
     <div className="mx-auto overflow-hidden">
+      {renderShowreelControls(
+        `fixed bottom-5 right-5 z-40 flex items-center gap-2 transition-all duration-500 md:bottom-6 md:right-6 ${
+          isBeforeShowreelSection ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
+        }`
+      )}
+
       <div className="relative h-screen ">
         {/* <iframe
           src="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
@@ -743,43 +862,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative flex min-h-screen items-center justify-center bg-black px-5 py-8 md:px-10 md:py-12 lg:px-16 lg:py-16">
-        <div className="relative mx-auto flex h-[58vh] w-full max-w-6xl items-center justify-center overflow-hidden rounded-[2rem] bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:h-[68vh] lg:h-[72vh]">
-          <iframe
-            ref={showreelIframeRef}
-            src={showreelEmbedUrl}
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            title="showreel"
-            className="pointer-events-none h-full w-full"
-          />
-          <div className="absolute bottom-5 left-5 flex items-center gap-2 md:bottom-6 md:left-6">
-            <button
-              type="button"
-              onClick={toggleShowreelPlayback}
-              aria-label={isShowreelPlaying ? "쇼릴 일시정지" : "쇼릴 재생"}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/35 bg-black/55 text-white backdrop-blur-sm transition hover:bg-black/70"
-            >
-              <ShowreelPlayPauseIcon isPlaying={isShowreelPlaying} />
-            </button>
-            <button
-              type="button"
-              onClick={restartShowreel}
-              aria-label="쇼릴 처음부터 다시 재생"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-white/35 bg-black/55 text-white backdrop-blur-sm transition hover:bg-black/70"
-            >
-              <ShowreelRestartIcon />
-            </button>
+      <section
+        ref={showreelSectionRef}
+        className="relative bg-black px-5 py-8 md:px-10 md:py-12 lg:px-16 lg:py-16"
+      >
+        <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center">
+          <div className="relative flex h-[58vh] w-full items-center justify-center overflow-hidden rounded-[2rem] bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:h-[68vh] lg:h-[72vh]">
+            <iframe
+              ref={showreelIframeRef}
+              src={showreelEmbedUrl}
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="showreel"
+              className="pointer-events-none h-full w-full"
+            />
           </div>
-          <button
-            type="button"
-            onClick={toggleShowreelSound}
-            aria-pressed={!isShowreelMuted}
-            className="absolute bottom-5 right-5 rounded-full border border-white/35 bg-black/55 px-5 py-3 text-sm font-semibold tracking-[-0.02em] text-white backdrop-blur-sm transition hover:bg-black/70 md:bottom-6 md:right-6"
-          >
-            {isShowreelMuted ? "소리 켜기" : "소리 끄기"}
-          </button>
+          {renderShowreelControls(
+            `mt-4 flex items-center gap-2 transition-all duration-500 md:mt-5 ${
+              isBeforeShowreelSection ? "pointer-events-none translate-y-2 opacity-0" : "translate-y-0 opacity-100"
+            }`
+          )}
         </div>
       </section>
 
