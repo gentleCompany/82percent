@@ -56,7 +56,7 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
                 onLoad={() => {
                     setIsVideoPlaying(true);
                 }}
-                className={`absolute inset-0 h-full w-full z-0 transition-opacity duration-[1000ms] ${isVideoPlaying ? "opacity-100" : "opacity-0"
+                className={`absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77777778vh] min-w-full -translate-x-1/2 -translate-y-1/2 z-0 transition-opacity duration-[1000ms] ${isVideoPlaying ? "opacity-100" : "opacity-0"
                     }`}
             />
         </div>
