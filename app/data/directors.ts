@@ -340,7 +340,7 @@ type Project = {
           id: 12,
           title: '쇼릴',
           videoUrl:
-            'https://player.vimeo.com/video/1179184647?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
+            'https://player.vimeo.com/video/1179482907?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
           thumbnail: showreelThumbnail.src,
           aspectRatio: '16:9'
         },
