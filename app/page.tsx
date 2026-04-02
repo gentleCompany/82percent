@@ -19,7 +19,7 @@ type VideoItem = {
 };
 
 const showreelEmbedUrl =
-  "https://player.vimeo.com/video/1179132874?autoplay=1&loop=1&muted=0&autopause=0&title=0&byline=0&portrait=0&badge=0&player_id=home-showreel&api=1";
+  "https://player.vimeo.com/video/1179132874?autoplay=1&loop=1&muted=1&autopause=0&title=0&byline=0&portrait=0&badge=0&player_id=home-showreel&api=1";
 
 const portfolioShowcaseSections = [
   {
@@ -209,7 +209,7 @@ function ShowreelRestartIcon() {
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
-  const [isShowreelMuted, setIsShowreelMuted] = useState(false);
+  const [isShowreelMuted, setIsShowreelMuted] = useState(true);
   const [isShowreelPlaying, setIsShowreelPlaying] = useState(false);
   const archiveTitleRef = useRef(null);
   const archiveItemsRef = useRef(null);
@@ -217,7 +217,7 @@ export default function Home() {
   const isArchiveTitleInView = useInView(archiveTitleRef, { once: true });
   const isArchiveItemsInView = useInView(archiveItemsRef, { once: true });
 
-  const postShowreelCommand = (method: string, value?: string | number) => {
+  const postShowreelCommand = (method: string, value?: string | number | boolean) => {
     const targetWindow = showreelIframeRef.current?.contentWindow;
 
     if (!targetWindow) {
@@ -235,8 +235,11 @@ export default function Home() {
 
   const toggleShowreelSound = () => {
     const nextMuted = !isShowreelMuted;
+
+    postShowreelCommand("setMuted", nextMuted);
     postShowreelCommand("setVolume", nextMuted ? 0 : 1);
     postShowreelCommand("play");
+
     setIsShowreelMuted(nextMuted);
     setIsShowreelPlaying(true);
   };
@@ -423,9 +426,11 @@ export default function Home() {
       if (eventName === "ready") {
         postShowreelCommand("addEventListener", "play");
         postShowreelCommand("addEventListener", "pause");
-        postShowreelCommand("setVolume", 1);
+        postShowreelCommand("setMuted", true);
+        postShowreelCommand("setVolume", 0);
         postShowreelCommand("play");
-        setIsShowreelMuted(false);
+
+        setIsShowreelMuted(true);
         setIsShowreelPlaying(true);
       }
 
