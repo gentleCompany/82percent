@@ -8,6 +8,7 @@ interface VideoLoaderProps {
     title?: string;
     className?: string;
     scale?: string;
+    fillMode?: "cover" | "contain";
 }
 
 const VideoLoader: React.FC<VideoLoaderProps> = ({
@@ -16,6 +17,7 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
     title = "Vimeo video",
     className = "",
     scale = "scale-100",
+    fillMode = "cover",
 }) => {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -34,6 +36,11 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
     useEffect(() => {
         setIsVideoPlaying(false);
     }, [videoSrc]);
+
+    const iframeSizingClass =
+        fillMode === "contain"
+            ? "absolute inset-0 h-full w-full"
+            : "absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77777778vh] min-w-full -translate-x-1/2 -translate-y-1/2";
 
     return (
         <div className={`relative w-full h-full overflow-hidden bg-black ${className}`}>
@@ -56,7 +63,7 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
                 onLoad={() => {
                     setIsVideoPlaying(true);
                 }}
-                className={`absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.77777778vh] min-w-full -translate-x-1/2 -translate-y-1/2 z-0 transition-opacity duration-[1000ms] ${isVideoPlaying ? "opacity-100" : "opacity-0"
+                className={`${iframeSizingClass} z-0 transition-opacity duration-[1000ms] ${isVideoPlaying ? "opacity-100" : "opacity-0"
                     }`}
             />
         </div>

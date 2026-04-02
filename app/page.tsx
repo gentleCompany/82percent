@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import VideoLoader from "@/app/components/MainVideoPlayer";
 import { logoRows } from "@/app/img/logos";
 import publicInstitutionThumbnail from "@/app/img/thumbnail/hose.png";
@@ -22,20 +22,6 @@ const showreelEmbedUrl =
   "https://player.vimeo.com/video/1179132874?autoplay=0&loop=1&muted=1&background=1&autopause=0&title=0&byline=0&portrait=0&badge=0&player_id=home-showreel&api=1";
 
 const portfolioShowcaseSections = [
-  {
-    eyebrow: "Public impact / education film",
-    category: "공공기관 / 대학",
-    suffix: "영상",
-    imageSrc: publicInstitutionThumbnail,
-    imageAlt: "한국문화원 로고가 등장하는 공공기관 영상 스틸",
-    videoSrc:
-      "https://player.vimeo.com/video/1179126136?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-    videoTitle: "공공기관 / 대학 영상",
-    paragraphs: [
-      "공공기관과 대학이 전해야 하는 메시지를 더 명확하고 신뢰감 있게 전달할 수 있도록 영상 구조를 설계합니다.",
-      "정책 홍보, 기관 소개, 캠퍼스 브랜딩, 교육 프로그램 아카이브까지 목적에 맞는 톤과 리듬으로 콘텐츠를 제작합니다."
-    ]
-  },
   {
     eyebrow: "Brand / commercial film",
     category: "패션필름 / 커머셜",
@@ -64,31 +50,57 @@ const portfolioShowcaseSections = [
       "드라마와 유튜브 콘텐츠는 이야기의 흐름, 캐릭터의 밀도, 시청 지속률까지 함께 고려해야 하는 영역입니다.",
       "브랜드 채널 운영형 포맷부터 서사 중심의 시리즈형 콘텐츠까지 목적에 맞는 서사 구조로 풀어냅니다."
     ]
+  },
+  {
+    eyebrow: "Public impact / education film",
+    category: "공공기관 / 대학",
+    suffix: "영상",
+    imageSrc: publicInstitutionThumbnail,
+    imageAlt: "한국문화원 로고가 등장하는 공공기관 영상 스틸",
+    videoSrc:
+      "https://player.vimeo.com/video/1179126136?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+    videoTitle: "공공기관 / 대학 영상",
+    paragraphs: [
+      "공공기관과 대학이 전해야 하는 메시지를 더 명확하고 신뢰감 있게 전달할 수 있도록 영상 구조를 설계합니다.",
+      "정책 홍보, 기관 소개, 캠퍼스 브랜딩, 교육 프로그램 아카이브까지 목적에 맞는 톤과 리듬으로 콘텐츠를 제작합니다."
+    ]
   }
 ];
 
-const partnerMessageCards = [
+type PartnerCard = {
+  title: string[];
+  bodyLines: string[];
+  hoverRotate: number;
+  tapRotate: number;
+  surface: "stone" | "paper";
+  minHeightClass: string;
+};
+
+const partnerCards: PartnerCard[] = [
   {
     title: ["마케팅을 이해하는", "영상 제작사"],
-    body: "브랜드 메시지와 성과 포인트를 함께 설계합니다.",
+    bodyLines: ["브랜드 메시지와 성과 포인트를 함께 설계합니다."],
     hoverRotate: -2.5,
-    tapRotate: -1.5
+    tapRotate: -1.5,
+    surface: "stone",
+    minHeightClass: "min-h-[14rem] lg:min-h-[15rem]"
   },
   {
     title: ["다양한", "레퍼런스 보유"],
-    body: "업종과 목적에 맞는 무드보드와 화면 언어를 빠르게 제안합니다.",
+    bodyLines: ["업종과 목적에 맞는 무드보드와 화면 언어를 빠르게 제안합니다."],
     hoverRotate: 1.8,
-    tapRotate: 1
+    tapRotate: 1,
+    surface: "stone",
+    minHeightClass: "min-h-[14rem] lg:min-h-[15rem]"
   },
   {
     title: ["젊은 감각으로", "트렌디하게"],
-    body: "트렌디한 감각과 아이디어로 크리에이티브한 영상을 완성합니다.",
+    bodyLines: ["트렌디한 감각과 아이디어로 크리에이티브한 영상을 완성합니다."],
     hoverRotate: 3.2,
-    tapRotate: 2
-  }
-];
-
-const partnerSupportCards = [
+    tapRotate: 2,
+    surface: "stone",
+    minHeightClass: "min-h-[14rem] lg:min-h-[15rem]"
+  },
   {
     title: ["기획안 먼저", "제작"],
     bodyLines: [
@@ -97,7 +109,9 @@ const partnerSupportCards = [
       "담당 PM으로 빠른 의사소통"
     ],
     hoverRotate: -1.8,
-    tapRotate: -1
+    tapRotate: -1,
+    surface: "paper",
+    minHeightClass: "min-h-[15rem] lg:min-h-[16rem]"
   },
   {
     title: ["100% 인하우스", "스튜디오"],
@@ -107,7 +121,9 @@ const partnerSupportCards = [
       "중간 수수료 없이 합리적인 가격"
     ],
     hoverRotate: 1.5,
-    tapRotate: 0.8
+    tapRotate: 0.8,
+    surface: "paper",
+    minHeightClass: "min-h-[15rem] lg:min-h-[16rem]"
   },
   {
     title: ["후속 지원 및", "유지보수"],
@@ -117,7 +133,9 @@ const partnerSupportCards = [
       "장기 파트너십 구축 목표"
     ],
     hoverRotate: 2.1,
-    tapRotate: 1.2
+    tapRotate: 1.2,
+    surface: "paper",
+    minHeightClass: "min-h-[15rem] lg:min-h-[16rem]"
   }
 ];
 
@@ -185,6 +203,73 @@ const homeContactDetails = [
   }
 ];
 
+const getPartnerCardEntranceTransition = (delay: number) => ({
+  opacity: { duration: 0.32, ease: "easeOut" as const, delay },
+  x: { duration: 0.42, ease: "easeOut" as const, delay },
+  y: { duration: 0.18, ease: "easeOut" as const, delay },
+  scale: { duration: 0.18, ease: "easeOut" as const, delay },
+  rotate: { duration: 0.18, ease: "easeOut" as const, delay }
+});
+
+const partnerCardRestTransition = {
+  opacity: { duration: 0.2, ease: "easeOut" as const },
+  x: { duration: 0.18, ease: "easeOut" as const },
+  y: { duration: 0.14, ease: "easeOut" as const },
+  scale: { duration: 0.14, ease: "easeOut" as const },
+  rotate: { duration: 0.14, ease: "easeOut" as const }
+};
+
+const partnerCardHoverTransition = { duration: 0.14, ease: "easeOut" } as const;
+const partnerCardTapTransition = { duration: 0.1, ease: "easeOut" } as const;
+
+function PartnerInfoCard({ card }: { card: PartnerCard }) {
+  const isPaperSurface = card.surface === "paper";
+  const isMultiLine = card.bodyLines.length > 1;
+
+  return (
+    <motion.article
+      whileHover={{
+        y: -14,
+        scale: 1.06,
+        rotate: card.hoverRotate,
+        transition: partnerCardHoverTransition
+      }}
+      whileTap={{
+        scale: 1.02,
+        rotate: card.tapRotate,
+        transition: partnerCardTapTransition
+      }}
+      className={`relative ${card.minHeightClass} rounded-[2rem] px-7 py-8 text-black transition-[background-color,box-shadow] duration-300 ease-out ${
+        isPaperSurface
+          ? "border border-white/14 bg-[#f1efe8] shadow-[0_18px_40px_rgba(0,0,0,0.24)] hover:bg-white hover:shadow-[0_24px_54px_rgba(0,0,0,0.3)]"
+          : "bg-[#d9d9d9] shadow-[0_18px_40px_rgba(0,0,0,0.28)] hover:bg-[#f3f3f3] hover:shadow-[0_24px_54px_rgba(0,0,0,0.34)]"
+      }`}
+    >
+      <div className="absolute left-6 top-6 h-5 w-5 rounded-full bg-black" />
+      <div className="flex h-full flex-col justify-between pt-6">
+        <h3 className="text-center text-[clamp(1.2rem,1.7vw,1.75rem)] font-black leading-[1.15] tracking-[-0.06em]">
+          {card.title.map((line) => (
+            <span key={line} className="block">
+              {line}
+            </span>
+          ))}
+        </h3>
+        {isMultiLine ? (
+          <div className="mt-10 space-y-0.5 text-sm leading-[1.55] text-black/72 md:text-[0.95rem]">
+            {card.bodyLines.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-8 text-sm leading-[1.55] text-black/72 md:text-[0.95rem]">
+            {card.bodyLines[0]}
+          </p>
+        )}
+      </div>
+    </motion.article>
+  );
+}
+
 function ShowreelPlayPauseIcon({ isPlaying }: { isPlaying: boolean }) {
   return isPlaying ? (
     <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -211,13 +296,17 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
   const [isShowreelMuted, setIsShowreelMuted] = useState(true);
   const [isShowreelPlaying, setIsShowreelPlaying] = useState(false);
-  const [isBeforeShowreelSection, setIsBeforeShowreelSection] = useState(true);
   const archiveTitleRef = useRef(null);
   const archiveItemsRef = useRef(null);
-  const showreelSectionRef = useRef<HTMLElement | null>(null);
+  const introSectionRef = useRef(null);
+  const partnerIntroRef = useRef(null);
+  const partnerCardsRef = useRef(null);
   const showreelIframeRef = useRef<HTMLIFrameElement | null>(null);
   const hasStartedShowreelRef = useRef(false);
   const showreelLoopLockRef = useRef(false);
+  const isIntroSectionInView = useInView(introSectionRef, { once: true, amount: 0.35 });
+  const isPartnerIntroInView = useInView(partnerIntroRef, { once: true, amount: 0.35 });
+  const isPartnerCardsInView = useInView(partnerCardsRef, { once: true, amount: 0.18 });
   const isArchiveTitleInView = useInView(archiveTitleRef, { once: true });
   const isArchiveItemsInView = useInView(archiveItemsRef, { once: true });
 
@@ -538,38 +627,8 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    const updateShowreelControlMode = () => {
-      const section = showreelSectionRef.current;
-
-      if (!section) {
-        return;
-      }
-
-      const rect = section.getBoundingClientRect();
-      const activationLine = window.innerHeight * 0.7;
-
-      setIsBeforeShowreelSection(rect.top > activationLine);
-    };
-
-    updateShowreelControlMode();
-    window.addEventListener("scroll", updateShowreelControlMode, { passive: true });
-    window.addEventListener("resize", updateShowreelControlMode);
-
-    return () => {
-      window.removeEventListener("scroll", updateShowreelControlMode);
-      window.removeEventListener("resize", updateShowreelControlMode);
-    };
-  }, []);
-
   return (
     <div className="mx-auto overflow-hidden">
-      {renderShowreelControls(
-        `fixed bottom-5 right-5 z-40 flex items-center gap-2 transition-all duration-500 md:bottom-6 md:right-6 ${
-          isBeforeShowreelSection ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
-        }`
-      )}
-
       <div className="relative h-screen ">
         {/* <iframe
           src="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479
@@ -602,7 +661,7 @@ export default function Home() {
           className="absolute inset-0 z-10 pointer-events-none flex items-center px-6 md:px-12"
         >
           <div className="relative w-full max-w-6xl text-left">
-            <h1 className="text-[clamp(1.15rem,3.3vw,3.25rem)] font-black leading-[0.98] tracking-[-0.045em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
+            <h1 className="text-[clamp(1.15rem,3.3vw,3.25rem)] font-black leading-[0.98] tracking-[-0.02em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
               <span className="block">Beyond Production</span>
               <span className="mt-6 block md:mt-9">Business Results</span>
             </h1>
@@ -611,15 +670,32 @@ export default function Home() {
       </div>
 
       <section className="overflow-hidden bg-[#ececea] px-0 py-[164px] text-black md:py-[196px]">
-        <div className="px-8 md:px-12">
+        <div ref={introSectionRef} className="px-8 md:px-12">
           <div className="mx-auto max-w-4xl px-8 py-12 text-center md:px-14 md:py-16">
-            <p className="text-[clamp(1rem,1.85vw,1.8rem)] font-light leading-[1.35] tracking-[-0.05em] text-black/72">
+            <motion.p
+              initial={{ opacity: 0, y: 28 }}
+              animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="text-[clamp(1rem,1.85vw,1.8rem)] font-light leading-[1.35] tracking-[-0.05em] text-black/72"
+            >
               대기업부터 공공기관, 스타트업, 패션 브랜드까지.
-            </p>
-            <div aria-hidden="true" className="mx-auto my-7 h-12 w-px bg-black md:my-9 md:h-16" />
-            <p className="text-[clamp(1.25rem,2.7vw,2.9rem)] leading-[1.28] tracking-[-0.06em] text-black/65">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 1, scaleY: 0 }}
+              animate={isIntroSectionInView ? { opacity: 1, scaleY: 1 } : { opacity: 1, scaleY: 0 }}
+              transition={{ duration: 0.32, ease: "easeOut", delay: 0.16 }}
+              aria-hidden="true"
+              className="mx-auto my-7 h-12 w-px bg-black md:my-9 md:h-16"
+              style={{ transformOrigin: "top center" }}
+            />
+            <motion.p
+              initial={{ opacity: 0, y: 28 }}
+              animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.5 }}
+              className="text-[clamp(1.25rem,2.7vw,2.9rem)] leading-[1.28] tracking-[-0.06em] text-black/65"
+            >
               <span className="font-black text-black">성과로 이어지는 전략적인 콘텐츠</span>를 만듭니다.
-            </p>
+            </motion.p>
           </div>
         </div>
 
@@ -668,6 +744,7 @@ export default function Home() {
                         title={section.videoTitle}
                         className="h-full w-full"
                         scale={section.imageClassName ?? "scale-100"}
+                        fillMode="contain"
                       />
                     ) : (
                       <Image
@@ -682,20 +759,44 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className={isReversed ? "order-1 lg:order-1" : "order-1 lg:order-2"}>
-                  <p className="text-[0.9rem] font-black italic tracking-[-0.04em] text-white/46 md:text-[1.05rem]">
+                <motion.div
+                  initial={{ opacity: 0, y: 32 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.06 + index * 0.06 }}
+                  className={isReversed ? "order-1 lg:order-1" : "order-1 lg:order-2"}
+                >
+                  <motion.p
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 + index * 0.06 }}
+                    className="text-[0.9rem] font-black italic tracking-[-0.04em] text-white/46 md:text-[1.05rem]"
+                  >
                     {section.eyebrow}
-                  </p>
-                  <h2 className="mt-5 text-[clamp(1.33rem,2.67vw,2.67rem)] font-black italic leading-[0.95] tracking-[-0.07em]">
+                  </motion.p>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 22 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.18 + index * 0.06 }}
+                    className="mt-5 text-[clamp(1.33rem,2.67vw,2.67rem)] font-black italic leading-[0.95] tracking-[-0.07em]"
+                  >
                     <span className="text-white">{section.category}</span>{" "}
                     <span className="text-white/38">{section.suffix}</span>
-                  </h2>
-                  <div className="mt-7 space-y-5 text-base leading-[1.85] text-white/62 md:text-xl">
+                  </motion.h2>
+                  <motion.div
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.4 }}
+                    transition={{ duration: 0.55, ease: "easeOut", delay: 0.28 + index * 0.06 }}
+                    className="mt-7 space-y-5 text-base leading-[1.85] text-white/62 md:text-xl"
+                  >
                     {section.paragraphs.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
             );
           })}
@@ -706,7 +807,7 @@ export default function Home() {
         <svg
           aria-hidden="true"
           viewBox="0 0 100 100"
-          className="pointer-events-none absolute -left-16 bottom-4 h-80 w-80 origin-center animate-[spin_60s_linear_infinite] md:-left-24 md:bottom-[-1.5rem] md:h-[34rem] md:w-[34rem]"
+          className="pointer-events-none absolute -left-16 bottom-10 h-80 w-80 origin-center animate-[spin_60s_linear_infinite] md:-left-24 md:bottom-8 md:h-[34rem] md:w-[34rem]"
         >
           <circle
             cx="50"
@@ -722,72 +823,90 @@ export default function Home() {
         <div className="pointer-events-none absolute -right-28 top-20 h-64 w-64 rounded-full border-[3px] border-white/42 animate-logo-breathe md:-right-28 md:top-[-1.5rem] md:h-[26rem] md:w-[26rem]" />
 
         <div className="relative z-10 mx-auto max-w-6xl">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <p className="text-[clamp(1.2rem,2vw,1.85rem)] font-light leading-[1.35] tracking-[-0.05em] text-white/72">
+          <div ref={partnerIntroRef} className="mx-auto flex max-w-3xl flex-col items-center text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 28 }}
+              animate={isPartnerIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-[clamp(1.2rem,2vw,1.85rem)] font-light leading-[1.35] tracking-[-0.05em] text-white/72"
+            >
               느낌이 가는 영상으로, 마케팅은 똑똑하게.
-            </p>
-            <div aria-hidden="true" className="my-8 h-16 w-px bg-white/65 md:my-10 md:h-20" />
-            <p className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-white/72">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 1, scaleY: 0 }}
+              animate={isPartnerIntroInView ? { opacity: 1, scaleY: 1 } : { opacity: 1, scaleY: 0 }}
+              transition={{ duration: 0.32, ease: "easeOut", delay: 0.16 }}
+              aria-hidden="true"
+              className="my-8 h-16 w-px bg-white/65 md:my-10 md:h-20"
+              style={{ transformOrigin: "top center" }}
+            />
+            <motion.p
+              initial={{ opacity: 0, y: 28 }}
+              animate={isPartnerIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+              transition={{ duration: 0.85, ease: "easeOut", delay: 0.22 }}
+              className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-white/72"
+            >
               82PERCENT는
               <br />
               <span className="font-black text-white">영상 제작사이자, 마케팅 파트너</span>입니다.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="relative mt-60 grid gap-5 md:mt-80 md:grid-cols-3 md:gap-6">
-            {partnerMessageCards.map((card) => (
-              <motion.article
-                key={card.title.join("")}
-                initial={{ rotate: 0, y: 0, scale: 1 }}
-                whileHover={{ y: -10, scale: 1.025, rotate: card.hoverRotate }}
-                whileTap={{ scale: 0.99, rotate: card.tapRotate }}
-                transition={{ duration: 0.28, ease: "easeOut" }}
-                className="relative min-h-[14rem] rounded-[2rem] bg-[#d9d9d9] px-7 py-8 text-black shadow-[0_18px_40px_rgba(0,0,0,0.28)] transition-[background-color,box-shadow] duration-300 ease-out hover:bg-[#f3f3f3] hover:shadow-[0_24px_54px_rgba(0,0,0,0.34)]"
-              >
-                <div className="absolute left-6 top-6 h-5 w-5 rounded-full bg-black" />
-                <div className="flex h-full flex-col justify-between pt-6">
-                  <h3 className="text-center text-[clamp(1.2rem,1.7vw,1.75rem)] font-black leading-[1.15] tracking-[-0.06em]">
-                    {card.title.map((line) => (
-                      <span key={line} className="block">
-                        {line}
-                      </span>
-                    ))}
-                  </h3>
-                  <p className="mt-8 text-sm leading-[1.55] text-black/72 md:text-[0.95rem]">
-                    {card.body}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
+          <div ref={partnerCardsRef} className="relative mt-24 md:mt-32 lg:mt-40">
+            <div className="grid gap-5 md:grid-cols-2 lg:hidden">
+              {partnerCards.map((card, index) => (
+                <motion.div
+                  key={card.title.join("")}
+                  initial={{ opacity: 0, y: 42, scale: 0.92, rotate: card.surface === "stone" ? -4 : 4 }}
+                  animate={
+                    isPartnerCardsInView
+                      ? { opacity: 1, y: 0, scale: 1, rotate: 0 }
+                      : { opacity: 0, y: 42, scale: 0.92, rotate: card.surface === "stone" ? -4 : 4 }
+                  }
+                  transition={
+                    isPartnerCardsInView
+                      ? getPartnerCardEntranceTransition(index * 0.08)
+                      : partnerCardRestTransition
+                  }
+                >
+                  <PartnerInfoCard card={card} />
+                </motion.div>
+              ))}
+            </div>
 
-          <div className="relative mt-6 grid gap-5 md:grid-cols-3 md:gap-6">
-            {partnerSupportCards.map((card) => (
-              <motion.article
-                key={card.title.join("")}
-                initial={{ rotate: 0, y: 0, scale: 1 }}
-                whileHover={{ y: -10, scale: 1.025, rotate: card.hoverRotate }}
-                whileTap={{ scale: 0.99, rotate: card.tapRotate }}
-                transition={{ duration: 0.28, ease: "easeOut" }}
-                className="relative min-h-[15rem] rounded-[2rem] border border-white/14 bg-[#f1efe8] px-7 py-8 text-black shadow-[0_18px_40px_rgba(0,0,0,0.24)] transition-[background-color,box-shadow] duration-300 ease-out hover:bg-white hover:shadow-[0_24px_54px_rgba(0,0,0,0.3)]"
-              >
-                <div className="absolute left-6 top-6 h-5 w-5 rounded-full bg-black" />
-                <div className="flex h-full flex-col justify-between pt-6">
-                  <h3 className="text-center text-[clamp(1.2rem,1.7vw,1.75rem)] font-black leading-[1.15] tracking-[-0.06em]">
-                    {card.title.map((line) => (
-                      <span key={line} className="block">
-                        {line}
-                      </span>
-                    ))}
-                  </h3>
-                  <div className="mt-10 space-y-0.5 text-sm leading-[1.55] text-black/72 md:text-[0.95rem]">
-                    {card.bodyLines.map((line) => (
-                      <p key={line}>{line}</p>
-                    ))}
+            <div className="hidden lg:block">
+              <div className="space-y-6 xl:space-y-7">
+                {[partnerCards.slice(0, 3), partnerCards.slice(3, 6)].map((rowCards, rowIndex) => (
+                  <div
+                    key={`partner-row-${rowIndex}`}
+                    className="grid grid-cols-3 gap-5 lg:gap-6 xl:gap-7"
+                  >
+                    {rowCards.map((card, cardIndex) => {
+                      const sequenceIndex = rowIndex * 3 + cardIndex;
+
+                      return (
+                        <motion.div
+                          key={card.title.join("")}
+                          initial={{ opacity: 0, x: -88 - cardIndex * 18, y: 18, scale: 0.96 }}
+                          animate={
+                            isPartnerCardsInView
+                              ? { opacity: 1, x: 0, y: 0, scale: 1 }
+                              : { opacity: 0, x: -88 - cardIndex * 18, y: 18, scale: 0.96 }
+                          }
+                          transition={
+                            isPartnerCardsInView
+                              ? getPartnerCardEntranceTransition(sequenceIndex * 0.08)
+                              : partnerCardRestTransition
+                          }
+                        >
+                          <PartnerInfoCard card={card} />
+                        </motion.div>
+                      );
+                    })}
                   </div>
-                </div>
-              </motion.article>
-            ))}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -862,10 +981,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        ref={showreelSectionRef}
-        className="relative bg-black px-5 py-8 md:px-10 md:py-12 lg:px-16 lg:py-16"
-      >
+      <section className="relative bg-black px-5 py-8 md:px-10 md:py-12 lg:px-16 lg:py-16">
         <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center">
           <div className="relative flex h-[58vh] w-full items-center justify-center overflow-hidden rounded-[2rem] bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:h-[68vh] lg:h-[72vh]">
             <iframe
@@ -878,29 +994,45 @@ export default function Home() {
               className="pointer-events-none h-full w-full"
             />
           </div>
-          {renderShowreelControls(
-            `mt-4 flex items-center gap-2 transition-all duration-500 md:mt-5 ${
-              isBeforeShowreelSection ? "pointer-events-none translate-y-2 opacity-0" : "translate-y-0 opacity-100"
-            }`
-          )}
+          {renderShowreelControls("mt-4 flex items-center gap-2 md:mt-5")}
         </div>
       </section>
 
       <section className="relative overflow-hidden bg-black px-6 py-24 text-white md:px-10 md:py-32">
         <div className="relative mx-auto flex min-h-[70vh] max-w-5xl flex-col items-center justify-between gap-20">
           <div className="pt-4 text-center">
-            <p className="text-[clamp(1.2rem,1.9vw,1.9rem)] font-medium tracking-[0.01em] text-white/82">
+            <motion.p
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.45 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+              className="text-[clamp(1.2rem,1.9vw,1.9rem)] font-medium tracking-[0.01em] text-white/82"
+            >
               여러분의 다음 이야기에 함께 하겠습니다.
-            </p>
+            </motion.p>
             <div className="relative mt-8 flex justify-center">
               <span className="pointer-events-none absolute left-1/2 top-[90%] -translate-x-1/2 -translate-y-1/2 text-[clamp(5rem,14vw,10rem)] font-thin tracking-[0.04em] text-[#4a4a4f]">
-                CONTACT
+                <motion.span
+                  initial={{ opacity: 0, y: 26, scale: 0.94 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.45 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.38 }}
+                  className="block"
+                >
+                  CONTACT
+                </motion.span>
               </span>
-              <h2 className="relative z-10 text-[clamp(1.9rem,3.8vw,3.45rem)] font-black leading-[1.24] tracking-[0.01em] text-white">
+              <motion.h2
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.45 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.16 }}
+                className="relative z-10 text-[clamp(1.9rem,3.8vw,3.45rem)] font-black leading-[1.24] tracking-[0.01em] text-white"
+              >
                 궁금하신 사항을 문의해주시면
                 <br />
                 빠르게 답변 드리겠습니다.
-              </h2>
+              </motion.h2>
             </div>
           </div>
 

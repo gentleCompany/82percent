@@ -8,7 +8,6 @@ import jinjuManduThumbnail from '@/app/img/mookyul/jinju-mandu.png';
 import jangsaijiThumbnail from '@/app/img/mookyul/jangsaiji.png';
 import kwonYeohyunArtistThumbnail from '@/app/img/mookyul/kwon-yeohyun-artist.png';
 import maybeWeatherThumbnail from '@/app/img/mookyul/maybe-weather.png';
-import showreelThumbnail from '@/app/img/mookyul/showreel.png';
 import topVideoThumbnail from '@/app/img/mookyul/top-video.png';
 import vivaTamtamThumbnail from '@/app/img/mookyul/viva-tamtam.png';
 
@@ -341,7 +340,7 @@ type Project = {
           title: '쇼릴',
           videoUrl:
             'https://player.vimeo.com/video/1179482907?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1',
-          thumbnail: showreelThumbnail.src,
+          thumbnail: '/showreal-edit.png',
           aspectRatio: '16:9'
         },
         {

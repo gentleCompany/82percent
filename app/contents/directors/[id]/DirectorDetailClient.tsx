@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from "motion/react";
 import Image from 'next/image';
 import VideoLoader from '@/app/components/MainVideoPlayer';
 import { Director, Project } from '@/app/data/directors';
@@ -22,6 +22,19 @@ export default function DirectorDetailClient({ director }: DirectorDetailClientP
     const hasFaceImage = Boolean(director.face);
 
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+    const getEmbedUrl = (videoUrl: string) => {
+        const iframeUrl = new URL(videoUrl);
+        iframeUrl.searchParams.set('autopause', '0');
+        iframeUrl.searchParams.set('title', '0');
+        iframeUrl.searchParams.set('byline', '0');
+        iframeUrl.searchParams.set('portrait', '0');
+        iframeUrl.searchParams.set('badge', '0');
+        iframeUrl.searchParams.set('dnt', '1');
+        iframeUrl.searchParams.set('autoplay', '1');
+        iframeUrl.searchParams.set('muted', '0');
+        return iframeUrl.toString();
+    };
 
     const calculateDimensions = (aspectRatio: string, maxWidth: number, maxHeight: number) => {
         const [width, height] = aspectRatio.split(':').map(Number);
@@ -310,14 +323,16 @@ export default function DirectorDetailClient({ director }: DirectorDetailClientP
                 >
                     <div className="relative">
                         <iframe
-                            src={selectedVideo.videoUrl}
+                            src={getEmbedUrl(selectedVideo.videoUrl)}
                             style={{
                                 width: `${dimensions.width}px`,
                                 height: `${dimensions.height}px`
                             }}
                             frameBorder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
                             allowFullScreen
+                            title={selectedVideo.title}
                         />
                         <button
                             className="absolute -top-7 right-0 text-base text-white transition-opacity hover:opacity-75 md:-top-9 md:text-xl"

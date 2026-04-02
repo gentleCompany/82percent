@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { usePathname } from 'next/navigation';
 
@@ -19,19 +19,16 @@ export default function TopNav() {
         return -1;
     };
 
-    // 화면 크기에 따른 left 위치와 gap 계산
-    const updateLayout = () => {
-        if (typeof window === 'undefined') return;
-
-        const isMobile = window.innerWidth < 768;
-        setGap(isMobile ? "gap-6" : "gap-20");
-        setLeftPosition(isMobile
-            ? getActiveIndex() * 120  // 모바일: gap-10 (40px) + width-24 (96px) = 136px
-            : getActiveIndex() * 176  // 데스크톱: gap-20 (80px) + width-24 (96px) = 176px
-        );
-    };
-
     useEffect(() => {
+        const updateLayout = () => {
+            const isMobile = window.innerWidth < 768;
+            setGap(isMobile ? "gap-6" : "gap-20");
+            setLeftPosition(isMobile
+                ? getActiveIndex() * 120
+                : getActiveIndex() * 176
+            );
+        };
+
         updateLayout();
 
         const handleScroll = () => {
@@ -54,7 +51,7 @@ export default function TopNav() {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
-    }, [updateLayout]);
+    }, [pathname]);
 
     const menuItems = [
         { href: "/contents/aboutus", label: "ABOUT US" },
