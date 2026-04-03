@@ -660,7 +660,7 @@ export default function Home() {
           className="absolute inset-0 z-10 pointer-events-none flex items-center px-6 md:px-12"
         >
           <div className="relative w-full max-w-6xl text-left">
-            <h1 className="inline-flex flex-col items-start gap-0 text-[clamp(1.15rem,3.3vw,3.25rem)] font-black leading-[0.98] tracking-[-0.02em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
+            <h1 className="inline-flex flex-col items-start gap-0 text-[clamp(1.15rem,3.3vw,3.25rem)] font-semibold leading-[0.98] tracking-[0.05em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
               <motion.span
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -674,7 +674,7 @@ export default function Home() {
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.32, ease: "easeOut", delay: 0.46 }}
                 aria-hidden="true"
-                className="mx-auto my-3 h-10 w-[2px] md:w-[4px] bg-white md:my-6 md:h-16"
+                className="mx-auto my-5 h-14 w-[1px] md:w-[2px] bg-white md:my-8 md:h-20"
                 style={{ transformOrigin: "top center" }}
               />
               <motion.span
