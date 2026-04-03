@@ -72,8 +72,8 @@ body {
   display: flex;
   width: max-content;
   align-items: center;
-  gap: 3rem;
-  padding-right: 3rem;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
   will-change: transform;
 }
 
@@ -98,16 +98,33 @@ body {
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  min-width: 8.8rem;
-  height: 3.4rem;
+  min-width: 6.5rem;
+  height: 2.7rem;
 }
 
 .logo-image {
   width: auto;
-  max-width: 10.75rem;
-  max-height: 2.45rem;
+  max-width: 8.4rem;
+  max-height: 1.9rem;
   height: auto;
   object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .logo-marquee-track {
+    gap: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .logo-image-wrap {
+    min-width: 8.8rem;
+    height: 3.4rem;
+  }
+
+  .logo-image {
+    max-width: 10.75rem;
+    max-height: 2.45rem;
+  }
 }
 
 @keyframes logo-marquee-left {

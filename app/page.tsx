@@ -648,12 +648,11 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 z-[1] bg-black/18" />
 
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            y: 0,
             transition: {
-              duration: 1.2,
+              duration: 0.5,
               ease: "easeOut",
               delay: 0.3
             }
@@ -661,9 +660,31 @@ export default function Home() {
           className="absolute inset-0 z-10 pointer-events-none flex items-center px-6 md:px-12"
         >
           <div className="relative w-full max-w-6xl text-left">
-            <h1 className="text-[clamp(1.15rem,3.3vw,3.25rem)] font-black leading-[0.98] tracking-[-0.02em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
-              <span className="block">Beyond Production</span>
-              <span className="mt-6 block md:mt-9">Business Results</span>
+            <h1 className="inline-flex flex-col items-start gap-0 text-[clamp(1.15rem,3.3vw,3.25rem)] font-black leading-[0.98] tracking-[-0.02em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+                className="block"
+              >
+                Beyond Production
+              </motion.span>
+              <motion.div
+                initial={{ opacity: 1, scaleY: 0 }}
+                animate={{ opacity: 1, scaleY: 1 }}
+                transition={{ duration: 0.32, ease: "easeOut", delay: 0.46 }}
+                aria-hidden="true"
+                className="mx-auto my-3 h-10 w-[2px] md:w-[4px] bg-white md:my-6 md:h-16"
+                style={{ transformOrigin: "top center" }}
+              />
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.75, ease: "easeOut", delay: 0.8 }}
+                className="block"
+              >
+                Business Results
+              </motion.span>
             </h1>
           </div>
         </motion.div>
@@ -676,7 +697,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 28 }}
               animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="text-[clamp(1rem,1.85vw,1.8rem)] font-light leading-[1.35] tracking-[-0.05em] text-black/72"
+              className="text-[clamp(1.2rem,2vw,1.85rem)] font-light leading-[1.35] tracking-[-0.05em] text-black/72"
             >
               대기업부터 공공기관, 스타트업, 패션 브랜드까지.
             </motion.p>
@@ -685,14 +706,14 @@ export default function Home() {
               animate={isIntroSectionInView ? { opacity: 1, scaleY: 1 } : { opacity: 1, scaleY: 0 }}
               transition={{ duration: 0.32, ease: "easeOut", delay: 0.16 }}
               aria-hidden="true"
-              className="mx-auto my-7 h-12 w-px bg-black md:my-9 md:h-16"
+              className="mx-auto my-8 h-16 w-px bg-black md:my-10 md:h-20"
               style={{ transformOrigin: "top center" }}
             />
             <motion.p
               initial={{ opacity: 0, y: 28 }}
               animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.5 }}
-              className="text-[clamp(1.25rem,2.7vw,2.9rem)] leading-[1.28] tracking-[-0.06em] text-black/65"
+              className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-black/65"
             >
               <span className="font-black text-black">성과로 이어지는 전략적인 콘텐츠</span>를 만듭니다.
             </motion.p>
