@@ -23,7 +23,7 @@ const showreelEmbedUrl =
 
 const portfolioShowcaseSections = [
   {
-    eyebrow: "Brand / Commercial Film",
+    eyebrow: "Commercial / Fashion Film",
     category: "커머셜 / 패션필름",
     suffix: "영상",
     imageSrc: fashionFilmThumbnail,
@@ -39,7 +39,7 @@ const portfolioShowcaseSections = [
     ]
   },
   {
-    eyebrow: "Narrative / Digital Series",
+    eyebrow: "YouTube / Content Marketing",
     category: "유튜브 / 콘텐츠 마케팅",
     suffix: "",
     imageSrc: dramaThumbnail,
@@ -54,7 +54,7 @@ const portfolioShowcaseSections = [
     ]
   },
   {
-    eyebrow: "Public Impact / Education Film",
+    eyebrow: "Public Institution / University Film",
     category: "공공기관 / 대학교",
     suffix: "영상",
     imageSrc: publicInstitutionThumbnail,
