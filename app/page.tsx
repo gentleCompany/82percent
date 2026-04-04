@@ -699,7 +699,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 1, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.36, ease: "easeOut", delay: 0.16 }}
+                transition={{ duration: 0.36, ease: "easeOut", delay: 0.46 }}
                 aria-hidden="true"
                 className="mx-auto my-3 h-10 w-[2px] bg-white/80 md:my-5 md:h-14"
                 style={{ transformOrigin: "top center" }}
@@ -707,7 +707,7 @@ export default function Home() {
               <motion.span
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, ease: "easeOut", delay: 0.62 }}
+                transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
                 className="block"
               >
                 Business Results
@@ -731,7 +731,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 1, scaleY: 0 }}
               animate={isIntroSectionInView ? { opacity: 1, scaleY: 1 } : { opacity: 1, scaleY: 0 }}
-              transition={{ duration: 0.36, ease: "easeOut", delay: 0.16 }}
+              transition={{ duration: 0.36, ease: "easeOut", delay: 0.46 }}
               aria-hidden="true"
               className="mx-auto my-8 h-16 w-[2px] bg-black/70 md:my-10 md:h-20"
               style={{ transformOrigin: "top center" }}
@@ -739,7 +739,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: -16 }}
               animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
-              transition={{ duration: 0.75, ease: "easeOut", delay: 0.62 }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
               className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-black/65"
             >
               <span className="font-black text-black">성과로 이어지는 전략적인 콘텐츠</span>를 만듭니다.
@@ -890,7 +890,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 1, scaleY: 0 }}
               animate={isPartnerIntroInView ? { opacity: 1, scaleY: 1 } : { opacity: 1, scaleY: 0 }}
-              transition={{ duration: 0.36, ease: "easeOut", delay: 0.16 }}
+              transition={{ duration: 0.36, ease: "easeOut", delay: 0.46 }}
               aria-hidden="true"
               className="my-8 h-16 w-[2px] bg-white/80 md:my-10 md:h-20"
               style={{ transformOrigin: "top center" }}
@@ -898,7 +898,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: -16 }}
               animate={isPartnerIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
-              transition={{ duration: 0.75, ease: "easeOut", delay: 0.62 }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
               className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-white/72"
             >
               82PERCENT는
