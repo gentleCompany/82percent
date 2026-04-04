@@ -23,7 +23,7 @@ const showreelEmbedUrl =
 
 const portfolioShowcaseSections = [
   {
-    eyebrow: "Brand / commercial film",
+    eyebrow: "Brand / Commercial Film",
     category: "커머셜 / 패션필름",
     suffix: "영상",
     imageSrc: fashionFilmThumbnail,
@@ -39,7 +39,7 @@ const portfolioShowcaseSections = [
     ]
   },
   {
-    eyebrow: "Narrative / digital series",
+    eyebrow: "Narrative / Digital Series",
     category: "유튜브 / 콘텐츠 마케팅",
     suffix: "",
     imageSrc: dramaThumbnail,
@@ -54,7 +54,7 @@ const portfolioShowcaseSections = [
     ]
   },
   {
-    eyebrow: "Public impact / education film",
+    eyebrow: "Public Impact / Education Film",
     category: "공공기관 / 대학교",
     suffix: "영상",
     imageSrc: publicInstitutionThumbnail,
@@ -806,7 +806,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 + index * 0.06 }}
-                    className="text-[0.9rem] font-black italic tracking-[-0.04em] text-white/46 md:text-[1.05rem]"
+                    className="text-[0.9rem] font-black italic tracking-[0.02em] text-white/46 md:text-[1.05rem]"
                   >
                     {section.eyebrow}
                   </motion.p>
