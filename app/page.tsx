@@ -713,7 +713,12 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
               className="text-[clamp(1.2rem,2vw,1.85rem)] font-light leading-[1.35] tracking-[-0.05em] text-black/72"
             >
-              대기업부터 공공기관, 스타트업, 패션 브랜드까지.
+              <span className="md:hidden">
+                대기업부터 공공기관
+                <br />
+                스타트업, 패션 브랜드까지.
+              </span>
+              <span className="hidden md:inline">대기업부터 공공기관, 스타트업, 패션 브랜드까지.</span>
             </motion.p>
             <motion.div
               initial={{ opacity: 1, scaleY: 0 }}
@@ -886,9 +891,18 @@ export default function Home() {
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
               className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[0.01em] text-white/72"
             >
-              82PERCENT는
-              <br />
-              <span className="font-black text-white">영상 제작사이자, 마케팅 파트너</span>입니다.
+              <span className="md:hidden">
+                82PERCENT는
+                <br />
+                <span className="font-black text-white">영상 제작사이자</span>
+                <br />
+                <span className="font-black text-white">마케팅 파트너</span>입니다.
+              </span>
+              <span className="hidden md:inline">
+                82PERCENT는
+                <br />
+                <span className="font-black text-white">영상 제작사이자, 마케팅 파트너</span>입니다.
+              </span>
             </motion.p>
           </div>
 
