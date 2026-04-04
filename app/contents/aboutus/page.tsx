@@ -17,7 +17,7 @@ export default function AboutUs() {
                 >
                     <div className="flex justify-center pb-4">
                         <Image
-                            src="/82PERCENTW.png"
+                            src="/82PERCENTW-about.png"
                             alt="82PERCENT"
                             width={887}
                             height={83}
