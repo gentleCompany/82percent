@@ -1,6 +1,6 @@
 "use client";
+import Image from "next/image";
 import { motion } from "motion/react";
-
 
 
 export default function AboutUs() {
@@ -15,7 +15,16 @@ export default function AboutUs() {
                         transition: { duration: 1 }
                     }}
                 >
-                    <h1 className="text-3xl lg:text-5xl font-black pb-4">82PERCENT</h1>
+                    <div className="flex justify-center pb-4">
+                        <Image
+                            src="/82PERCENTW.png"
+                            alt="82PERCENT"
+                            width={887}
+                            height={83}
+                            priority
+                            className="h-auto w-[13rem] sm:w-[16rem] lg:w-[21rem]"
+                        />
+                    </div>
                 </motion.div>
 
                 <motion.div
@@ -28,7 +37,8 @@ export default function AboutUs() {
                 >
                     {/* PC 버전 */}
                     <div className="hidden text-center text-sm leading-7 sm:block">
-                        <p>82PERCENT는 브랜드의 매력을 더 선명하게 만드는 영상 제작사입니다.</p>
+                        <p>82PERCENT는 브랜드의 매력을</p>
+                        <p>더 선명하게 만드는 영상 제작사입니다.</p>
                         <div className="mt-4">
                             <p>우리는 멋진 영상과 감각적인 연출을 넘어,</p>
                             <p>브랜드의 목표와 타깃, 시장의 흐름까지 정확히 읽으며,</p>
@@ -42,7 +52,8 @@ export default function AboutUs() {
 
                     {/* 모바일 버전 */}
                     <div className="text-sm leading-7 text-center sm:hidden">
-                        <p>82PERCENT는 브랜드의 매력을 더 선명하게 만드는 영상 제작사입니다.</p>
+                        <p>82PERCENT는 브랜드의 매력을</p>
+                        <p>더 선명하게 만드는 영상 제작사입니다.</p>
                         <div className="mt-4">
                             <p>우리는 멋진 영상과 감각적인 연출을 넘어,</p>
                             <p>브랜드의 목표와 타깃, 시장의 흐름까지 정확히 읽으며,</p>

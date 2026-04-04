@@ -33,12 +33,9 @@ const portfolioShowcaseSections = [
       "https://player.vimeo.com/video/1179125446?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videoTitle: "커머셜 / 패션필름 영상",
     paragraphs: [
-      ["브랜드를 가장 매력적으로 보이게 만드는 영상."],
-      ["보는 순간 끌리고, 자연스럽게 선택하게 만드는 광고를 만듭니다."],
-      [
-        "감각적인 비주얼과 설계된 연출로 브랜드의 매력은 선명하게,",
-        "마케팅 효과는 확실하게 제작합니다."
-      ]
+      "브랜드를 가장 매력적으로 보이게 만드는 영상.",
+      "보는 순간 끌리고, 자연스럽게 선택하게 만드는 광고를 만듭니다.",
+      "감각적인 비주얼과 설계된 연출로 브랜드의 매력은 선명하게, 마케팅 효과는 확실하게 제작합니다."
     ]
   },
   {
@@ -51,15 +48,9 @@ const portfolioShowcaseSections = [
       "https://player.vimeo.com/video/1179126097?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videoTitle: "유튜브 / 콘텐츠 마케팅",
     paragraphs: [
-      ["조회수가 터지는 콘텐츠."],
-      [
-        "다양한 장르의 제작 경험을 바탕으로",
-        "사람들이 보고 싶어지는 콘텐츠를 기획하고,"
-      ],
-      [
-        "클릭과 시청, 바이럴까지 이어지는 흐름을 설계하며",
-        "마케팅과 연결해 실제 성과로 완성합니다."
-      ]
+      "조회수가 터지는 콘텐츠.",
+      "다양한 장르의 제작 경험을 바탕으로 사람들이 보고 싶어지는 콘텐츠를 기획하고,",
+      "클릭과 시청, 바이럴까지 이어지는 흐름을 설계하며 마케팅과 연결해 실제 성과로 완성합니다."
     ]
   },
   {
@@ -72,12 +63,8 @@ const portfolioShowcaseSections = [
       "https://player.vimeo.com/video/1179126136?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
     videoTitle: "공공기관 / 대학교 영상",
     paragraphs: [
-      ["공공의 신뢰감은 지키고, 전달력은 더 선명하게."],
-      [
-        "정제된 기획과 트렌디한 연출로,",
-        "기관의 메시지를 더 쉽고",
-        "오래도록 기억되는 콘텐츠를 제작합니다."
-      ]
+      "공공의 신뢰감은 지키고, 전달력은 더 선명하게.",
+      "정제된 기획과 트렌디한 연출로, 기관의 메시지를 더 쉽고 오래도록 기억되는 콘텐츠를 제작합니다."
     ]
   }
 ];
@@ -838,17 +825,15 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.55, ease: "easeOut", delay: 0.28 + index * 0.06 }}
-                    className="mt-7 text-base leading-[1.85] text-white/62 md:text-xl"
+                    className="mt-7 max-w-none break-keep text-pretty text-[0.98rem] leading-[1.62] tracking-[-0.02em] text-white/62 md:text-[1.14rem] md:leading-[1.78]"
                   >
-                    {section.paragraphs.map((group, groupIndex) => (
-                      <div
-                        key={`${section.category}-${groupIndex}`}
-                        className={groupIndex === 0 ? "" : "mt-4"}
+                    {section.paragraphs.map((paragraph, paragraphIndex) => (
+                      <p
+                        key={`${section.category}-${paragraphIndex}`}
+                        className={paragraphIndex === 0 ? "" : "mt-4 md:mt-5"}
                       >
-                        {group.map((line) => (
-                          <p key={line}>{line}</p>
-                        ))}
-                      </div>
+                        {paragraph}
+                      </p>
                     ))}
                   </motion.div>
                 </motion.div>
