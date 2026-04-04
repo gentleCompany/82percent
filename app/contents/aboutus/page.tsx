@@ -27,19 +27,31 @@ export default function AboutUs() {
                     }}
                 >
                     {/* PC 버전 */}
-                    <div className="text-sm leading-7 text-center hidden sm:block">
-                        <p>82PERCENT는 파리의 감성을 담아내는 프리미엄 영상 프로덕션입니다.</p>
-                        <p>광고영상, 룩북 등 클라이언트의 브랜드가 꿈꾸는 모든 순간을 예술적 감성으로 채워드립니다.</p>
-                        <p>15년간 유럽 현지에서 쌓아온 전문성과 네트워크를 통해 최적의 로케이션 선정 및 현지 협찬까지</p>
-                        <p>효율적인 솔루션으로 해외에서의 성공적인 촬영을 약속드립니다.</p>
+                    <div className="hidden text-center text-sm leading-7 sm:block">
+                        <p>82PERCENT는 브랜드의 매력을 더 선명하게 만드는 영상 제작사입니다.</p>
+                        <div className="mt-4">
+                            <p>우리는 멋진 영상과 감각적인 연출을 넘어,</p>
+                            <p>브랜드의 목표와 타깃, 시장의 흐름까지 정확히 읽으며,</p>
+                            <p>결과로 연결되는 콘텐츠를 만듭니다.</p>
+                        </div>
+                        <div className="mt-4">
+                            <p>기획부터 촬영, 편집까지 모든 과정을 인하우스로 직접 진행하며,</p>
+                            <p>각 브랜드의 목적과 상황에 맞는 맞춤형 솔루션을 설계합니다.</p>
+                        </div>
                     </div>
 
                     {/* 모바일 버전 */}
                     <div className="text-sm leading-7 text-center sm:hidden">
-                        <p>82PERCENT는 파리의 감성을 담아내는 프리미엄 영상 프로덕션입니다. 광고영상, 룩북 등 클라이언트의 브랜드가 꿈꾸는 모든 순간을 예술적 감성으로 채워드립니다.</p>
-                        <p>15년간 유럽 현지에서 쌓아온 전문성과 네트워크를 통해 최적의 로케이션 선정 및 현지 협찬까지 효율적인 솔루션으로 해외에서의 성공적인 촬영을 약속드립니다.</p>
-
-
+                        <p>82PERCENT는 브랜드의 매력을 더 선명하게 만드는 영상 제작사입니다.</p>
+                        <div className="mt-4">
+                            <p>우리는 멋진 영상과 감각적인 연출을 넘어,</p>
+                            <p>브랜드의 목표와 타깃, 시장의 흐름까지 정확히 읽으며,</p>
+                            <p>결과로 연결되는 콘텐츠를 만듭니다.</p>
+                        </div>
+                        <div className="mt-4">
+                            <p>기획부터 촬영, 편집까지 모든 과정을 인하우스로 직접 진행하며,</p>
+                            <p>각 브랜드의 목적과 상황에 맞는 맞춤형 솔루션을 설계합니다.</p>
+                        </div>
                     </div>
                 </motion.div>
 
@@ -53,23 +65,48 @@ export default function AboutUs() {
                 >
                     {/* PC 버전 */}
                     <div className="hidden sm:block">
-                        <p className="text-sm leading-7 text-center">
-                            {`82PERCENT는 독창적인 시각과 신선한 아이디어로 차별화된 콘텐츠를 만들어 내고`}
-                        </p>
-                        <p className="text-sm leading-7 text-center">
-                            {`기술과 창의성의 조화를 통해 클라이언트의 비전을 실현하는 디지털 크리에이티브의 새로운 기준을 만들어가겠습니다.`}
-                        </p>
+                        <div>
+                            <p className="text-sm leading-7 text-center">
+                                {`트렌디한 감각, 분명한 메시지, 그리고 실제 반응까지`}
+                            </p>
+                            <p className="text-sm leading-7 text-center">
+                                {`완성도 있게 담아내는 것이 82PERCENT의 방식입니다.`}
+                            </p>
+                        </div>
+                        <div className="mt-4">
+                            <p className="text-sm leading-7 text-center">
+                                {`저희는 영상을 만드는 팀을 넘어,`}
+                            </p>
+                            <p className="text-sm leading-7 text-center">
+                                {`브랜드가 더 또렷하게 보이고`}
+                            </p>
+                            <p className="text-sm leading-7 text-center">
+                                {`더 힘 있게 움직일 수 있도록 함께하는 파트너가 되겠습니다.`}
+                            </p>
+                        </div>
                     </div>
 
                     {/* 모바일 버전 */}
                     <div className="sm:hidden">
-                        <p className="text-sm leading-7 text-center">
-                            {`82PERCENT는 독창적인 시각과 신선한 아이디어로 차별화된 콘텐츠를 만들어 내고 기술과 창의성의 조화를 통해 클라이언트의 비전을 실현하는 디지털 크리에이티브의 새로운 기준을 만들어가겠습니다.`}
-                        </p>
-                        <p className="text-sm leading-7 text-center">
-                            {``}
-                        </p>
-
+                        <div>
+                            <p className="text-sm leading-7 text-center">
+                                {`트렌디한 감각, 분명한 메시지, 그리고 실제 반응까지`}
+                            </p>
+                            <p className="text-sm leading-7 text-center">
+                                {`완성도 있게 담아내는 것이 82PERCENT의 방식입니다.`}
+                            </p>
+                        </div>
+                        <div className="mt-4">
+                            <p className="text-sm leading-7 text-center">
+                                {`저희는 영상을 만드는 팀을 넘어,`}
+                            </p>
+                            <p className="text-sm leading-7 text-center">
+                                {`브랜드가 더 또렷하게 보이고`}
+                            </p>
+                            <p className="text-sm leading-7 text-center">
+                                {`더 힘 있게 움직일 수 있도록 함께하는 파트너가 되겠습니다.`}
+                            </p>
+                        </div>
                     </div>
                 </motion.div>
             </div>

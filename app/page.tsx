@@ -24,45 +24,60 @@ const showreelEmbedUrl =
 const portfolioShowcaseSections = [
   {
     eyebrow: "Brand / commercial film",
-    category: "패션필름 / 커머셜",
+    category: "커머셜 / 패션필름",
     suffix: "영상",
     imageSrc: fashionFilmThumbnail,
     imageAlt: "패션필름 스타일의 인물 스틸",
     imageClassName: "object-center scale-[1.42] md:scale-[1.5]",
     videoSrc:
       "https://player.vimeo.com/video/1179125446?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-    videoTitle: "패션필름 / 커머셜 영상",
+    videoTitle: "커머셜 / 패션필름 영상",
     paragraphs: [
-      "패션필름과 커머셜은 브랜드의 무드와 제품의 매력을 짧은 시간 안에 선명하게 각인시키는 작업입니다.",
-      "룩북, 캠페인, 브랜드 필름, 제품 광고까지 감도와 판매 포인트가 함께 살아나는 화면을 만듭니다."
+      ["브랜드를 가장 매력적으로 보이게 만드는 영상."],
+      ["보는 순간 끌리고, 자연스럽게 선택하게 만드는 광고를 만듭니다."],
+      [
+        "감각적인 비주얼과 설계된 연출로 브랜드의 매력은 선명하게,",
+        "마케팅 효과는 확실하게 제작합니다."
+      ]
     ]
   },
   {
     eyebrow: "Narrative / digital series",
-    category: "드라마 / 유튜브",
+    category: "유튜브 / 콘텐츠 마케팅",
     suffix: "콘텐츠",
     imageSrc: dramaThumbnail,
     imageAlt: "드라마 분위기의 인물 스틸",
     videoSrc:
       "https://player.vimeo.com/video/1179126097?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-    videoTitle: "유튜브 드라마",
+    videoTitle: "유튜브 / 콘텐츠 마케팅",
     paragraphs: [
-      "드라마와 유튜브 콘텐츠는 이야기의 흐름, 캐릭터의 밀도, 시청 지속률까지 함께 고려해야 하는 영역입니다.",
-      "브랜드 채널 운영형 포맷부터 서사 중심의 시리즈형 콘텐츠까지 목적에 맞는 서사 구조로 풀어냅니다."
+      ["조회수가 터지는 콘텐츠."],
+      [
+        "다양한 장르의 제작 경험을 바탕으로",
+        "사람들이 보고 싶어지는 콘텐츠를 기획하고,"
+      ],
+      [
+        "클릭과 시청, 바이럴까지 이어지는 흐름을 설계하며",
+        "마케팅과 연결해 실제 성과로 완성합니다."
+      ]
     ]
   },
   {
     eyebrow: "Public impact / education film",
-    category: "공공기관 / 대학",
+    category: "공공기관 / 대학교",
     suffix: "영상",
     imageSrc: publicInstitutionThumbnail,
     imageAlt: "한국문화원 로고가 등장하는 공공기관 영상 스틸",
     videoSrc:
       "https://player.vimeo.com/video/1179126136?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-    videoTitle: "공공기관 / 대학 영상",
+    videoTitle: "공공기관 / 대학교 영상",
     paragraphs: [
-      "공공기관과 대학이 전해야 하는 메시지를 더 명확하고 신뢰감 있게 전달할 수 있도록 영상 구조를 설계합니다.",
-      "정책 홍보, 기관 소개, 캠퍼스 브랜딩, 교육 프로그램 아카이브까지 목적에 맞는 톤과 리듬으로 콘텐츠를 제작합니다."
+      ["공공의 신뢰감은 지키고, 전달력은 더 선명하게."],
+      [
+        "정제된 기획과 트렌디한 연출로,",
+        "기관의 메시지를 더 쉽고",
+        "오래도록 기억되는 콘텐츠를 제작합니다."
+      ]
     ]
   }
 ];
@@ -78,35 +93,47 @@ type PartnerCard = {
 
 const partnerCards: PartnerCard[] = [
   {
-    title: ["마케팅을 이해하는", "영상 제작사"],
-    bodyLines: ["브랜드 메시지와 성과 포인트를 함께 설계합니다."],
+    title: ["마케팅 결과를", "만드는 제작사"],
+    bodyLines: [
+      "브랜드 목표를 정확히 읽습니다.",
+      "반응을 만드는 구조를 설계합니다.",
+      "성과로 이어지는 영상을 만듭니다."
+    ],
     hoverRotate: -2.5,
     tapRotate: -1.5,
     surface: "stone",
     minHeightClass: "min-h-[14rem] lg:min-h-[15rem]"
   },
   {
-    title: ["다양한", "레퍼런스 보유"],
-    bodyLines: ["업종과 목적에 맞는 무드보드와 화면 언어를 빠르게 제안합니다."],
+    title: ["다양한 레퍼런스와", "정확한 기획력"],
+    bodyLines: [
+      "목적에 맞는 방향을 정확히 제안합니다.",
+      "다양한 레퍼런스로 해답을 찾습니다.",
+      "기획부터 차이를 만듭니다."
+    ],
     hoverRotate: 1.8,
     tapRotate: 1,
     surface: "stone",
     minHeightClass: "min-h-[14rem] lg:min-h-[15rem]"
   },
   {
-    title: ["젊은 감각으로", "트렌디하게"],
-    bodyLines: ["트렌디한 감각과 아이디어로 크리에이티브한 영상을 완성합니다."],
+    title: ["지금 통하는 감각,", "설득력 있는 결과물"],
+    bodyLines: [
+      "지금 통하는 포인트를 정확히 만듭니다.",
+      "트렌디한 화면에 메시지를 녹여냅니다.",
+      "한눈에 전달되는 결과물로 완성합니다."
+    ],
     hoverRotate: 3.2,
     tapRotate: 2,
     surface: "stone",
     minHeightClass: "min-h-[14rem] lg:min-h-[15rem]"
   },
   {
-    title: ["기획안 먼저", "제작"],
+    title: ["기획부터 다르고,", "탄탄하게"],
     bodyLines: [
-      "제작 전 기획안 전달",
-      "맞춤형 영상 솔루션 제공",
-      "담당 PM으로 빠른 의사소통"
+      "기획회의로 정교한 방향을 설계합니다.",
+      "기획안 컨펌 후 제작을 진행합니다.",
+      "담당 PD가 빠르고 정확하게 소통합니다."
     ],
     hoverRotate: -1.8,
     tapRotate: -1,
@@ -114,11 +141,11 @@ const partnerCards: PartnerCard[] = [
     minHeightClass: "min-h-[15rem] lg:min-h-[16rem]"
   },
   {
-    title: ["100% 인하우스", "스튜디오"],
+    title: ["100% 끝까지", "책임집니다"],
     bodyLines: [
-      "기획부터 촬영, 편집까지 직접 제작",
-      "중간 프로세스 없이 간편한 제작",
-      "중간 수수료 없이 합리적인 가격"
+      "전 과정을 인하우스로 직접 만듭니다.",
+      "중간 과정 없이 빠르고 정확합니다.",
+      "비용은 합리적으로, 완성도는 높게 갑니다."
     ],
     hoverRotate: 1.5,
     tapRotate: 0.8,
@@ -126,11 +153,11 @@ const partnerCards: PartnerCard[] = [
     minHeightClass: "min-h-[15rem] lg:min-h-[16rem]"
   },
   {
-    title: ["후속 지원 및", "유지보수"],
+    title: ["납품 후 대응까지", "확실하게"],
     bodyLines: [
-      "프로젝트 완료 후에도 수정 가능",
-      "지속적인 커뮤니케이션과 운영 약속",
-      "장기 파트너십 구축 목표"
+      "바로 활용할 수 있게 정리해드립니다.",
+      "매끄러운 실무진행을 돕습니다.",
+      "지속적인 커뮤니케이션으로 함께합니다."
     ],
     hoverRotate: 2.1,
     tapRotate: 1.2,
@@ -664,7 +691,7 @@ export default function Home() {
               <motion.span
                 initial={{ opacity: 0, y: 28 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
                 className="block"
               >
                 Beyond Production
@@ -672,15 +699,15 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 1, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.32, ease: "easeOut", delay: 0.46 }}
+                transition={{ duration: 0.36, ease: "easeOut", delay: 0.16 }}
                 aria-hidden="true"
-                className="mx-auto my-3 h-10 w-[2px] md:w-[3px] bg-white md:my-5 md:h-14"
+                className="mx-auto my-3 h-10 w-[2px] bg-white/80 md:my-5 md:h-14"
                 style={{ transformOrigin: "top center" }}
               />
               <motion.span
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, ease: "easeOut", delay: 0.8 }}
+                transition={{ duration: 0.75, ease: "easeOut", delay: 0.62 }}
                 className="block"
               >
                 Business Results
@@ -696,7 +723,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 28 }}
               animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
               className="text-[clamp(1.2rem,2vw,1.85rem)] font-light leading-[1.35] tracking-[-0.05em] text-black/72"
             >
               대기업부터 공공기관, 스타트업, 패션 브랜드까지.
@@ -704,15 +731,15 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 1, scaleY: 0 }}
               animate={isIntroSectionInView ? { opacity: 1, scaleY: 1 } : { opacity: 1, scaleY: 0 }}
-              transition={{ duration: 0.32, ease: "easeOut", delay: 0.16 }}
+              transition={{ duration: 0.36, ease: "easeOut", delay: 0.16 }}
               aria-hidden="true"
-              className="mx-auto my-8 h-16 w-px bg-black md:my-10 md:h-20"
+              className="mx-auto my-8 h-16 w-[2px] bg-black/70 md:my-10 md:h-20"
               style={{ transformOrigin: "top center" }}
             />
             <motion.p
-              initial={{ opacity: 0, y: 28 }}
-              animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-              transition={{ duration: 0.75, ease: "easeOut", delay: 0.5 }}
+              initial={{ opacity: 0, y: -16 }}
+              animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.62 }}
               className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-black/65"
             >
               <span className="font-black text-black">성과로 이어지는 전략적인 콘텐츠</span>를 만듭니다.
@@ -811,10 +838,17 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.55, ease: "easeOut", delay: 0.28 + index * 0.06 }}
-                    className="mt-7 space-y-5 text-base leading-[1.85] text-white/62 md:text-xl"
+                    className="mt-7 text-base leading-[1.85] text-white/62 md:text-xl"
                   >
-                    {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
+                    {section.paragraphs.map((group, groupIndex) => (
+                      <div
+                        key={`${section.category}-${groupIndex}`}
+                        className={groupIndex === 0 ? "" : "mt-4"}
+                      >
+                        {group.map((line) => (
+                          <p key={line}>{line}</p>
+                        ))}
+                      </div>
                     ))}
                   </motion.div>
                 </motion.div>
@@ -848,7 +882,7 @@ export default function Home() {
             <motion.p
               initial={{ opacity: 0, y: 28 }}
               animate={isPartnerIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}
               className="text-[clamp(1.2rem,2vw,1.85rem)] font-light leading-[1.35] tracking-[-0.05em] text-white/72"
             >
               느낌이 가는 영상으로, 마케팅은 똑똑하게.
@@ -856,15 +890,15 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 1, scaleY: 0 }}
               animate={isPartnerIntroInView ? { opacity: 1, scaleY: 1 } : { opacity: 1, scaleY: 0 }}
-              transition={{ duration: 0.32, ease: "easeOut", delay: 0.16 }}
+              transition={{ duration: 0.36, ease: "easeOut", delay: 0.16 }}
               aria-hidden="true"
-              className="my-8 h-16 w-px bg-white/65 md:my-10 md:h-20"
+              className="my-8 h-16 w-[2px] bg-white/80 md:my-10 md:h-20"
               style={{ transformOrigin: "top center" }}
             />
             <motion.p
-              initial={{ opacity: 0, y: 28 }}
-              animate={isPartnerIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-              transition={{ duration: 0.85, ease: "easeOut", delay: 0.22 }}
+              initial={{ opacity: 0, y: -16 }}
+              animate={isPartnerIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.62 }}
               className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-white/72"
             >
               82PERCENT는
