@@ -41,7 +41,7 @@ const portfolioShowcaseSections = [
   {
     eyebrow: "Narrative / digital series",
     category: "유튜브 / 콘텐츠 마케팅",
-    suffix: "콘텐츠",
+    suffix: "",
     imageSrc: dramaThumbnail,
     imageAlt: "드라마 분위기의 인물 스틸",
     videoSrc:
@@ -261,7 +261,7 @@ function PartnerInfoCard({ card }: { card: PartnerCard }) {
     >
       <div className="absolute left-6 top-6 h-5 w-5 rounded-full bg-black" />
       <div className="flex h-full flex-col justify-between pt-6">
-        <h3 className="text-center text-[clamp(1.2rem,1.7vw,1.75rem)] font-black leading-[1.15] tracking-[-0.06em]">
+        <h3 className="text-center text-[clamp(1.2rem,1.7vw,1.75rem)] font-black leading-[1.15] tracking-[0.01em]">
           {card.title.map((line) => (
             <span key={line} className="block">
               {line}
@@ -727,7 +727,7 @@ export default function Home() {
               initial={{ opacity: 0, y: -16 }}
               animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
-              className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-black/65"
+              className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[0.01em] text-black/65"
             >
               <span className="font-black text-black">성과로 이어지는 전략적인 콘텐츠</span>를 만듭니다.
             </motion.p>
@@ -815,7 +815,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 0.5, ease: "easeOut", delay: 0.18 + index * 0.06 }}
-                    className="mt-5 text-[clamp(1.33rem,2.67vw,2.67rem)] font-black italic leading-[0.95] tracking-[-0.07em]"
+                    className="mt-5 text-[clamp(1.33rem,2.67vw,2.67rem)] font-black italic leading-[0.95] tracking-[0.01em]"
                   >
                     <span className="text-white">{section.category}</span>{" "}
                     <span className="text-white/38">{section.suffix}</span>
@@ -884,7 +884,7 @@ export default function Home() {
               initial={{ opacity: 0, y: -16 }}
               animate={isPartnerIntroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
-              className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[-0.06em] text-white/72"
+              className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[0.01em] text-white/72"
             >
               82PERCENT는
               <br />
