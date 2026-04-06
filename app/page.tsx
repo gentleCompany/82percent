@@ -751,7 +751,7 @@ export default function Home() {
                     <Image
                       src={logo.src}
                       alt={logo.alt}
-                      className="logo-image"
+                      className={["logo-image", logo.imageClassName].filter(Boolean).join(" ")}
                     />
                   </div>
                 ))}

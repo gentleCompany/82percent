@@ -27,32 +27,33 @@ import logo23 from "./logo-23.png";
 type LogoAsset = {
   alt: string;
   src: StaticImageData;
+  imageClassName?: string;
 };
 
 const logos: LogoAsset[] = [
-  { src: logo01, alt: "Partner logo 01" },
-  { src: logo02, alt: "Partner logo 02" },
-  { src: logo03, alt: "Partner logo 03" },
-  { src: logo04, alt: "Partner logo 04" },
-  { src: logo05, alt: "Partner logo 05" },
-  { src: logo06, alt: "Partner logo 06" },
-  { src: logo07, alt: "Partner logo 07" },
-  { src: logo08, alt: "Partner logo 08" },
-  { src: logo09, alt: "Partner logo 09" },
-  { src: logo10, alt: "Partner logo 10" },
-  { src: logo11, alt: "Partner logo 11" },
-  { src: logo12, alt: "Partner logo 12" },
-  { src: logo13, alt: "Partner logo 13" },
-  { src: logo14, alt: "Partner logo 14" },
-  { src: logo15, alt: "Partner logo 15" },
-  { src: logo16, alt: "Partner logo 16" },
-  { src: logo17, alt: "Partner logo 17" },
-  { src: logo18, alt: "Partner logo 18" },
-  { src: logo19, alt: "Partner logo 19" },
-  { src: logo20, alt: "Partner logo 20" },
-  { src: logo21, alt: "Partner logo 21" },
-  { src: logo22, alt: "Partner logo 22" },
-  { src: logo23, alt: "Partner logo 23" },
+  { src: logo01, alt: "Partner logo 01" , imageClassName: "!max-h-[1.3rem] md:!max-h-[2rem]" },
+  { src: logo02, alt: "Partner logo 02" , imageClassName: "!max-h-[1.6rem] md:!max-h-[2.4rem]" },
+  { src: logo03, alt: "Partner logo 03" , imageClassName: "!max-h-[1.6rem] md:!max-h-[2.4rem]" },
+  { src: logo04, alt: "Partner logo 04" , imageClassName: "!max-h-[1.9rem] md:!max-h-[2.5rem]" },
+  { src: logo05, alt: "Partner logo 05" , imageClassName: "!max-h-[1.9rem] md:!max-h-[2.4rem]" },
+  { src: logo06, alt: "Partner logo 06" , imageClassName: "!max-h-[1.9rem] md:!max-h-[2.4rem]" },
+  { src: logo07, alt: "Partner logo 07", imageClassName: "!max-h-[1.3rem] md:!max-h-[1.9rem]" },
+  { src: logo08, alt: "Partner logo 08" , imageClassName: "!max-h-[1.6rem] md:!max-h-[2.5rem]" },
+  { src: logo09, alt: "Partner logo 09" , imageClassName: "!max-h-[1.4rem] md:!max-h-[1.9rem]" },
+  { src: logo10, alt: "Partner logo 10", imageClassName: "!max-h-[0.9rem] md:!max-h-[1.1rem]" },
+  { src: logo11, alt: "Partner logo 11", imageClassName: "!max-h-[1rem] md:!max-h-[1.2rem]" },
+  { src: logo12, alt: "Partner logo 12", imageClassName: "!max-h-[1.4rem] md:!max-h-[1.72rem]" },
+  { src: logo13, alt: "Partner logo 13", imageClassName: "!max-h-[1.4rem] md:!max-h-[1.8rem]" },
+  { src: logo14, alt: "Partner logo 14", imageClassName: "!max-h-[1.3rem] md:!max-h-[1.72rem]" },
+  { src: logo15, alt: "Partner logo 15", imageClassName: "!max-h-[1.3rem] md:!max-h-[1.72rem]" },
+  { src: logo16, alt: "Partner logo 16", imageClassName: "!max-h-[0.8rem] md:!max-h-[1.1rem]" },
+  { src: logo17, alt: "Partner logo 17", imageClassName: "!max-h-[1rem] md:!max-h-[1.5rem]" },
+  { src: logo18, alt: "Partner logo 18", imageClassName: "!max-h-[0.8rem] md:!max-h-[1.2rem]" },
+  { src: logo19, alt: "Partner logo 19" , imageClassName: "!max-h-[1.4rem] md:!max-h-[2.1rem]" },
+  { src: logo20, alt: "Partner logo 20" , imageClassName: "!max-h-[1.33rem] md:!max-h-[1.8rem]" },
+  { src: logo21, alt: "Partner logo 21", imageClassName: "!max-h-[1.12rem] md:!max-h-[1.5rem]" },
+  { src: logo22, alt: "Partner logo 22", imageClassName: "!max-h-[1.3rem] md:!max-h-[1.7rem]" },
+  { src: logo23, alt: "Partner logo 23" , imageClassName: "!max-h-[1.3rem] md:!max-h-[2rem]" },
 ];
 
 export const logoRows: LogoAsset[][] = [
