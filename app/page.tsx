@@ -315,12 +315,14 @@ export default function Home() {
   const introSectionRef = useRef(null);
   const partnerIntroRef = useRef(null);
   const partnerCardsRef = useRef(null);
+  const showreelSectionRef = useRef(null);
   const showreelIframeRef = useRef<HTMLIFrameElement | null>(null);
   const hasStartedShowreelRef = useRef(false);
   const showreelLoopLockRef = useRef(false);
   const isIntroSectionInView = useInView(introSectionRef, { once: true, amount: 0.35 });
   const isPartnerIntroInView = useInView(partnerIntroRef, { once: true, amount: 0.35 });
   const isPartnerCardsInView = useInView(partnerCardsRef, { once: true, amount: 0.18 });
+  const isShowreelSectionInView = useInView(showreelSectionRef, { once: true, amount: 0.2 });
   const isArchiveTitleInView = useInView(archiveTitleRef, { once: true });
   const isArchiveItemsInView = useInView(archiveItemsRef, { once: true });
 
@@ -657,56 +659,32 @@ export default function Home() {
         <VideoLoader
           videoSrc="https://player.vimeo.com/video/1035446953?h=55124934f3&background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
           poster="/82bg.png"
+          posterPriority
         />
 
         <div className="pointer-events-none absolute inset-0 z-[1] bg-black/18" />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: {
-              duration: 0.5,
-              ease: "easeOut",
-              delay: 0.3
-            }
-          }}
-          className="absolute inset-0 z-10 pointer-events-none flex items-center px-6 md:px-12"
-        >
+        <div className="absolute inset-0 z-10 pointer-events-none flex items-center px-6 md:px-12">
           <div className="relative w-full max-w-6xl text-left">
             <h1 className="inline-flex flex-col items-center gap-0 text-center text-[clamp(1.15rem,3.3vw,3.25rem)] font-black leading-[0.98] tracking-[0.03em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
-              <motion.span
-                initial={{ opacity: 0, y: 28 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
-                className="block"
-              >
+              <span className="block">
                 Beyond Production
-              </motion.span>
-              <motion.div
-                initial={{ opacity: 1, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.36, ease: "easeOut", delay: 0.46 }}
+              </span>
+              <div
                 aria-hidden="true"
                 className="mx-auto my-3 h-10 w-[2px] bg-white/80 md:my-5 md:h-14"
-                style={{ transformOrigin: "top center" }}
               />
-              <motion.span
-                initial={{ opacity: 0, y: -16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
-                className="block"
-              >
+              <span className="block">
                 Business Results
-              </motion.span>
+              </span>
             </h1>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <section className="overflow-hidden bg-[#ececea] px-0 py-[164px] text-black md:py-[196px]">
         <div ref={introSectionRef} className="px-8 md:px-12">
-          <div className="mx-auto max-w-4xl px-8 py-12 text-center md:px-14 md:py-16">
+          <div className="mx-auto max-w-4xl px-8 pt-12 text-center md:px-14 md:pt-16">
             <motion.p
               initial={{ opacity: 0, y: 28 }}
               animate={isIntroSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
@@ -714,7 +692,7 @@ export default function Home() {
               className="text-[clamp(1.2rem,2vw,1.85rem)] font-light leading-[1.35] tracking-[-0.05em] text-black/72"
             >
               <span className="md:hidden">
-                대기업부터 공공기관
+                대기업부터 공공기관,
                 <br />
                 스타트업, 패션 브랜드까지.
               </span>
@@ -734,12 +712,21 @@ export default function Home() {
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
               className="text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.4] tracking-[0.01em] text-black/65"
             >
-              <span className="font-black text-black">성과로 이어지는 전략적인 콘텐츠</span>를 만듭니다.
+              <span className="md:hidden">
+                <span className="font-black text-black">성과로 이어지는</span>
+                <br />
+                <span className="font-black text-black">전략적인 콘텐츠</span>를 만듭니다.
+              </span>
+              <span className="hidden md:inline">
+                <span className="font-black text-black">성과로 이어지는</span>
+                <br />
+                <span className="font-black text-black">전략적인 콘텐츠</span>를 만듭니다.
+              </span>
             </motion.p>
           </div>
         </div>
 
-        <div className="mt-20 space-y-4 md:mt-28 md:space-y-6">
+        <div className="mt-24 space-y-4 md:mt-32 md:space-y-6 lg:mt-40">
           {logoRows.map((logos, rowIndex) => (
             <div key={rowIndex} className="logo-marquee-row">
               <div className={`logo-marquee-track ${rowIndex === 1 ? "logo-marquee-right" : "logo-marquee-left"}`}>
@@ -751,6 +738,7 @@ export default function Home() {
                     <Image
                       src={logo.src}
                       alt={logo.alt}
+                      loading={logoIndex < logos.length ? "eager" : "lazy"}
                       className={["logo-image", logo.imageClassName].filter(Boolean).join(" ")}
                     />
                   </div>
@@ -785,6 +773,7 @@ export default function Home() {
                         className="h-full w-full"
                         scale={section.imageClassName ?? "scale-100"}
                         fillMode="contain"
+                        loadStrategy="in-view"
                       />
                     ) : (
                       <Image
@@ -1035,20 +1024,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative bg-black px-5 py-8 md:px-10 md:py-12 lg:px-16 lg:py-16">
+      <section ref={showreelSectionRef} className="relative bg-black px-5 py-8 md:px-10 md:py-12 lg:px-16 lg:py-16">
         <div className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center">
           <div className="relative flex h-[58vh] w-full items-center justify-center overflow-hidden rounded-[2rem] bg-black shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:h-[68vh] lg:h-[72vh]">
-            <iframe
-              ref={showreelIframeRef}
-              src={showreelEmbedUrl}
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              title="showreel"
-              className="pointer-events-none h-full w-full"
-            />
+            {isShowreelSectionInView ? (
+              <iframe
+                ref={showreelIframeRef}
+                src={showreelEmbedUrl}
+                frameBorder="0"
+                loading="lazy"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="showreel"
+                className="pointer-events-none h-full w-full"
+              />
+            ) : (
+              <Image
+                src="/showreal-edit.png"
+                alt="82PERCENT showreel preview"
+                fill
+                sizes="(min-width: 1024px) 72vw, 100vw"
+                className="object-cover opacity-70"
+              />
+            )}
           </div>
-          {renderShowreelControls("mt-4 flex items-center gap-2 md:mt-5")}
+          {isShowreelSectionInView ? renderShowreelControls("mt-4 flex items-center gap-2 md:mt-5") : null}
         </div>
       </section>
 

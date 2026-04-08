@@ -19,13 +19,15 @@ export default function TopNav() {
         return -1;
     };
 
+    const activeIndex = getActiveIndex();
+
     useEffect(() => {
         const updateLayout = () => {
             const isMobile = window.innerWidth < 768;
             setGap(isMobile ? "gap-6" : "gap-20");
             setLeftPosition(isMobile
-                ? getActiveIndex() * 120
-                : getActiveIndex() * 176
+                ? activeIndex * 120
+                : activeIndex * 176
             );
         };
 
@@ -51,7 +53,7 @@ export default function TopNav() {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
-    }, [pathname]);
+    }, [activeIndex]);
 
     const menuItems = [
         { href: "/contents/aboutus", label: "ABOUT US" },
@@ -79,7 +81,7 @@ export default function TopNav() {
                     }}
                     className="text-white cursor-pointer pl-[6px] flex justify-center items-center"
                 >
-                    <Link href="/"> <Image src={"/82DELAW.png"} alt={"82PERCENT"} width={100} height={29.8} /></Link>
+                    <Link href="/"> <Image src={"/82DELAW.png"} alt={"82PERCENT"} width={100} height={29.8} priority /></Link>
                 </motion.div>
                 <motion.div
                     variants={{
@@ -91,7 +93,7 @@ export default function TopNav() {
                     }}
                     className="absolute top-0 left-0 right-0 text-white cursor-pointer  flex justify-center items-center"
                 >
-                    <Link href="/"><Image src={"/82PERCENTDELAW.png"} alt={"82PERCENT"} width={400} height={200} /></Link>
+                    <Link href="/"><Image src={"/82PERCENTDELAW.png"} alt={"82PERCENT"} width={400} height={200} loading="eager" /></Link>
                 </motion.div>
             </motion.div>
             <div className="w-full">
@@ -114,7 +116,7 @@ export default function TopNav() {
                             animate={{
                                 width: '96px',
                                 left: `${leftPosition}px`,
-                                opacity: getActiveIndex() >= 0 ? 1 : 0
+                                opacity: activeIndex >= 0 ? 1 : 0
                             }}
                             transition={{
                                 type: "spring",

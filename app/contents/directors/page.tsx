@@ -19,6 +19,7 @@ export default function Directors() {
                     <VideoLoader
                         videoSrc="https://player.vimeo.com/video/1036199449?background=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
                         poster="/directorbg.png"
+                        posterPriority
                     />
                 </div>
                 {/* <div className="absolute w-full h-full">

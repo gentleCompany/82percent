@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useId, useMemo } from 'react';
 import { motion, useInView } from "motion/react";
 import Image from 'next/image';
 import VideoLoader from '@/app/components/MainVideoPlayer';
@@ -9,6 +9,220 @@ import { Director, Project } from '@/app/data/directors';
 type DirectorDetailClientProps = {
     director: Director;
 };
+
+const MODAL_PLAYER_RETRY_TIMEOUT_MS = 5000;
+
+const buildProjectEmbedUrl = (videoUrl: string, playerId: string) => {
+    const iframeUrl = new URL(videoUrl);
+    iframeUrl.searchParams.set('autopause', '0');
+    iframeUrl.searchParams.set('title', '0');
+    iframeUrl.searchParams.set('byline', '0');
+    iframeUrl.searchParams.set('portrait', '0');
+    iframeUrl.searchParams.set('badge', '0');
+    iframeUrl.searchParams.set('dnt', '1');
+    iframeUrl.searchParams.set('autoplay', '1');
+    iframeUrl.searchParams.set('muted', '0');
+    iframeUrl.searchParams.set('playsinline', '1');
+    iframeUrl.searchParams.set('api', '1');
+    iframeUrl.searchParams.set('player_id', playerId);
+    return iframeUrl.toString();
+};
+
+function DirectorProjectModal({
+    project,
+    thumbnailSrc,
+    dimensions,
+    onClose,
+}: {
+    project: Project;
+    thumbnailSrc: string;
+    dimensions: { width: number; height: number };
+    onClose: () => void;
+}) {
+    const iframeRef = useRef<HTMLIFrameElement | null>(null);
+    const retryTimerRef = useRef<number | null>(null);
+    const hasPlayerLoadedRef = useRef(false);
+    const [isPlayerReady, setIsPlayerReady] = useState(false);
+    const [showRetryButton, setShowRetryButton] = useState(false);
+    const [reloadCount, setReloadCount] = useState(0);
+    const playerId = useId().replace(/:/g, '');
+
+    const iframeUrl = useMemo(() => {
+        return buildProjectEmbedUrl(project.videoUrl ?? '', `director-project-${playerId}`);
+    }, [playerId, project.videoUrl]);
+
+    useEffect(() => {
+        let isCancelled = false;
+        let player: {
+            on: (eventName: string, callback: (...args: unknown[]) => void) => void;
+            off: (eventName: string, callback: (...args: unknown[]) => void) => void;
+            ready: () => Promise<void>;
+            play: () => Promise<unknown>;
+            destroy: () => Promise<unknown>;
+        } | null = null;
+
+        const clearRetryTimer = () => {
+            if (retryTimerRef.current === null) {
+                return;
+            }
+
+            window.clearTimeout(retryTimerRef.current);
+            retryTimerRef.current = null;
+        };
+
+        const markPlayerReady = () => {
+            if (isCancelled) {
+                return;
+            }
+
+            clearRetryTimer();
+            hasPlayerLoadedRef.current = true;
+            setIsPlayerReady(true);
+            setShowRetryButton(false);
+        };
+
+        const markPlayerUnavailable = () => {
+            if (isCancelled || hasPlayerLoadedRef.current) {
+                return;
+            }
+
+            setIsPlayerReady(false);
+            setShowRetryButton(true);
+        };
+
+        const setupPlayer = async () => {
+            try {
+                const { default: VimeoPlayer } = await import('@vimeo/player');
+
+                if (isCancelled || !iframeRef.current) {
+                    return;
+                }
+
+                player = new VimeoPlayer(iframeRef.current);
+
+                player.on('loaded', markPlayerReady);
+                player.on('play', markPlayerReady);
+                player.on('playing', markPlayerReady);
+                player.on('error', markPlayerUnavailable);
+
+                retryTimerRef.current = window.setTimeout(() => {
+                    markPlayerUnavailable();
+                }, MODAL_PLAYER_RETRY_TIMEOUT_MS);
+
+                await player.ready();
+
+                if (isCancelled || !player) {
+                    return;
+                }
+
+                await player.play().catch(() => undefined);
+            } catch {
+                markPlayerUnavailable();
+            }
+        };
+
+        hasPlayerLoadedRef.current = false;
+        setIsPlayerReady(false);
+        setShowRetryButton(false);
+        void setupPlayer();
+
+        return () => {
+            isCancelled = true;
+            clearRetryTimer();
+
+            if (!player) {
+                return;
+            }
+
+            player.off('loaded', markPlayerReady);
+            player.off('play', markPlayerReady);
+            player.off('playing', markPlayerReady);
+            player.off('error', markPlayerUnavailable);
+            void player.destroy().catch(() => undefined);
+        };
+    }, [iframeUrl, reloadCount]);
+
+    return (
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 px-4"
+            onClick={onClose}
+            role="dialog"
+            aria-modal="true"
+            aria-label={project.title}
+        >
+            <div className="relative" onClick={(event) => event.stopPropagation()}>
+                <div
+                    className="relative overflow-hidden bg-black"
+                    style={{
+                        width: `${dimensions.width}px`,
+                        height: `${dimensions.height}px`
+                    }}
+                >
+                    <div
+                        className={`absolute inset-0 z-10 transition-opacity duration-500 ${
+                            isPlayerReady ? 'pointer-events-none opacity-0' : 'opacity-100'
+                        }`}
+                    >
+                        {thumbnailSrc ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                                src={thumbnailSrc}
+                                alt={project.title}
+                                className="h-full w-full object-cover"
+                                loading="eager"
+                            />
+                        ) : (
+                            <div className="flex h-full w-full items-end bg-neutral-900 p-6">
+                                <div className="text-base font-semibold leading-snug text-white">
+                                    {project.title}
+                                </div>
+                            </div>
+                        )}
+                        {showRetryButton ? (
+                            <div className="absolute inset-x-0 bottom-6 flex justify-center px-4">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        hasPlayerLoadedRef.current = false;
+                                        setIsPlayerReady(false);
+                                        setShowRetryButton(false);
+                                        setReloadCount((count) => count + 1);
+                                    }}
+                                    className="rounded-full border border-white/35 bg-black/70 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-black/85"
+                                >
+                                    영상 다시 불러오기
+                                </button>
+                            </div>
+                        ) : null}
+                    </div>
+
+                    <iframe
+                        key={`${iframeUrl}-${reloadCount}`}
+                        ref={iframeRef}
+                        src={iframeUrl}
+                        style={{
+                            width: `${dimensions.width}px`,
+                            height: `${dimensions.height}px`
+                        }}
+                        frameBorder="0"
+                        loading="eager"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                        title={project.title}
+                        className={`transition-opacity duration-500 ${isPlayerReady ? 'opacity-100' : 'opacity-0'}`}
+                    />
+                </div>
+                <button
+                    className="absolute -top-7 right-0 text-base text-white transition-opacity hover:opacity-75 md:-top-9 md:text-xl"
+                    onClick={onClose}
+                >
+                    닫기 ✕
+                </button>
+            </div>
+        </div>
+    );
+}
 
 export default function DirectorDetailClient({ director }: DirectorDetailClientProps) {
     const [selectedVideo, setSelectedVideo] = useState<Project | null>(null);
@@ -23,19 +237,6 @@ export default function DirectorDetailClient({ director }: DirectorDetailClientP
 
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-    const getEmbedUrl = (videoUrl: string) => {
-        const iframeUrl = new URL(videoUrl);
-        iframeUrl.searchParams.set('autopause', '0');
-        iframeUrl.searchParams.set('title', '0');
-        iframeUrl.searchParams.set('byline', '0');
-        iframeUrl.searchParams.set('portrait', '0');
-        iframeUrl.searchParams.set('badge', '0');
-        iframeUrl.searchParams.set('dnt', '1');
-        iframeUrl.searchParams.set('autoplay', '1');
-        iframeUrl.searchParams.set('muted', '0');
-        return iframeUrl.toString();
-    };
-
     const calculateDimensions = (aspectRatio: string, maxWidth: number, maxHeight: number) => {
         const [width, height] = aspectRatio.split(':').map(Number);
         const ratio = width / height;
@@ -49,6 +250,10 @@ export default function DirectorDetailClient({ director }: DirectorDetailClientP
         }
 
         return { width: finalWidth, height: finalHeight };
+    };
+
+    const getProjectThumbnailSrc = (project: Project) => {
+        return project.thumbnail || vimeoThumbnails[project.id] || '';
     };
 
     useEffect(() => {
@@ -131,6 +336,7 @@ export default function DirectorDetailClient({ director }: DirectorDetailClientP
                         videoSrc={director.bg}
                         poster={director.bgThumbnail}
                         scale={director.id === 'changminkim' ? 'scale-[1.5]' : 'scale-[1]'}
+                        posterPriority
                     />
                     <motion.div
                         initial={{ opacity: 0, x: 100 }}
@@ -263,7 +469,7 @@ export default function DirectorDetailClient({ director }: DirectorDetailClientP
             <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {director.projects.map((project, index) => {
                     const isVideoReady = Boolean(project.videoUrl);
-                    const thumbnailSrc = project.thumbnail || vimeoThumbnails[project.id] || '';
+                    const thumbnailSrc = getProjectThumbnailSrc(project);
                     const isRemoteThumbnail = thumbnailSrc.startsWith('http');
 
                     return (
@@ -317,31 +523,12 @@ export default function DirectorDetailClient({ director }: DirectorDetailClientP
             </div>
 
             {selectedVideo?.videoUrl && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
-                    onClick={() => setSelectedVideo(null)}
-                >
-                    <div className="relative">
-                        <iframe
-                            src={getEmbedUrl(selectedVideo.videoUrl)}
-                            style={{
-                                width: `${dimensions.width}px`,
-                                height: `${dimensions.height}px`
-                            }}
-                            frameBorder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                            title={selectedVideo.title}
-                        />
-                        <button
-                            className="absolute -top-7 right-0 text-base text-white transition-opacity hover:opacity-75 md:-top-9 md:text-xl"
-                            onClick={() => setSelectedVideo(null)}
-                        >
-                            닫기 ✕
-                        </button>
-                    </div>
-                </div>
+                <DirectorProjectModal
+                    project={selectedVideo}
+                    thumbnailSrc={getProjectThumbnailSrc(selectedVideo)}
+                    dimensions={dimensions}
+                    onClose={() => setSelectedVideo(null)}
+                />
             )}
         </div>
     );

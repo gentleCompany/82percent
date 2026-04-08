@@ -4,6 +4,20 @@ import "./globals.css";
 import TopNav from "./components/TopNav";
 import Head from 'next/head';
 
+const siteUrl = "https://www.82percent.kr";
+const googleSearchPreviewUrl = `${siteUrl}/google-search-preview.png`;
+const organizationLogoUrl = `${siteUrl}/organization-logo-square.png`;
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "82PERCENT",
+  alternateName: "82퍼센트",
+  url: siteUrl,
+  logo: organizationLogoUrl,
+  image: googleSearchPreviewUrl,
+};
+
 
 
 const pretendard = localFont({
@@ -32,10 +46,10 @@ export const metadata: Metadata = {
     siteName: "82퍼센트",
     title: "82PERCENT",
     description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 창의적이고 트랜디한 영상으로 브랜드의 스토리를 완성합니다.",
-    url: "https://wwww.82percent.kr",
+    url: siteUrl,
     type: "website",
     images: {
-      url: "https://www.82percent.kr/kakaoOgDELA.png",
+      url: `${siteUrl}/kakaoOgDELA.png`,
       alt: "82PERCENT",
     },
   },
@@ -43,9 +57,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "82PERCENT",
     description: "광고영상, 룩북, 해외촬영 프리미엄 프로덕션. 창의적이고 트랜디한 영상으로 브랜드의 스토리를 완성합니다.",
-    images: ["https://www.82percent.kr/kakaoOgDELA.png"],
+    images: [`${siteUrl}/kakaoOgDELA.png`],
   },
-  robots: "index, follow",
+  robots: "index, follow, max-image-preview:large",
 };
 
 export default function RootLayout({
@@ -69,11 +83,16 @@ export default function RootLayout({
             font-src 'self';
           "
         />
+        <link rel="image_src" href={googleSearchPreviewUrl} />
       </Head>
       <body
         suppressHydrationWarning
         className={`w-full relative overflow-x-hidden ${pretendard.variable} font-pretendard antialiased bg-black text-white text-2xl`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <TopNav />
 
         <main className=" break-keep">
