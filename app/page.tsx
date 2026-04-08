@@ -217,6 +217,8 @@ const homeContactDetails = [
   }
 ];
 
+const LOGO_FILL_REPEATS = 3;
+
 const getPartnerCardEntranceTransition = (delay: number) => ({
   opacity: { duration: 0.32, ease: "easeOut" as const, delay },
   x: { duration: 0.42, ease: "easeOut" as const, delay },
@@ -727,25 +729,41 @@ export default function Home() {
         </div>
 
         <div className="mt-24 space-y-4 md:mt-32 md:space-y-6 lg:mt-40">
-          {logoRows.map((logos, rowIndex) => (
-            <div key={rowIndex} className="logo-marquee-row">
-              <div className={`logo-marquee-track ${rowIndex === 1 ? "logo-marquee-right" : "logo-marquee-left"}`}>
-                {[...logos, ...logos, ...logos, ...logos].map((logo, logoIndex) => (
-                  <div
-                    key={`${rowIndex}-${logoIndex}-${logo.alt}`}
-                    className="logo-image-wrap"
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      loading={logoIndex < logos.length ? "eager" : "lazy"}
-                      className={["logo-image", logo.imageClassName].filter(Boolean).join(" ")}
-                    />
-                  </div>
-                ))}
+          {logoRows.map((logos, rowIndex) => {
+            const directionClass = rowIndex === 1 ? "logo-marquee-right" : "logo-marquee-left";
+
+            return (
+              <div key={rowIndex} className="logo-marquee-row">
+                <div className={`logo-marquee-track ${directionClass}`}>
+                  {[0, 1].map((copyIndex) => (
+                    <div
+                      key={`${rowIndex}-${copyIndex}`}
+                      className="logo-marquee-group"
+                      aria-hidden={copyIndex === 1}
+                    >
+                      {Array.from({ length: LOGO_FILL_REPEATS }, (_, repeatIndex) =>
+                        logos.map((logo) => (
+                          <div
+                            key={`${rowIndex}-${copyIndex}-${repeatIndex}-${logo.alt}`}
+                            className="logo-image-wrap"
+                          >
+                            <Image
+                              src={logo.src}
+                              alt={copyIndex === 0 && repeatIndex === 0 ? logo.alt : ""}
+                              loading="eager"
+                              unoptimized
+                              draggable={false}
+                              className={["logo-image", logo.imageClassName].filter(Boolean).join(" ")}
+                            />
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -773,7 +791,7 @@ export default function Home() {
                         className="h-full w-full"
                         scale={section.imageClassName ?? "scale-100"}
                         fillMode="contain"
-                        loadStrategy="in-view"
+                        loadStrategy="immediate"
                       />
                     ) : (
                       <Image

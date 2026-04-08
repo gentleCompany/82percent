@@ -31,11 +31,13 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
     const containerRef = useRef<HTMLDivElement>(null);
     const retryTimerRef = useRef<number | null>(null);
     const hasPlaybackStartedRef = useRef(false);
+    const canShowRetryRef = useRef(false);
 
     const [shouldMountIframe, setShouldMountIframe] = useState(loadStrategy === "immediate");
     const [isVideoPlaying, setIsVideoPlaying] = useState(false);
     const [showRetryButton, setShowRetryButton] = useState(false);
     const [reloadCount, setReloadCount] = useState(0);
+    const [canShowRetryButton, setCanShowRetryButton] = useState(false);
 
     const embedId = useId().replace(/:/g, "");
 
@@ -44,12 +46,49 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
     }, [isVideoPlaying]);
 
     useEffect(() => {
+        canShowRetryRef.current = canShowRetryButton;
+    }, [canShowRetryButton]);
+
+    useEffect(() => {
         setShouldMountIframe(loadStrategy === "immediate");
         setIsVideoPlaying(false);
         setShowRetryButton(false);
         setReloadCount(0);
+        setCanShowRetryButton(false);
         hasPlaybackStartedRef.current = false;
+        canShowRetryRef.current = false;
+
+        if (retryTimerRef.current !== null) {
+            window.clearTimeout(retryTimerRef.current);
+            retryTimerRef.current = null;
+        }
     }, [loadStrategy, videoSrc]);
+
+    useEffect(() => {
+        const node = containerRef.current;
+
+        if (!node || canShowRetryButton) {
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (!entries.some((entry) => entry.isIntersecting)) {
+                    return;
+                }
+
+                setCanShowRetryButton(true);
+                observer.disconnect();
+            },
+            { rootMargin: PLAYER_ROOT_MARGIN }
+        );
+
+        observer.observe(node);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, [canShowRetryButton]);
 
     useEffect(() => {
         if (loadStrategy !== "in-view" || shouldMountIframe) {
@@ -116,28 +155,22 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
             destroy: () => Promise<unknown>;
         } | null = null;
 
-        const clearRetryTimer = () => {
-            if (retryTimerRef.current === null) {
-                return;
-            }
-
-            window.clearTimeout(retryTimerRef.current);
-            retryTimerRef.current = null;
-        };
-
         const markVideoPlaying = () => {
             if (isCancelled) {
                 return;
             }
 
-            clearRetryTimer();
+            if (retryTimerRef.current !== null) {
+                window.clearTimeout(retryTimerRef.current);
+                retryTimerRef.current = null;
+            }
             hasPlaybackStartedRef.current = true;
             setIsVideoPlaying(true);
             setShowRetryButton(false);
         };
 
         const markVideoUnavailable = () => {
-            if (isCancelled || hasPlaybackStartedRef.current) {
+            if (isCancelled || hasPlaybackStartedRef.current || !canShowRetryRef.current) {
                 return;
             }
 
@@ -159,10 +192,6 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
                 player.on("playing", markVideoPlaying);
                 player.on("error", markVideoUnavailable);
 
-                retryTimerRef.current = window.setTimeout(() => {
-                    markVideoUnavailable();
-                }, PLAYER_RETRY_TIMEOUT_MS);
-
                 await player.ready();
 
                 if (isCancelled || !player) {
@@ -182,7 +211,6 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
 
         return () => {
             isCancelled = true;
-            clearRetryTimer();
 
             if (!player) {
                 return;
@@ -194,6 +222,30 @@ const VideoLoader: React.FC<VideoLoaderProps> = ({
             void player.destroy().catch(() => undefined);
         };
     }, [iframeUrl, reloadCount, shouldMountIframe]);
+
+    useEffect(() => {
+        if (!shouldMountIframe || !canShowRetryButton || isVideoPlaying || showRetryButton) {
+            return;
+        }
+
+        retryTimerRef.current = window.setTimeout(() => {
+            if (hasPlaybackStartedRef.current) {
+                return;
+            }
+
+            setIsVideoPlaying(false);
+            setShowRetryButton(true);
+        }, PLAYER_RETRY_TIMEOUT_MS);
+
+        return () => {
+            if (retryTimerRef.current === null) {
+                return;
+            }
+
+            window.clearTimeout(retryTimerRef.current);
+            retryTimerRef.current = null;
+        };
+    }, [canShowRetryButton, isVideoPlaying, shouldMountIframe, showRetryButton]);
 
     const iframeSizingClass =
         fillMode === "contain"

@@ -65,11 +65,15 @@ body {
 }
 
 .logo-marquee-row {
+  display: flex;
+  width: 100%;
   overflow: hidden;
 }
 
 .logo-marquee-track {
   display: flex;
+  flex: 0 0 auto;
+  min-width: max-content;
   width: max-content;
   align-items: center;
   gap: 0;
@@ -77,12 +81,19 @@ body {
   will-change: transform;
 }
 
+.logo-marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: max-content;
+  align-items: center;
+}
+
 .logo-marquee-left {
-  animation: logo-marquee-left 56s linear infinite;
+  animation: logo-marquee-left var(--logo-marquee-duration, 160s) linear infinite;
 }
 
 .logo-marquee-right {
-  animation: logo-marquee-right 56s linear infinite;
+  animation: logo-marquee-right var(--logo-marquee-duration, 160s) linear infinite;
 }
 
 .logo-placeholder {
@@ -127,19 +138,26 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .logo-marquee-left,
+  .logo-marquee-right {
+    --logo-marquee-duration: 150s;
+  }
+}
+
 @keyframes logo-marquee-left {
   from {
     transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translate3d(-25%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes logo-marquee-right {
   from {
-    transform: translate3d(-25%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 
   to {
