@@ -669,16 +669,30 @@ export default function Home() {
         <div className="absolute inset-0 z-10 pointer-events-none flex items-center px-6 md:px-12">
           <div className="relative w-full max-w-6xl text-left">
             <h1 className="inline-flex flex-col items-center gap-0 text-center text-[clamp(1.15rem,3.3vw,3.25rem)] font-black leading-[0.98] tracking-[0.03em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.62)]">
-              <span className="block">
+              <motion.span
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
+                className="block"
+              >
                 Beyond Production
-              </span>
-              <div
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 1, scaleY: 0 }}
+                animate={{ opacity: 1, scaleY: 1 }}
+                transition={{ duration: 0.36, ease: "easeOut", delay: 0.46 }}
                 aria-hidden="true"
-                className="mx-auto my-3 h-10 w-[2px] bg-white/80 md:my-5 md:h-14"
+                className="mx-auto my-3 block h-10 w-[2px] bg-white/80 md:my-5 md:h-14"
+                style={{ transformOrigin: "top center" }}
               />
-              <span className="block">
+              <motion.span
+                initial={{ opacity: 0, y: -16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.75, ease: "easeOut", delay: 0.92 }}
+                className="block"
+              >
                 Business Results
-              </span>
+              </motion.span>
             </h1>
           </div>
         </div>
